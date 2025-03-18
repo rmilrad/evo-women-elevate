@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Send, Mail, Phone, Map, Heart } from 'lucide-react';
+import { Send, Heart } from 'lucide-react';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -34,18 +34,6 @@ const Contact = () => {
     }, 1500);
   };
 
-  const ContactInfo = ({ icon, title, content }: { icon: React.ReactNode, title: string, content: string }) => (
-    <div className="flex items-start gap-4">
-      <div className="bg-evo-pink bg-opacity-10 p-3 rounded-full">
-        {icon}
-      </div>
-      <div>
-        <h4 className="font-medium text-gray-900 mb-1">{title}</h4>
-        <p className="text-gray-700">{content}</p>
-      </div>
-    </div>
-  );
-
   return (
     <section id="contact" ref={ref} className="section-padding bg-gradient-to-b from-white to-evo-neutral-light">
       <div className="container-custom">
@@ -67,9 +55,10 @@ const Contact = () => {
         </div>
         
         <div 
-          className={`grid md:grid-cols-2 gap-12 max-w-5xl mx-auto transition-all duration-700 delay-400 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+          className={`flex flex-col gap-8 max-w-2xl mx-auto transition-all duration-700 delay-400 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+          {/* Send a Message Box */}
+          <div className="bg-gradient-to-br from-evo-blue-light to-white p-8 rounded-2xl border border-evo-blue-light/50 shadow-sm">
             <h3 className="font-rufina text-2xl mb-6">Send a Message</h3>
             
             {isSubmitted ? (
@@ -134,35 +123,16 @@ const Contact = () => {
             </form>
           </div>
           
-          <div className="flex flex-col justify-between">
-            <div>
-              <h3 className="font-rufina text-2xl mb-6 text-gradient">Contact Information</h3>
-              <div className="space-y-6">
-                <ContactInfo 
-                  icon={<Mail size={20} className="text-evo-pink-dark" />}
-                  title="Email"
-                  content="hello@evocoaching.com"
-                />
-                
-                <ContactInfo 
-                  icon={<Phone size={20} className="text-evo-pink-dark" />}
-                  title="Phone"
-                  content="+1 (555) 123-4567"
-                />
-                
-                <ContactInfo 
-                  icon={<Map size={20} className="text-evo-pink-dark" />}
-                  title="Location"
-                  content="Remote - Working Globally"
-                />
-              </div>
-            </div>
-            
-            <div className="mt-8 bg-gradient-to-br from-evo-blue-light to-white p-8 rounded-2xl border border-evo-blue-light/50 shadow-sm">
-              <h4 className="font-rufina text-xl mb-4 text-gradient">Personal Attention</h4>
-              <p className="text-gray-700 mb-6">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
-              <a href="#" className="btn-translucent inline-flex shadow-sm">Schedule a Call</a>
-            </div>
+          {/* Personal Attention Box */}
+          <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+            <h4 className="font-rufina text-xl mb-4 text-gradient">Personal Attention</h4>
+            <p className="text-gray-700 mb-6">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
+            <a 
+              href="#" 
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 border-2 border-black/90 bg-transparent hover:bg-black/5 hover:translate-y-[-2px] hover:shadow-md"
+            >
+              Schedule a Call
+            </a>
           </div>
         </div>
       </div>
