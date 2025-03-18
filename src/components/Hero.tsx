@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowDownCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
