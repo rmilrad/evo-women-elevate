@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Palette, MessageSquare, PenSquare } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
@@ -9,13 +9,15 @@ const ProcessStep = ({
   title, 
   description, 
   animationDirection = 'right',
-  delay = 0
+  delay = 0,
+  accentColor = 'bg-evo-pink/10'
 }: { 
   icon: React.ReactNode; 
   title: string; 
   description: React.ReactNode;
   animationDirection?: 'left' | 'right';
   delay?: number;
+  accentColor?: string;
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -34,11 +36,11 @@ const ProcessStep = ({
         transition: `all 0.7s ease-out ${delay}s`
       }}
     >
-      <div className="mb-6 bg-evo-pink bg-opacity-10 p-4 inline-block rounded-full">
+      <div className={`mb-6 ${accentColor} p-4 inline-block rounded-full`}>
         {icon}
       </div>
       <h3 className="headline-md mb-4 text-gradient">{title}</h3>
-      <div className="text-gray-700 space-y-4 leading-relaxed">
+      <div className="paragraph-container">
         {description}
       </div>
     </div>
@@ -56,9 +58,7 @@ const Process = () => {
     <section id="process" className="section-padding bg-gradient-to-b from-white to-evo-neutral-light" ref={sectionRef}>
       <div className="container-custom">
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <div className="inline-block bg-white px-4 py-1 rounded-full text-sm font-medium text-gray-700 border border-evo-pink/20 shadow-sm mb-4">
-            My Approach
-          </div>
+          <span className="section-tag mb-4">My Approach</span>
           <h2 
             ref={titleRef}
             className={cn(
@@ -82,8 +82,8 @@ const Process = () => {
             icon={<Palette size={28} className="text-evo-pink-dark" />}
             title="Branding Strategy"
             description={
-              <>
-                <p>A house can't be built without a solid foundation, and neither can your branding. We start by understanding:</p>
+              <div className="space-y-4">
+                <p><span className="text-highlight">A house can't be built without a solid foundation</span>, and neither can your branding. We start by understanding:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
                   <li>What you sell</li>
                   <li>Why you do it (and not something else)</li>
@@ -91,47 +91,52 @@ const Process = () => {
                 </ul>
                 <p className="mt-2">Once you understand your "why", we translate and communicate everything about your business in a way that resonates with the people you want to transform.</p>
                 <p className="mt-2">We create visual and design elements with purpose and precision.</p>
-              </>
+              </div>
             }
             animationDirection="left"
             delay={0.1}
+            accentColor="bg-evo-pink/10"
           />
           
           <ProcessStep 
-            icon={<MessageSquare size={28} className="text-evo-pink-dark" />}
+            icon={<MessageSquare size={28} className="text-evo-blue-dark" />}
             title="Content Strategy"
             description={
-              <>
+              <div className="space-y-4">
                 <p>A tailored approach to communicating your unique value:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li>Channel analysis (Finding where your ideal client naturally gathers)</li>
-                  <li>Sales funnel development (How you attract, nurture, and serve)</li>
-                  <li>Content pillars and calendar template (For coherence and consistency)</li>
+                  <li><span className="text-highlight">Channel analysis</span> (Finding where your ideal client naturally gathers)</li>
+                  <li><span className="text-highlight">Sales funnel development</span> (How you attract, nurture, and serve)</li>
+                  <li><span className="text-highlight">Content pillars and calendar</span> (For coherence and consistency)</li>
                 </ul>
                 <p className="mt-2">Your strategy will be both effective and sustainable, designed with care for your unique voice and audience.</p>
-              </>
+              </div>
             }
             animationDirection="right"
             delay={0.3}
+            accentColor="bg-evo-blue/10"
           />
           
           <ProcessStep 
             icon={<PenSquare size={28} className="text-evo-pink-dark" />}
             title="Content Creation"
             description={
-              <>
+              <div className="space-y-4">
                 <p>Thoughtful, ongoing content creation including:</p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
                   <li>Carousels that educate and inspire</li>
                   <li>Videos that connect and engage</li>
                   <li>Copy that resonates and converts</li>
-                  <li>Graphics that capture attention and reflect your brand</li>
+                  <li>Graphics that capture attention</li>
                 </ul>
-                <p className="mt-4">Working with me means you get peace of mind knowing we don't skip any steps, creating a strong foundation for sustainable growth.</p>
-              </>
+                <p className="italic mt-4 border-l-2 border-evo-pink pl-4">
+                  "Working with me means you get peace of mind knowing we don't skip any steps, creating a strong foundation for sustainable growth."
+                </p>
+              </div>
             }
             animationDirection="left"
             delay={0.5}
+            accentColor="bg-evo-pink/10"
           />
         </div>
       </div>
