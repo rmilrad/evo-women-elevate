@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Palette, MessageSquare, PenSquare } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
+import { cn } from '@/lib/utils';
 
 const ProcessStep = ({ 
   icon, 
@@ -28,7 +29,7 @@ const ProcessStep = ({
   return (
     <div 
       ref={ref}
-      className={`process-card ${inView ? 'opacity-100 translate-x-0' : animationClass}`}
+      className={`process-card ${inView ? 'opacity-100 translate-x-0' : animationClass} elegant-shadow`}
       style={{ 
         transition: `all 0.7s ease-out ${delay}s`
       }}
@@ -36,8 +37,8 @@ const ProcessStep = ({
       <div className="mb-6 bg-evo-pink bg-opacity-10 p-4 inline-block rounded-full">
         {icon}
       </div>
-      <h3 className="headline-md mb-4">{title}</h3>
-      <div className="text-gray-700 space-y-4">
+      <h3 className="headline-md mb-4 text-gradient">{title}</h3>
+      <div className="text-gray-700 space-y-4 leading-relaxed">
         {description}
       </div>
     </div>
@@ -52,17 +53,27 @@ const Process = () => {
   });
 
   return (
-    <section id="process" className="section-padding bg-evo-neutral-light" ref={sectionRef}>
+    <section id="process" className="section-padding bg-gradient-to-b from-white to-evo-neutral-light" ref={sectionRef}>
       <div className="container-custom">
         <div className="text-center mb-16 max-w-2xl mx-auto">
+          <div className="inline-block bg-white px-4 py-1 rounded-full text-sm font-medium text-gray-700 border border-evo-pink/20 shadow-sm mb-4">
+            My Approach
+          </div>
           <h2 
             ref={titleRef}
-            className={`headline-lg mb-4 ${inView ? 'animate-fade-in' : 'opacity-0'}`}
+            className={cn(
+              `headline-lg mb-4 ${inView ? 'animate-fade-in' : 'opacity-0'}`,
+              "text-gradient"
+            )}
           >
-            My Process
+            A Thoughtful Process
           </h2>
-          <p className={`text-gray-700 ${inView ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            A comprehensive approach to elevating your coaching business through strategic branding and content management.
+          <p 
+            className={`text-gray-700 ${inView ? 'animate-fade-in' : 'opacity-0'} max-w-prose mx-auto`} 
+            style={{ animationDelay: '0.2s' }}
+          >
+            A comprehensive approach to elevating your coaching business through strategic branding 
+            and content management that's both elegant and effective.
           </p>
         </div>
         
@@ -73,13 +84,13 @@ const Process = () => {
             description={
               <>
                 <p>A house can't be built without a solid foundation, and neither can your branding. We start by understanding:</p>
-                <ul className="list-disc pl-5 space-y-2">
+                <ul className="list-disc pl-5 space-y-2 mt-2">
                   <li>What you sell</li>
                   <li>Why you do it (and not something else)</li>
                   <li>Who you're transforming</li>
                 </ul>
-                <p>Once you understand your "why", we translate and communicate everything about your business in a way that resonates with the people you want to transform.</p>
-                <p>We create visual and design elements: a color palette following color psychology and design principles, and the primary fonts for your designs.</p>
+                <p className="mt-2">Once you understand your "why", we translate and communicate everything about your business in a way that resonates with the people you want to transform.</p>
+                <p className="mt-2">We create visual and design elements with purpose and precision.</p>
               </>
             }
             animationDirection="left"
@@ -91,11 +102,13 @@ const Process = () => {
             title="Content Strategy"
             description={
               <>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Channel analysis (Do you know where your ideal client is? Choose the channels that matter.)</li>
-                  <li>Sales funnel (How you attract, nurture, and sell) and the content to create at each stage.</li>
-                  <li>Content pillars and a content calendar template (for coherence, consistency, and organization)</li>
+                <p>A tailored approach to communicating your unique value:</p>
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                  <li>Channel analysis (Finding where your ideal client naturally gathers)</li>
+                  <li>Sales funnel development (How you attract, nurture, and serve)</li>
+                  <li>Content pillars and calendar template (For coherence and consistency)</li>
                 </ul>
+                <p className="mt-2">Your strategy will be both effective and sustainable, designed with care for your unique voice and audience.</p>
               </>
             }
             animationDirection="right"
@@ -107,14 +120,14 @@ const Process = () => {
             title="Content Creation"
             description={
               <>
-                <p>Ongoing content creation including:</p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Carousels</li>
-                  <li>Videos</li>
-                  <li>Copy</li>
-                  <li>Graphics</li>
+                <p>Thoughtful, ongoing content creation including:</p>
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                  <li>Carousels that educate and inspire</li>
+                  <li>Videos that connect and engage</li>
+                  <li>Copy that resonates and converts</li>
+                  <li>Graphics that capture attention and reflect your brand</li>
                 </ul>
-                <p className="mt-4">Working with me means you get peace of mind knowing we don't skip any steps. The average marketer starts your strategy without first defining the initial two points of branding, and that's where weak foundations come from.</p>
+                <p className="mt-4">Working with me means you get peace of mind knowing we don't skip any steps, creating a strong foundation for sustainable growth.</p>
               </>
             }
             animationDirection="left"

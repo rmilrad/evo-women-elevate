@@ -31,16 +31,16 @@ const Navbar = () => {
     >
       <div className="container-custom flex items-center justify-between">
         <a href="#" className="flex items-center">
-          <h1 className="text-2xl font-rufina font-bold tracking-tight">evo</h1>
+          <h1 className="text-2xl font-rufina font-bold tracking-tight text-gradient">evo</h1>
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#process" className="text-foreground hover:text-evo-pink-dark transition-colors">Process</a>
-          <a href="#about" className="text-foreground hover:text-evo-pink-dark transition-colors">About</a>
-          <a href="#testimonials" className="text-foreground hover:text-evo-pink-dark transition-colors">Testimonials</a>
-          <a href="#portfolio" className="text-foreground hover:text-evo-pink-dark transition-colors">Portfolio</a>
-          <a href="#contact" className="btn-primary">Contact</a>
+        <nav className="hidden md:flex items-center space-x-10">
+          <a href="#process" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">Process</a>
+          <a href="#about" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">About</a>
+          <a href="#testimonials" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">Testimonials</a>
+          <a href="#portfolio" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">Portfolio</a>
+          <a href="#contact" className="btn-primary text-sm">Get Started</a>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -60,7 +60,7 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <nav className="flex flex-col space-y-6 items-center">
+        <nav className="flex flex-col space-y-8 items-center">
           <a 
             href="#process" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
@@ -94,7 +94,7 @@ const Navbar = () => {
             className="btn-primary mt-4 w-full text-center" 
             onClick={toggleMenu}
           >
-            Contact
+            Get Started
           </a>
         </nav>
       </div>
