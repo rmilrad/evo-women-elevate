@@ -20,7 +20,7 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      quote: "Working with Naza was such a gift! She made social media feel way less overwhelming and so much more doable. From helping me get my reels up and running to refining posts and offering input on strategy, she was there every step of the way and worked hard to keep me on tract. Naza was always accessible, responsive and full of encouragement. Her warmth, positive energy and helpful insights made the process not only easier, but actually more enjoyable! I loved having her in my corner. If you need someone who truly gets social media and can help you show up in a way that feels authentic and aligned, she's your person!",
+      quote: "Working with Naza was such a gift! She made social media feel way less overwhelming and so much more doable. From helping me get my reels up and running to refining posts and offering input on strategy, she was there every step of the way and worked hard to keep me on tract. Naza was always accessible, responsive and full of encouragement.",
       author: "Debbie Zeichner",
       title: "Parent Coach"
     },
@@ -47,7 +47,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" ref={ref} className="section-padding bg-evo-blue-light">
+    <section id="testimonials" ref={ref} className="section-padding bg-gradient-to-b from-white to-evo-neutral-light">
       <div className="container-custom">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h2 
@@ -74,7 +74,7 @@ const Testimonials = () => {
               <Quote size={48} />
             </div>
             
-            <div className="flex overflow-hidden relative h-[280px] md:h-[220px]">
+            <div className="flex overflow-hidden relative h-[200px] md:h-[180px]">
               {testimonials.map((testimonial, index) => (
                 <div 
                   key={testimonial.id}
@@ -84,7 +84,7 @@ const Testimonials = () => {
                     opacity: index === activeIndex ? 1 : 0,
                   }}
                 >
-                  <blockquote className="text-lg md:text-xl italic mb-6 text-gray-700">
+                  <blockquote className="text-base md:text-lg italic mb-6 text-gray-700">
                     "{testimonial.quote}"
                   </blockquote>
                   <div className="flex flex-col">

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
@@ -79,15 +78,19 @@
   }
   
   .btn-primary {
-    @apply bg-evo-pink px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-evo-pink-dark hover:translate-y-[-2px] hover:shadow-md;
+    @apply bg-evo-pink px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink-dark hover:translate-y-[-2px] hover:shadow-md;
   }
   
   .btn-secondary {
-    @apply bg-evo-blue px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-evo-blue-dark hover:translate-y-[-2px] hover:shadow-md;
+    @apply bg-evo-blue px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-blue-dark hover:translate-y-[-2px] hover:shadow-md;
   }
   
   .btn-outline {
-    @apply border-2 border-evo-pink bg-transparent px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-evo-pink/5 hover:translate-y-[-2px] hover:shadow-md;
+    @apply border-2 border-evo-pink bg-transparent px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink hover:text-white hover:translate-y-[-2px] hover:shadow-md;
+  }
+
+  .btn-translucent {
+    @apply border-2 border-evo-pink bg-transparent px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink/10 hover:translate-y-[-2px] hover:shadow-md;
   }
 
   .glassmorphism {

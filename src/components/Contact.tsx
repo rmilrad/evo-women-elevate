@@ -87,7 +87,7 @@ const Contact = () => {
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="elegant-input"
+                  className="elegant-input rounded-full"
                   placeholder="Your name"
                   required
                 />
@@ -100,7 +100,7 @@ const Contact = () => {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="elegant-input"
+                  className="elegant-input rounded-full"
                   placeholder="Your email address"
                   required
                 />
@@ -112,7 +112,7 @@ const Contact = () => {
                   id="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="elegant-input"
+                  className="elegant-input rounded-xl"
                   placeholder="Tell me about your coaching business..."
                   rows={5}
                   required
@@ -161,7 +161,7 @@ const Contact = () => {
             <div className="mt-8 bg-gradient-to-br from-evo-blue-light to-white p-8 rounded-2xl border border-evo-blue-light/50 shadow-sm">
               <h4 className="font-rufina text-xl mb-4 text-gradient">Personal Attention</h4>
               <p className="text-gray-700 mb-6">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
-              <a href="#" className="btn-primary inline-flex shadow-sm">Schedule a Call</a>
+              <a href="#" className="btn-translucent inline-flex shadow-sm">Schedule a Call</a>
             </div>
           </div>
         </div>
