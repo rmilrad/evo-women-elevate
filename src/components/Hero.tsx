@@ -80,9 +80,8 @@ const Hero = () => {
           Helping women who empower others to evolve their business through branding and content creation.
         </p>
         
-        <div ref={ctaRef} className="flex flex-col sm:flex-row justify-center gap-4 opacity-0">
-          <a href="#process" className="btn-primary shadow-sm">See My Process</a>
-          <a href="#contact" className="btn-outline">Get In Touch</a>
+        <div ref={ctaRef} className="flex justify-center opacity-0">
+          <a href="#contact" className="btn-primary shadow-sm">Get Started</a>
         </div>
       </div>
       
