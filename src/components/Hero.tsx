@@ -68,10 +68,7 @@ const Hero = () => {
         
         <h1 
           ref={headlineRef} 
-          className={cn(
-            "headline-xl mb-6 opacity-0 leading-[1.15]",
-            "bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-clip-text text-transparent"
-          )}
+          className="headline-xl mb-6 opacity-0 leading-[1.15] text-gray-900"
         >
           Evolve Your Business Through Your "Why"
         </h1>
