@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { AlertCircle } from 'lucide-react';
 
@@ -21,7 +21,7 @@ const PainPoint = ({
       className={`flex items-start gap-4 mb-8 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="flex-shrink-0 bg-white/80 p-2 rounded-full shadow-sm">
+      <div className="flex-shrink-0 bg-white/90 p-2 rounded-full shadow-sm">
         <AlertCircle className="text-evo-pink" size={20} />
       </div>
       <p className="text-evo-text font-medium text-lg">{text}</p>
@@ -34,16 +34,46 @@ const PainPoints = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  
+  const [scrollY, setScrollY] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  // Calculate parallax effect
+  const getParallaxOffset = () => {
+    if (!sectionRef.current) return 0;
+    const sectionTop = sectionRef.current.offsetTop;
+    const scrollPosition = scrollY - sectionTop;
+    return scrollPosition > 0 ? scrollPosition * 0.1 : 0;
+  };
 
   return (
-    <section className="section-padding bg-white border-t border-b border-evo-neutral/30 relative overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className="py-24 bg-black relative text-white overflow-hidden"
+    >
+      {/* Background with parallax effect */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-b from-black/90 to-black"
+        style={{ transform: `translateY(${getParallaxOffset()}px)` }}
+      />
+      
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={ref}
-            className={`headline-lg mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
+            className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
           >
-            Have you ever felt like...
+            Why is <span className="text-white">audience research</span> <br/>
+            <span className="text-white/60">that hard?</span>
           </h2>
         
           <div className="mb-10">

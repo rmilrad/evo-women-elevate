@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PainPoints from '@/components/PainPoints';
@@ -30,6 +30,17 @@ const useScrollToHashOnLoad = () => {
 
 const Index = () => {
   useScrollToHashOnLoad();
+  const [scrollY, setScrollY] = useState(0);
+  
+  // Track scroll position for parallax effects
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">

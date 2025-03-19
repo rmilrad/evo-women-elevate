@@ -11,7 +11,7 @@ const Navbar = () => {
   
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -25,8 +25,10 @@ const Navbar = () => {
   return (
     <header 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "glassmorphism py-3" : "bg-transparent py-5"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        scrolled 
+          ? "py-3 bg-white shadow-md" 
+          : "py-5 bg-transparent"
       )}
     >
       <div className="container-custom flex items-center justify-between relative z-10">
@@ -34,22 +36,70 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/8cb72782-e6af-46b3-a365-a483d1f3f3c3.png"
             alt="evo"
-            className="h-8 md:h-10"
+            className={cn(
+              "h-8 md:h-10 transition-all duration-500",
+              !scrolled && "invert brightness-0 filter"
+            )}
           />
         </a>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
-          <a href="#process" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">Process</a>
-          <a href="#about" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">About</a>
-          <a href="#testimonials" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">Testimonials</a>
-          <a href="#portfolio" className="text-foreground hover:text-evo-pink-dark transition-colors text-sm tracking-wide">Portfolio</a>
-          <a href="#contact" className="btn-primary text-sm">Get Started</a>
+          <a 
+            href="#process" 
+            className={cn(
+              "transition-colors text-sm tracking-wide",
+              scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
+            )}
+          >
+            Process
+          </a>
+          <a 
+            href="#about" 
+            className={cn(
+              "transition-colors text-sm tracking-wide",
+              scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
+            )}
+          >
+            About
+          </a>
+          <a 
+            href="#testimonials" 
+            className={cn(
+              "transition-colors text-sm tracking-wide",
+              scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
+            )}
+          >
+            Testimonials
+          </a>
+          <a 
+            href="#portfolio" 
+            className={cn(
+              "transition-colors text-sm tracking-wide",
+              scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
+            )}
+          >
+            Portfolio
+          </a>
+          <a 
+            href="#contact" 
+            className={cn(
+              "text-sm transition-all duration-300",
+              scrolled 
+                ? "bg-evo-pink text-white px-6 py-3 rounded-full hover:bg-evo-pink-dark" 
+                : "bg-white text-evo-pink px-6 py-3 rounded-full hover:bg-white/90"
+            )}
+          >
+            Get Started
+          </a>
         </nav>
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-foreground"
+          className={cn(
+            "md:hidden",
+            scrolled ? "text-foreground" : "text-white"
+          )}
           onClick={toggleMenu}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
