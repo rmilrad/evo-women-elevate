@@ -38,7 +38,7 @@ const Hero = () => {
         <img 
           src="/lovable-uploads/4af1820e-5698-4188-bc68-0d564bbd819a.png" 
           alt="" 
-          className="w-4/5 md:w-3/4 lg:w-2/3 max-w-3xl object-contain mix-blend-screen opacity-20" 
+          className="w-[90%] md:w-[85%] lg:w-[80%] max-w-4xl object-contain mx-auto mix-blend-multiply opacity-30" 
           style={{ transform: `translateY(${scrollY * 0.05}px) rotate(${scrollY * 0.02}deg)` }}
         />
       </div>

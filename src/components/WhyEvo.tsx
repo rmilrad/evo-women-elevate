@@ -19,14 +19,18 @@ const Feature = ({ icon, title, description, delay = 0 }: FeatureProps) => {
   return (
     <div 
       ref={ref}
-      className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-md border border-evo-pink/10 flex flex-col items-center text-center h-full`}
+      className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} 
+        bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-md border border-evo-pink/10 
+        flex flex-col items-center text-center h-full group hover:bg-[#f78075] hover:border-[#f78075]`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="bg-gradient-to-br from-white to-evo-neutral-light rounded-full p-6 inline-flex items-center justify-center mb-5 shadow-sm border border-evo-pink/5">
-        {icon}
+      <div className="bg-gradient-to-br from-white to-evo-neutral-light rounded-full p-6 inline-flex items-center justify-center mb-5 shadow-sm border border-evo-pink/5 transition-colors group-hover:bg-white">
+        <div className="text-evo-pink group-hover:text-[#f78075] transition-colors">
+          {icon}
+        </div>
       </div>
-      <h3 className="headline-md mb-3 text-evo-text">{title}</h3>
-      <p className="text-evo-text/80 max-w-sm">{description}</p>
+      <h3 className="headline-md mb-3 text-evo-text group-hover:text-white transition-colors">{title}</h3>
+      <p className="text-evo-text/80 max-w-sm group-hover:text-white/90 transition-colors">{description}</p>
     </div>
   );
 };
@@ -48,12 +52,6 @@ const WhyEvo = () => {
           >
             Evo Creative was made for you to…
           </h2>
-          
-          <div className={`transition-all duration-700 delay-200 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <p className="text-evo-text/80 max-w-2xl mx-auto">
-              Transform your brand with purpose-driven content that connects, converts, and creates lasting impact
-            </p>
-          </div>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
