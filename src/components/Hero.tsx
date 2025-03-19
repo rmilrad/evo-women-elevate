@@ -115,21 +115,22 @@ const Hero = () => {
             </button>
           </div>
         
-          {/* Avatar circles with hover effect */}
-          <div className="flex justify-center space-x-2 md:space-x-3 overflow-hidden px-4 mb-8">
+          {/* Avatar circles with improved hover effect */}
+          <div className="flex justify-center pt-4 px-4 mb-8 relative h-16">
             <div className="flex items-center">
               {Array.from({ length: 6 }).map((_, index) => (
                 <HoverCard key={index}>
                   <HoverCardTrigger asChild>
                     <div 
                       className="relative"
+                      style={{ marginLeft: index === 0 ? '0' : '-12px', zIndex: activeAvatarIndex === index ? 10 : 6 - index }}
                       onMouseEnter={() => setActiveAvatarIndex(index)}
                       onMouseLeave={() => setActiveAvatarIndex(null)}
                     >
                       <Avatar 
-                        className={`w-8 h-8 md:w-12 md:h-12 border-2 border-white shadow-md -ml-2 first:ml-0 
-                                   transition-all duration-300 cursor-pointer hover:z-10
-                                   ${activeAvatarIndex === index ? 'scale-125 z-10' : 'scale-100'}`}
+                        className={`w-8 h-8 md:w-12 md:h-12 border-2 border-white shadow-md
+                                   transition-all duration-300 cursor-pointer
+                                   ${activeAvatarIndex === index ? 'scale-125' : 'scale-100'}`}
                       >
                         <AvatarImage 
                           src={`/lovable-uploads/${avatarImages[index % avatarImages.length]}`} 
