@@ -1,8 +1,6 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart } from 'lucide-react';
-import emailjs from 'emailjs-com';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -12,11 +10,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
-  
-  // Initialize EmailJS with your public key
-  useEffect(() => {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key when deploying
-  }, []);
   
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -38,20 +31,21 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Send email using EmailJS
-      const templateParams = {
-        to_email: "ryanmilrad34@gmail.com",
-        from_name: name,
-        from_email: email,
-        message: message,
-        subject: `New Inquiry - ${name}`,
-      };
+      // Use the mailto protocol to open the default email client
+      const subject = `New Inquiry - ${name}`;
+      const body = `
+Name: ${name}
+Email: ${email}
+
+Message:
+${message}
+      `;
       
-      await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-        templateParams
-      );
+      // Create mailto link
+      const mailtoLink = `mailto:ryanmilrad34@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open the email client
+      window.location.href = mailtoLink;
       
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -60,8 +54,8 @@ const Contact = () => {
       setMessage('');
       
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Email client opened",
+        description: "Your default email client has been opened with the message. Please send the email to complete.",
         variant: "default",
       });
       
@@ -70,12 +64,12 @@ const Contact = () => {
         setIsSubmitted(false);
       }, 5000);
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error opening email client:", error);
       setIsSubmitting(false);
       
       toast({
-        title: "Failed to send message",
-        description: "There was an error sending your message. Please try again later.",
+        title: "Failed to open email client",
+        description: "There was an error opening your email client. Please try again or contact directly via email.",
         variant: "destructive",
       });
     }
