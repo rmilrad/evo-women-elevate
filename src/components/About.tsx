@@ -36,27 +36,11 @@ const About = () => {
             </div>
             
             <div className={cn(
-              "mt-8 lg:mt-auto relative overflow-hidden rounded-3xl bg-[#ffd0d4]",
+              "mt-8 lg:mt-auto relative overflow-hidden rounded-3xl",
               sectionInView ? "animate-fade-in" : "opacity-0"
             )}>
-              {/* Decorative elements */}
-              <div className="absolute top-4 left-4">
-                <div className="text-white">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 0L25.9808 14.0192L40 20L25.9808 25.9808L20 40L14.0192 25.9808L0 20L14.0192 14.0192L20 0Z" fill="#f16e60"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="absolute bottom-4 right-4">
-                <div className="text-[#5b83e8]">
-                  <svg width="25" height="25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="20" cy="20" r="20" fill="currentColor"/>
-                  </svg>
-                </div>
-              </div>
-              
-              {/* Image container */}
-              <div className="rounded-3xl overflow-hidden p-4">
+              {/* Image container - removed decorative elements and border color */}
+              <div className="rounded-3xl overflow-hidden">
                 {isImageLoaded ? (
                   <img 
                     src="/lovable-uploads/befa01c1-e062-4aa2-b9a1-3546a1ee5582.png" 
@@ -83,9 +67,8 @@ const About = () => {
                 
                 <p className="text-evo-text">I love what I do because I feel a deep connection to helping women who empower others. It's a cycle — I help you make their message visible so you can go on to help someone else.</p>
                 
-                <div className="bg-white/50 p-6 rounded-lg">
-                  <p className="text-evo-text">Recently, I've learned that the most important part of my job is understanding your mission. That's how I can truly help you shine.</p>
-                </div>
+                {/* Removed white box border */}
+                <p className="text-evo-text">Recently, I've learned that the most important part of my job is understanding your mission. That's how I can truly help you shine.</p>
               </div>
               
               <div className="space-y-6">
