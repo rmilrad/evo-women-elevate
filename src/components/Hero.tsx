@@ -1,10 +1,18 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDownCircle } from 'lucide-react';
+import { ArrowDownCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { 
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [activeAvatarIndex, setActiveAvatarIndex] = useState<number | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const { translate } = useLanguage();
   
@@ -24,11 +32,38 @@ const Hero = () => {
       processSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // Calculate parallax effect for text
   const titleTransform = `translateY(${scrollY * 0.2}px)`;
   const subtitleTransform = `translateY(${scrollY * 0.15}px)`;
   const buttonsTransform = `translateY(${scrollY * 0.1}px)`;
+  
+  // Avatar image sources
+  const avatarImages = [
+    '1203331d-f085-412a-a8ca-8029d14dfd05.png', 
+    '26ecf43d-faaf-42c1-be20-cd07d399a287.png',
+    '539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png',
+    '65cb9449-de78-4118-9e12-49a490c71309.png',
+    '72435939-277e-4724-92eb-c226341545b6.png',
+    '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
+  ];
+  
+  // Client testimonial snippets for hover cards
+  const testimonialSnippets = [
+    "Transformed my coaching business...",
+    "Clear, professional designs...",
+    "Exceeded my expectations...",
+    "Helped me double my client base...",
+    "Beautiful visuals that convert...",
+    "Perfect balance of style and substance..."
+  ];
 
   return (
     <section 
@@ -65,38 +100,58 @@ const Hero = () => {
           </p>
           
           <div 
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto mb-10"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center w-full sm:w-auto mb-10"
             style={{ transform: buttonsTransform }}
           >
-            <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
-              {translate('viewMyWork')}
-            </a>
-            <a href="#contact" className="bg-transparent text-white border-2 border-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
+            <a href="#contact" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
               {translate('scheduleACall')}
             </a>
+            <button 
+              onClick={scrollToPortfolio} 
+              className="flex items-center justify-center sm:justify-start gap-1 text-white hover:text-white/80 transition-colors px-2 font-medium text-sm sm:text-base w-full sm:w-auto group"
+            >
+              {translate('viewMyWork')}
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
         
-          {/* Avatar circles */}
-          <div className="flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 mb-8">
+          {/* Avatar circles with hover effect */}
+          <div className="flex justify-center space-x-2 md:space-x-3 overflow-hidden px-4 mb-8">
             <div className="flex items-center">
-              {Array.from({ length: 8 }).map((_, index) => (
-                <div 
-                  key={index} 
-                  className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
-                >
-                  <img 
-                    src={`/lovable-uploads/${[
-                      '1203331d-f085-412a-a8ca-8029d14dfd05.png', 
-                      '26ecf43d-faaf-42c1-be20-cd07d399a287.png',
-                      '539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png',
-                      '65cb9449-de78-4118-9e12-49a490c71309.png',
-                      '72435939-277e-4724-92eb-c226341545b6.png',
-                      '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
-                    ][index % 6]}`} 
-                    alt="" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              {Array.from({ length: 6 }).map((_, index) => (
+                <HoverCard key={index}>
+                  <HoverCardTrigger asChild>
+                    <div 
+                      className="relative"
+                      onMouseEnter={() => setActiveAvatarIndex(index)}
+                      onMouseLeave={() => setActiveAvatarIndex(null)}
+                    >
+                      <Avatar 
+                        className={`w-8 h-8 md:w-12 md:h-12 border-2 border-white shadow-md -ml-2 first:ml-0 
+                                   transition-all duration-300 cursor-pointer hover:z-10
+                                   ${activeAvatarIndex === index ? 'scale-125 z-10' : 'scale-100'}`}
+                      >
+                        <AvatarImage 
+                          src={`/lovable-uploads/${avatarImages[index % avatarImages.length]}`} 
+                          alt="Client" 
+                        />
+                      </Avatar>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-60">
+                    <div className="flex justify-between space-x-4">
+                      <Avatar className="w-12 h-12">
+                        <AvatarImage src={`/lovable-uploads/${avatarImages[index % avatarImages.length]}`} />
+                      </Avatar>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold">{`Client ${index + 1}`}</h4>
+                        <p className="text-sm text-gray-500">
+                          {testimonialSnippets[index % testimonialSnippets.length]}
+                        </p>
+                      </div>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
               ))}
             </div>
           </div>
