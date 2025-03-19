@@ -19,6 +19,7 @@ const enTranslations: Record<string, string> = {
   'testimonials': 'Testimonials',
   'portfolio': 'Portfolio',
   'getStarted': 'Get Started',
+  'language': 'Language',
   
   // WhyEvo
   'whyChooseEvo': 'Why Choose Evo',
@@ -28,19 +29,19 @@ const enTranslations: Record<string, string> = {
   'trustYourself': 'Trust Yourself',
   'trustYourselfDesc': 'Develop a mindset that helps you grow while enjoying the process.',
   'gainClarity': 'Gain Clarity',
-  'gainClarityDesc': 'Stop communicating what you're not and start making space for what makes you 'you'.',
+  'gainClarityDesc': 'Stop communicating what you\'re not and start making space for what makes you \'you\'.',
   'convert': 'Convert',
-  'convertDesc': 'Create content that doesn't just grow your audience—it turns followers into clients.',
+  'convertDesc': 'Create content that doesn\'t just grow your audience—it turns followers into clients.',
   'letsChat': 'Let\'s Chat',
   
   // About
   'evoQuote': '"Evo comes from the word evolution. It was born from my story—and yours."',
-  'hiImNazareth': 'Hi, I'm Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉',
-  'iLoveWhatIDo': 'I love what I do because I feel a deep connection to helping women who empower others. It's a cycle — I help you make their message visible so you can go on to help someone else.',
-  'recentlyIveLearned': 'Recently, I've learned that the most important part of my job is understanding your mission. That's how I can truly help you shine.',
+  'hiImNazareth': 'Hi, I\'m Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉',
+  'iLoveWhatIDo': 'I love what I do because I feel a deep connection to helping women who empower others. It\'s a cycle — I help you make their message visible so you can go on to help someone else.',
+  'recentlyIveLearned': 'Recently, I\'ve learned that the most important part of my job is understanding your mission. That\'s how I can truly help you shine.',
   'iFindPurpose': 'I find purpose in everything I do. I find purpose in what YOU do.',
-  'thatsTheDifference': 'That's the difference between content that works and content that doesn't. It's not just about beautiful visuals or clever words—it's about capturing the essence of your mission.',
-  'whenWeWorkTogether': 'When we work together, we're not just creating content. We're crafting your evolution.',
+  'thatsTheDifference': 'That\'s the difference between content that works and content that doesn\'t. It\'s not just about beautiful visuals or clever words—it\'s about capturing the essence of your mission.',
+  'whenWeWorkTogether': 'When we work together, we\'re not just creating content. We\'re crafting your evolution.',
   'withPurpose': 'With purpose,',
   'founderAndContentCreator': 'FOUNDER & CONTENT CREATOR',
 };
@@ -53,6 +54,7 @@ const esTranslations: Record<string, string> = {
   'testimonials': 'Testimonios',
   'portfolio': 'Portafolio',
   'getStarted': 'Empezar',
+  'language': 'Idioma',
   
   // WhyEvo
   'whyChooseEvo': 'Por qué elegir Evo',
