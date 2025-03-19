@@ -51,7 +51,7 @@ const enTranslations: Record<string, string> = {
   'scheduleACall': 'Schedule a call',
   
   // PainPoints
-  'haveYouEverFelt': 'Have you ever <span class="text-evo-pink">felt like</span> <br/><span class="text-evo-text/60">this?</span>',
+  'haveYouEverFelt': 'Have you ever <span class="text-evo-pink">felt like</span>',
   'painPoint1': 'You wish there were more hours in the day to be consistent like everyone says you should?',
   'painPoint2': 'You\'ve tried EVERYTHING marketing gurus tell you on Instagram, but nothing works?',
   'painPoint3': 'You have no idea how to grow your personal brand?',
@@ -171,7 +171,7 @@ const esTranslations: Record<string, string> = {
   'scheduleACall': 'Programa una llamada',
   
   // PainPoints
-  'haveYouEverFelt': '¿Alguna vez te has <span class="text-evo-pink">sentido así</span>? <br/><span class="text-evo-text/60">así?</span>',
+  'haveYouEverFelt': '¿Alguna vez te has <span class="text-evo-pink">sentido así</span>?',
   'painPoint1': '¿Deseas que hubiera más horas en el día para ser constante como todos dicen que deberías?',
   'painPoint2': '¿Has probado TODO lo que los gurús de marketing te dicen en Instagram, pero nada funciona?',
   'painPoint3': '¿No tienes idea de cómo hacer crecer tu marca personal?',
