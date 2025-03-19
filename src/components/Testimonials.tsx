@@ -47,6 +47,17 @@ const Testimonials = () => {
     }
   ];
 
+  // Determine text size based on quote length
+  const getTextSize = (quoteLength: number) => {
+    if (quoteLength < 100) {
+      return 'text-2xl md:text-3xl'; // Larger text for shorter quotes
+    } else if (quoteLength < 200) {
+      return 'text-xl md:text-2xl'; // Medium text for medium quotes
+    } else {
+      return 'text-lg md:text-xl'; // Smaller text for longer quotes
+    }
+  };
+
   // Preload images
   useEffect(() => {
     const preloadImages = () => {
@@ -104,8 +115,8 @@ const Testimonials = () => {
               <CarouselContent>
                 {testimonials.map((testimonial) => (
                   <CarouselItem key={testimonial.id} className="px-4">
-                    <div className="flex flex-col items-center text-center px-4 md:px-12">
-                      <blockquote className="text-xl md:text-2xl font-rufina text-evo-text leading-relaxed mb-8 max-w-3xl mx-auto">
+                    <div className="flex flex-col items-center text-center px-4 md:px-12 h-full">
+                      <blockquote className={`font-rufina text-evo-text leading-relaxed mb-8 max-w-3xl mx-auto flex-grow flex items-center justify-center ${getTextSize(testimonial.quote.length)}`}>
                         "{testimonial.quote}"
                       </blockquote>
                       

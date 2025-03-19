@@ -18,10 +18,10 @@ const PainPoint = ({
   return (
     <div 
       ref={ref}
-      className={`flex items-start gap-4 p-4 rounded-lg transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`flex items-start gap-4 p-5 rounded-lg transition-all duration-700 bg-white/70 shadow-sm ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="flex-shrink-0 bg-white/80 p-2 rounded-full shadow-sm">
+      <div className="flex-shrink-0 bg-white p-2 rounded-full shadow-sm">
         <AlertCircle className="text-evo-pink" size={20} />
       </div>
       <p className="text-evo-text font-medium text-lg">{text}</p>
