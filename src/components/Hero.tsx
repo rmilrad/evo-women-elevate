@@ -103,7 +103,7 @@ const Hero = () => {
           className="headline-xl text-white font-bold mb-3 text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none"
           style={{ transform: titleTransform }}
         >
-          Evolve your <span className="opacity-70">business</span>
+          Evolve your <span className="opacity-70">business</span> through your <span className="opacity-70">"why."</span>
         </h1>
         
         <p 
