@@ -1,20 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { Menu, X, Globe } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { language, setLanguage, translate } = useLanguage();
   
   const toggleMenu = () => setIsOpen(!isOpen);
-  
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'es' : 'en');
-  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -51,22 +44,7 @@ const Navbar = () => {
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <Button
-            variant="ghost"
-            size="sm"
-            className={cn(
-              "rounded-full border transition-colors flex items-center gap-1",
-              scrolled 
-                ? "text-foreground hover:text-evo-pink-dark border-gray-200" 
-                : "text-white hover:text-white/80 border-white/40"
-            )}
-            onClick={toggleLanguage}
-          >
-            <Globe size={16} />
-            <span className="font-medium">{language === 'en' ? 'ES' : 'EN'}</span>
-          </Button>
-          
+        <nav className="hidden md:flex items-center space-x-10">
           <a 
             href="#process" 
             className={cn(
@@ -74,7 +52,7 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            {translate('process')}
+            Process
           </a>
           <a 
             href="#about" 
@@ -83,7 +61,7 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            {translate('about')}
+            About
           </a>
           <a 
             href="#testimonials" 
@@ -92,7 +70,7 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            {translate('testimonials')}
+            Testimonials
           </a>
           <a 
             href="#portfolio" 
@@ -101,7 +79,7 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            {translate('portfolio')}
+            Portfolio
           </a>
           <a 
             href="#contact" 
@@ -112,37 +90,21 @@ const Navbar = () => {
                 : "bg-white text-evo-pink px-6 py-3 rounded-full hover:bg-white/90"
             )}
           >
-            {translate('getStarted')}
+            Get Started
           </a>
         </nav>
         
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="sm"
-            className={cn(
-              "rounded-full border transition-colors",
-              scrolled 
-                ? "text-foreground hover:text-evo-pink-dark border-gray-200" 
-                : "text-white hover:text-white/80 border-white/40"
-            )}
-            onClick={toggleLanguage}
-          >
-            <Globe size={16} />
-            <span className="font-medium ml-1">{language === 'en' ? 'ES' : 'EN'}</span>
-          </Button>
-          
-          <button 
-            className={cn(
-              scrolled ? "text-foreground" : "text-white"
-            )}
-            onClick={toggleMenu}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button 
+          className={cn(
+            "md:hidden",
+            scrolled ? "text-foreground" : "text-white"
+          )}
+          onClick={toggleMenu}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
       
       {/* Mobile Navigation */}
@@ -158,35 +120,35 @@ const Navbar = () => {
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            {translate('process')}
+            Process
           </a>
           <a 
             href="#about" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            {translate('about')}
+            About
           </a>
           <a 
             href="#testimonials" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            {translate('testimonials')}
+            Testimonials
           </a>
           <a 
             href="#portfolio" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            {translate('portfolio')}
+            Portfolio
           </a>
           <a 
             href="#contact" 
             className="btn-primary mt-4 w-full text-center" 
             onClick={toggleMenu}
           >
-            {translate('getStarted')}
+            Get Started
           </a>
         </nav>
       </div>

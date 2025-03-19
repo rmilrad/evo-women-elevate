@@ -21,16 +21,16 @@ const Feature = ({ icon, title, description, delay = 0 }: FeatureProps) => {
       ref={ref}
       className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} 
         bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-md border border-evo-pink/10 
-        flex flex-col items-center text-center h-full`}
+        flex flex-col items-center text-center h-full group hover:bg-[#f78075] hover:border-[#f78075]`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="bg-gradient-to-br from-white to-evo-neutral-light rounded-full p-6 inline-flex items-center justify-center mb-5 shadow-sm border border-evo-pink/5">
-        <div className="text-evo-pink">
+      <div className="bg-gradient-to-br from-white to-evo-neutral-light rounded-full p-6 inline-flex items-center justify-center mb-5 shadow-sm border border-evo-pink/5 transition-colors group-hover:bg-white">
+        <div className="text-evo-pink group-hover:text-[#f78075] transition-colors">
           {icon}
         </div>
       </div>
-      <h3 className="headline-md mb-3 text-evo-text">{title}</h3>
-      <p className="text-evo-text/80 max-w-sm">{description}</p>
+      <h3 className="headline-md mb-3 text-evo-text group-hover:text-white transition-colors">{title}</h3>
+      <p className="text-evo-text/80 max-w-sm group-hover:text-white/90 transition-colors">{description}</p>
     </div>
   );
 };
