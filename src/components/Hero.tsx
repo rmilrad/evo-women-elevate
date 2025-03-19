@@ -6,6 +6,7 @@ const Hero = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   
   useEffect(() => {
+    // Preload the emblem image
     const img = new Image();
     img.src = "/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png";
     img.onload = () => setIsImageLoaded(true);
@@ -30,7 +31,7 @@ const Hero = () => {
         style={{ zIndex: -1 }}
       />
       
-      {/* Emblem background - conditionally render when loaded */}
+      {/* Emblem background - full viewport width */}
       {isImageLoaded && (
         <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: -1 }}>
           <img 

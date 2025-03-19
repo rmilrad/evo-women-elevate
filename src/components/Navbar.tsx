@@ -29,15 +29,6 @@ const Navbar = () => {
         scrolled ? "glassmorphism py-3" : "bg-transparent py-5"
       )}
     >
-      {/* Subtle emblem background for the navbar */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <img 
-          src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
-          alt="" 
-          className="w-full h-full object-cover opacity-[0.02]" 
-        />
-      </div>
-      
       <div className="container-custom flex items-center justify-between relative z-10">
         <a href="#" className="flex items-center">
           <img 
@@ -73,15 +64,6 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        {/* Emblem background for mobile menu */}
-        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
-          <img 
-            src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
-            alt="" 
-            className="w-4/5 max-w-sm opacity-[0.03]" 
-          />
-        </div>
-        
         <nav className="flex flex-col space-y-8 items-center relative z-10">
           <a 
             href="#process" 
