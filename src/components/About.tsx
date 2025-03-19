@@ -4,7 +4,6 @@ import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Badge } from '@/components/ui/badge';
 
 const About = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
@@ -25,37 +24,34 @@ const About = () => {
           </h2>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 gap-12 items-center max-w-5xl mx-auto">
           <div 
-            className={`transition-all duration-700 ${sectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
+            className={`transition-all duration-700 ${sectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden border border-evo-pink/10`}
           >
-            <div className="rounded-2xl overflow-hidden relative aspect-[3/4] bg-gradient-to-b from-evo-pink-light to-evo-pink shadow-md">
-              <img 
-                src="/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png" 
-                alt="Nazareth working on a laptop" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-evo-pink/80 to-transparent p-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-rufina text-3xl text-white">Naza</h3>
-                  
-                  <div className="animate-pulse">
-                    <Badge 
-                      className="bg-white/90 hover:bg-white text-evo-pink border-0 px-4 py-1 text-xs font-bold shadow-lg"
-                    >
-                      3+ YEARS EXPERIENCE
-                    </Badge>
+            <div className="grid md:grid-cols-12 items-stretch">
+              {/* Image area */}
+              <div className="md:col-span-5 relative">
+                <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-evo-pink/80 to-transparent p-6 z-10">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-rufina text-3xl text-white">Naza</h3>
+                    <div className="animate-pulse">
+                      <div className="bg-white/90 hover:bg-white text-evo-pink border-0 px-4 py-1 text-xs font-bold shadow-lg rounded-full">
+                        3+ YEARS EXPERIENCE
+                      </div>
+                    </div>
                   </div>
                 </div>
+                <div className="h-full min-h-[400px] md:min-h-full bg-gradient-to-b from-evo-pink-light to-evo-pink">
+                  <img 
+                    src="/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png" 
+                    alt="Nazareth working on a laptop" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          </div>
-          
-          <div 
-            className={`transition-all duration-700 delay-300 ${sectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
-          >
-            <Card className="bg-white/80 backdrop-blur-sm border-evo-pink/10 shadow-md">
-              <CardContent className="p-8">
+              
+              {/* Content area */}
+              <div className="md:col-span-7 p-8 md:p-10 flex flex-col justify-center">
                 <div className="space-y-6 text-evo-text">
                   <p className="italic text-evo-text/80 font-medium">"Evo comes from the word evolution. It was born from my story—and yours."</p>
                   
@@ -70,16 +66,9 @@ const About = () => {
                   </div>
                   
                   <p className="text-evo-text font-bold">That's the difference between content that works and content that doesn't.</p>
-                  
-                  <div className="flex justify-center mt-8">
-                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-evo-pink to-evo-pink-dark text-white font-medium shadow-md">
-                      <span className="text-sm">Creating content for women like you</span>
-                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white text-evo-pink font-bold text-xs">3+</span>
-                    </div>
-                  </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </div>

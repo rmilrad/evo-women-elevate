@@ -19,14 +19,14 @@ const Feature = ({ icon, title, description, delay = 0 }: FeatureProps) => {
   return (
     <div 
       ref={ref}
-      className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+      className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-md border border-evo-pink/10 flex flex-col items-center text-center h-full`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="bg-white/70 rounded-full p-6 inline-flex items-center justify-center mb-5 shadow-sm">
+      <div className="bg-gradient-to-br from-white to-evo-neutral-light rounded-full p-6 inline-flex items-center justify-center mb-5 shadow-sm border border-evo-pink/5">
         {icon}
       </div>
       <h3 className="headline-md mb-3 text-evo-text">{title}</h3>
-      <p className="text-evo-text opacity-80 max-w-sm">{description}</p>
+      <p className="text-evo-text/80 max-w-sm">{description}</p>
     </div>
   );
 };
@@ -38,41 +38,48 @@ const WhyEvo = () => {
   });
   
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-evo-neutral-light/30">
+    <section className="section-padding bg-gradient-to-b from-white to-evo-neutral-light/30 relative overflow-hidden">
       <div className="container-custom">
         <div className="text-center mb-16 max-w-3xl mx-auto">
+          <span className="section-tag mb-4">Why Choose Evo</span>
           <h2 
             ref={ref}
-            className={`headline-lg mb-4 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
+            className={`headline-lg mb-6 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
           >
             Evo Creative was made for you to…
           </h2>
+          
+          <div className={`transition-all duration-700 delay-200 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+            <p className="text-evo-text/80 max-w-2xl mx-auto">
+              Transform your brand with purpose-driven content that connects, converts, and creates lasting impact
+            </p>
+          </div>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           <Feature 
-            icon={<Clock size={40} className="text-gray-700" />}
+            icon={<Clock size={36} className="text-evo-pink" />}
             title="Save You Time"
             description="Feel at ease knowing you have the right tools to succeed in your business."
             delay={0.1}
           />
           
           <Feature 
-            icon={<Heart size={40} className="text-gray-700" />}
+            icon={<Heart size={36} className="text-evo-pink" />}
             title="Trust Yourself"
             description="Develop a mindset that helps you grow while enjoying the process."
             delay={0.2}
           />
           
           <Feature 
-            icon={<Eye size={40} className="text-gray-700" />}
+            icon={<Eye size={36} className="text-evo-pink" />}
             title="Gain Clarity"
             description="Stop communicating what you're not and start making space for what makes you 'you'."
             delay={0.3}
           />
           
           <Feature 
-            icon={<TrendingUp size={40} className="text-gray-700" />}
+            icon={<TrendingUp size={36} className="text-evo-pink" />}
             title="Convert"
             description="Create content that doesn't just grow your audience—it turns followers into clients."
             delay={0.4}

@@ -37,15 +37,6 @@ const PainPoints = () => {
 
   return (
     <section className="section-padding bg-white border-t border-b border-evo-neutral/30 relative overflow-hidden">
-      {/* Emblem background */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <img 
-          src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
-          alt="" 
-          className="w-full max-w-5xl opacity-[0.03]" 
-        />
-      </div>
-      
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 
