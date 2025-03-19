@@ -123,13 +123,16 @@ const Contact = () => {
             </form>
           </div>
           
-          {/* Personal Attention Box - Blue gradient */}
-          <div className="bg-gradient-to-br from-evo-blue-light to-evo-blue p-8 rounded-2xl border border-evo-blue-light shadow-sm">
-            <h4 className="font-rufina text-xl mb-4 text-evo-text">Personal Attention</h4>
-            <p className="text-evo-text mb-6">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
+          {/* Personal Attention Box - Blue to white gradient */}
+          <div className="bg-gradient-to-br from-evo-blue-light via-[#E6F0FC] to-white p-8 rounded-2xl border border-evo-blue-light/30 shadow-sm overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-evo-blue opacity-10 blur-[50px] rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-evo-blue-light opacity-10 blur-[50px] rounded-full transform -translate-x-1/3 translate-y-1/3"></div>
+            
+            <h4 className="font-rufina text-xl mb-4 text-evo-text relative z-10">Personal Attention</h4>
+            <p className="text-evo-text mb-6 relative z-10">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
             <a 
               href="#" 
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 border-2 border-black/90 bg-transparent hover:bg-black/5 hover:translate-y-[-2px] hover:shadow-md"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 border-2 border-evo-blue/80 bg-white/50 hover:bg-white hover:translate-y-[-2px] hover:shadow-md text-evo-text relative z-10"
             >
               Schedule a Call
             </a>
