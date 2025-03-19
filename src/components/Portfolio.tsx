@@ -130,7 +130,7 @@ const Portfolio = () => {
       ref={ref}
       className="section-padding bg-white relative"
     >
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 lg:max-w-[80vw]">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h2 
             className={`headline-lg mb-4 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
@@ -145,7 +145,7 @@ const Portfolio = () => {
         </div>
         
         <div 
-          className={`transition-all duration-700 delay-400 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-4xl mx-auto`}
+          className={`transition-all duration-700 delay-400 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-full mx-auto`}
         >
           <Carousel className="w-full">
             <CarouselContent className="-ml-2 md:-ml-3">
