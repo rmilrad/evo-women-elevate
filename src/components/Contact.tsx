@@ -39,16 +39,16 @@ const Contact = () => {
       <div className="container-custom">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <div className="inline-flex items-center justify-center gap-2 mb-3">
-            <Heart size={18} className="text-evo-pink-dark" />
-            <span className="text-sm font-medium text-gray-600">Let's Connect</span>
+            <Heart size={18} className="text-evo-pink" />
+            <span className="text-sm font-medium text-evo-text">Let's Connect</span>
           </div>
           <h2 
-            className={`headline-lg mb-4 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-gradient`}
+            className={`headline-lg mb-4 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
           >
             Begin Your Evolution Today
           </h2>
           <p 
-            className={`text-gray-700 transition-all duration-700 delay-200 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+            className={`text-evo-text transition-all duration-700 delay-200 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
           >
             Ready to transform your coaching business? I'm here to guide you every step of the way.
           </p>
@@ -58,8 +58,8 @@ const Contact = () => {
           className={`flex flex-col gap-8 max-w-2xl mx-auto transition-all duration-700 delay-400 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
           {/* Send a Message Box */}
-          <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-            <h3 className="font-rufina text-2xl mb-6">Send a Message</h3>
+          <div className="bg-gradient-to-br from-evo-blue-light to-white p-8 rounded-2xl border border-evo-blue-light/50 shadow-sm">
+            <h3 className="font-rufina text-2xl mb-6 text-evo-text">Send a Message</h3>
             
             {isSubmitted ? (
               <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg p-4 mb-6 flex items-center gap-2">
@@ -70,7 +70,7 @@ const Contact = () => {
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-gray-700 mb-2 text-sm">Name</label>
+                <label htmlFor="name" className="block text-evo-text mb-2 text-sm">Name</label>
                 <input
                   type="text"
                   id="name"
@@ -83,7 +83,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-gray-700 mb-2 text-sm">Email</label>
+                <label htmlFor="email" className="block text-evo-text mb-2 text-sm">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -96,7 +96,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-gray-700 mb-2 text-sm">Message</label>
+                <label htmlFor="message" className="block text-evo-text mb-2 text-sm">Message</label>
                 <textarea
                   id="message"
                   value={message}
@@ -110,7 +110,7 @@ const Contact = () => {
               
               <button
                 type="submit"
-                className="btn-primary w-full flex items-center justify-center gap-2 shadow-sm"
+                className="bg-evo-pink text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink-dark hover:translate-y-[-2px] hover:shadow-md w-full flex items-center justify-center gap-2 shadow-sm"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Sending...' : (
@@ -124,9 +124,9 @@ const Contact = () => {
           </div>
           
           {/* Personal Attention Box */}
-          <div className="bg-gradient-to-br from-evo-blue-light to-white p-8 rounded-2xl border border-evo-blue-light/50 shadow-sm">
-            <h4 className="font-rufina text-xl mb-4 text-gradient">Personal Attention</h4>
-            <p className="text-gray-700 mb-6">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
+          <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+            <h4 className="font-rufina text-xl mb-4 text-evo-text">Personal Attention</h4>
+            <p className="text-evo-text mb-6">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
             <a 
               href="#" 
               className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 border-2 border-black/90 bg-transparent hover:bg-black/5 hover:translate-y-[-2px] hover:shadow-md"

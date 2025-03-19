@@ -67,19 +67,20 @@ export default {
 				evo: {
 					pink: {
 						light: "#FFDEE2",
-						DEFAULT: "#FFCAD4",
-						dark: "#F8A4B9",
+						DEFAULT: "#f16e60", // Updated to match the new CTA color
+						dark: "#e35d4f",
 					},
 					blue: {
 						light: "#D3E4FD",
-						DEFAULT: "#B6D0F5",
+						DEFAULT: "#B6D0F5", 
 						dark: "#8FB6E9",
 					},
 					neutral: {
-						light: "#F9F9F9",
-						DEFAULT: "#F0F0F0",
-						dark: "#E5E5E5",
+						light: "#fce5d5", // Updated to match the new background color
+						DEFAULT: "#f7d9c5",
+						dark: "#f2cdb5",
 					},
+					text: "#334154", // New text color
 				},
 			},
 			fontFamily: {

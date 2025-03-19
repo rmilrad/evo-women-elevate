@@ -2,13 +2,13 @@
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Process from '@/components/Process';
+import PainPoints from '@/components/PainPoints';
+import WhyEvo from '@/components/WhyEvo';
 import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import { useInView } from 'react-intersection-observer';
 
 // Add this at the top of the file
 const useScrollToHashOnLoad = () => {
@@ -35,7 +35,8 @@ const Index = () => {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Process />
+      <PainPoints />
+      <WhyEvo />
       <About />
       <Testimonials />
       <Portfolio />
