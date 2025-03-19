@@ -58,11 +58,11 @@ const PainPoints = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-24 bg-black relative text-white overflow-hidden"
+      className="py-24 bg-white relative overflow-hidden"
     >
       {/* Background with parallax effect */}
       <div 
-        className="absolute inset-0 bg-gradient-to-b from-black/90 to-black"
+        className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"
         style={{ transform: `translateY(${getParallaxOffset()}px)` }}
       />
       
@@ -70,10 +70,10 @@ const PainPoints = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={ref}
-            className={`text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+            className={`text-evo-text text-4xl md:text-5xl lg:text-6xl font-bold mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
           >
-            Why is <span className="text-white">audience research</span> <br/>
-            <span className="text-white/60">that hard?</span>
+            Have you ever <span className="text-evo-pink">felt like</span> <br/>
+            <span className="text-evo-text/60">this?</span>
           </h2>
         
           <div className="mb-10">

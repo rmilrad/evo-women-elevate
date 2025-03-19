@@ -45,8 +45,8 @@ const Hero = () => {
       ref={heroRef}
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-evo-pink"
     >
-      {/* Avatar circles at the bottom of the hero section */}
-      <div className="absolute bottom-12 left-0 right-0 flex justify-center space-x-2 md:space-x-4 overflow-hidden px-4">
+      {/* Avatar circles moved above the arrow */}
+      <div className="absolute bottom-24 left-0 right-0 flex justify-center space-x-2 md:space-x-4 overflow-hidden px-4 z-10">
         <div className="flex items-center">
           {Array.from({ length: 10 }).map((_, index) => (
             <div 
