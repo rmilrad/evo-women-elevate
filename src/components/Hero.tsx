@@ -3,16 +3,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDownCircle } from 'lucide-react';
 
 const Hero = () => {
-  const [isEmblemLoaded, setIsEmblemLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Preload the logo_red image
-    const emblemImg = new Image();
-    emblemImg.src = "/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png";
-    emblemImg.onload = () => setIsEmblemLoaded(true);
-
     // Add parallax scroll effect
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -65,16 +59,14 @@ const Hero = () => {
       </div>
       
       {/* Red brand emblem as background */}
-      {isEmblemLoaded && (
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
-          <img 
-            src="/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png" 
-            alt="" 
-            className="w-full h-full object-cover opacity-[0.1]" 
-            style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-          />
-        </div>
-      )}
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
+        <img 
+          src="/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png" 
+          alt="" 
+          className="w-full h-full object-cover opacity-[0.1]" 
+          style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+        />
+      </div>
       
       <div className="container-custom text-center max-w-3xl mx-auto px-6 flex-grow flex flex-col items-center justify-center relative z-10">
         <h1 
