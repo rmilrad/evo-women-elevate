@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDownCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -33,7 +32,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075] pt-16" // Added pt-16 for mobile
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075] pt-16 pb-24 md:pb-16" // Added padding bottom for mobile
     >
       {/* Spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
@@ -45,10 +44,10 @@ const Hero = () => {
         />
       </div>
       
-      {/* Avatar circles moved closer to the bottom */}
-      <div className="absolute bottom-16 left-0 right-0 flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 z-10">
+      {/* Avatar circles moved further up from bottom */}
+      <div className="absolute bottom-28 md:bottom-24 left-0 right-0 flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 z-10">
         <div className="flex items-center">
-          {Array.from({ length: 8 }).map((_, index) => ( // Reduced from 10 to 8 avatars for mobile
+          {Array.from({ length: 8 }).map((_, index) => (
             <div 
               key={index} 
               className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
@@ -97,7 +96,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="cursor-pointer animate-bounce mb-6 md:mb-12 flex justify-center w-full" onClick={scrollToNextSection} style={{ zIndex: 10 }}>
+      <div className="cursor-pointer animate-bounce mb-10 md:mb-12 mt-8 flex justify-center w-full" onClick={scrollToNextSection} style={{ zIndex: 10 }}>
         <ArrowDownCircle className="text-white hover:text-white/80 transition-colors" size={28} />
       </div>
     </section>

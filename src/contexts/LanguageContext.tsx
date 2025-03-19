@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'es';
@@ -35,7 +34,7 @@ const enTranslations: Record<string, string> = {
   'letsChat': 'Let\'s Chat',
   
   // About
-  'evoQuote': '"Evo comes from the word evolution. It was born from my story—and yours."',
+  'evoQuote': 'Evo comes from the word evolution. It was born from my story—and yours.',
   'hiImNazareth': 'Hi, I\'m Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉',
   'iLoveWhatIDo': 'I love what I do because I feel a deep connection to helping women who empower others. It\'s a cycle — I help you make their message visible so you can go on to help someone else.',
   'recentlyIveLearned': 'Recently, I\'ve learned that the most important part of my job is understanding your mission. That\'s how I can truly help you shine.',
@@ -106,7 +105,7 @@ const esTranslations: Record<string, string> = {
   'letsChat': 'Hablemos',
   
   // About
-  'evoQuote': '"Evo viene de la palabra evolución. Nació de mi historia y de la tuya."',
+  'evoQuote': 'Evo viene de la palabra evolución. Nació de mi historia y de la tuya.',
   'hiImNazareth': 'Hola, soy Nazareth, tu creadora de contenido. Nací y crecí en Costa Rica, y ahora viajo para encontrar mi creatividad y a mí misma en cada país al que voy. 🍉',
   'iLoveWhatIDo': 'Amo lo que hago porque siento una conexión profunda al ayudar a mujeres que empoderan a otras. Es un ciclo — te ayudo a hacer visible su mensaje para que puedas seguir ayudando a alguien más.',
   'recentlyIveLearned': 'Recientemente, he aprendido que la parte más importante de mi trabajo es entender tu misión. Así es como puedo realmente ayudarte a brillar.',
