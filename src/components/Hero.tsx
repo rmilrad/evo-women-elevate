@@ -35,12 +35,12 @@ const Hero = () => {
       ref={heroRef}
       className="min-h-screen flex flex-col items-center justify-between relative overflow-hidden bg-[#f78075]"
     >
-      {/* Spiral logo background */}
+      {/* New spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
         <img 
-          src="/lovable-uploads/4af1820e-5698-4188-bc68-0d564bbd819a.png" 
+          src="/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png" 
           alt="" 
-          className="w-[90%] md:w-[85%] lg:w-[80%] max-w-4xl object-contain mx-auto mix-blend-multiply opacity-30" 
+          className="w-[95%] md:w-[90%] lg:w-[85%] max-w-5xl object-contain mx-auto mix-blend-multiply opacity-40" 
           style={{ transform: `translateY(${scrollY * 0.05}px) rotate(${scrollY * 0.02}deg)` }}
         />
       </div>
