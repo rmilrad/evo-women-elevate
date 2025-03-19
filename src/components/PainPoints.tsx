@@ -18,7 +18,7 @@ const PainPoint = ({
   return (
     <div 
       ref={ref}
-      className={`flex items-start gap-4 mb-8 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`flex items-start gap-4 p-4 rounded-lg transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${delay}s` }}
     >
       <div className="flex-shrink-0 bg-white/80 p-2 rounded-full shadow-sm">
@@ -36,17 +36,17 @@ const PainPoints = () => {
   });
 
   return (
-    <section className="section-padding bg-white border-t border-b border-evo-neutral/30 relative overflow-hidden">
+    <section id="pain-points" className="section-padding bg-gradient-to-br from-white via-evo-neutral-light to-white border-t border-b border-evo-neutral/20 relative overflow-hidden">
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={ref}
-            className={`headline-lg mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
+            className={`headline-lg mb-12 text-center transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
           >
             Have you ever felt like...
           </h2>
         
-          <div className="mb-10">
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
             <PainPoint 
               text="You wish there were more hours in the day to be consistent like everyone says you should?" 
               delay={0.1}
