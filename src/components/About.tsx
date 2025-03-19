@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const About = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -13,7 +14,7 @@ const About = () => {
   
   useEffect(() => {
     const img = new Image();
-    img.src = "/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png";
+    img.src = "/lovable-uploads/befa01c1-e062-4aa2-b9a1-3546a1ee5582.png";
     img.onload = () => setIsImageLoaded(true);
   }, []);
 
@@ -58,13 +59,13 @@ const About = () => {
               <div className="rounded-3xl overflow-hidden p-4">
                 {isImageLoaded ? (
                   <img 
-                    src="/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png" 
+                    src="/lovable-uploads/befa01c1-e062-4aa2-b9a1-3546a1ee5582.png" 
                     alt="Nazareth working on a laptop" 
                     className="w-full h-auto object-cover rounded-2xl"
                   />
                 ) : (
                   <div className="w-full h-96 flex items-center justify-center">
-                    <div className="animate-pulse w-16 h-16 rounded-full bg-evo-pink-light"></div>
+                    <Skeleton className="w-full h-96 rounded-2xl" />
                   </div>
                 )}
               </div>
