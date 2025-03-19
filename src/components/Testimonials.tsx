@@ -3,41 +3,43 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Testimonial {
   id: number;
-  quote: string;
-  author: string;
-  title: string;
+  quoteKey: string;
+  authorKey: string;
+  titleKey: string;
   image: string;
   accent: string;
 }
 
 const Testimonials = () => {
+  const { translate } = useLanguage();
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      quote: "I have been working with Nazareth for quite some time now and she has been integral to my business. She helped me create a beautiful e-book which has been downloaded over 1,000 times and has always been incredibly helpful with design. She took the time to understand my business and is always willing to go above and beyond to support me. I've been very happy working with her!",
-      author: "Cassandra Muscara",
-      title: "Leadership Coach",
+      quoteKey: 'testimonial1',
+      authorKey: 'testimonial1Author',
+      titleKey: 'testimonial1Title',
       image: "/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png",
       accent: "bg-amber-50"
     },
     {
       id: 2,
-      quote: "Working with Naza was such a gift! She made social media feel way less overwhelming and so much more doable. From helping me get my reels up and running to refining posts and offering input on strategy, she was there every step of the way and worked hard to keep me on tract. Naza was always accessible, responsive and full of encouragement. Her warmth, positive energy and helpful insights made the process not only easier, but actually more enjoyable! I loved having her in my corner. If you need someone who truly gets social media and can help you show up in a way that feels authentic and aligned, she's your person!",
-      author: "Debbie Zeichner",
-      title: "Parent Coach",
+      quoteKey: 'testimonial2',
+      authorKey: 'testimonial2Author',
+      titleKey: 'testimonial2Title',
       image: "/lovable-uploads/26ecf43d-faaf-42c1-be20-cd07d399a287.png",
       accent: "bg-green-50"
     },
     {
       id: 3,
-      quote: "I have been thrilled to work with Nazareth as my content manager. She is driven, creative, responsible, and reliable. I cannot recommend her highly enough!",
-      author: "Felicia Kashevaroff",
-      title: "Relationship Coach",
+      quoteKey: 'testimonial3',
+      authorKey: 'testimonial3Author',
+      titleKey: 'testimonial3Title',
       image: "/lovable-uploads/539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png",
       accent: "bg-rose-50"
     }
@@ -79,12 +81,12 @@ const Testimonials = () => {
           <h2 
             className={`headline-lg mb-4 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
           >
-            What My Clients Say
+            {translate('whatMyClientsSay')}
           </h2>
           <p 
             className={`text-evo-text transition-all duration-700 delay-200 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
           >
-            Success stories from coaches who transformed their businesses with strategic content and branding.
+            {translate('successStories')}
           </p>
         </div>
         
@@ -116,7 +118,7 @@ const Testimonials = () => {
                         {loadedImages.has(testimonial.image) ? (
                           <img 
                             src={testimonial.image} 
-                            alt={testimonial.author}
+                            alt={translate(testimonial.authorKey)}
                             className="w-full h-full object-cover"
                             width="160"
                             height="160"
@@ -130,13 +132,13 @@ const Testimonials = () => {
                     </div>
                     
                     <blockquote className="text-sm md:text-base italic text-evo-text leading-relaxed">
-                      "{testimonial.quote}"
+                      "{translate(testimonial.quoteKey)}"
                     </blockquote>
                   </div>
                   
                   <div className="flex flex-col mt-4 md:ml-48">
-                    <span className="font-semibold text-evo-text">{testimonial.author}</span>
-                    <span className="text-evo-text/80">{testimonial.title}</span>
+                    <span className="font-semibold text-evo-text">{translate(testimonial.authorKey)}</span>
+                    <span className="text-evo-text/80">{translate(testimonial.titleKey)}</span>
                   </div>
                 </div>
               ))}
@@ -158,14 +160,14 @@ const Testimonials = () => {
                 <button 
                   onClick={prevSlide}
                   className="p-2 rounded-full border border-evo-neutral hover:bg-evo-pink hover:bg-opacity-10 transition-colors"
-                  aria-label="Previous testimonial"
+                  aria-label={translate('previousTestimonial')}
                 >
                   <ArrowLeft size={20} className="text-evo-text" />
                 </button>
                 <button 
                   onClick={nextSlide}
                   className="p-2 rounded-full border border-evo-neutral hover:bg-evo-pink hover:bg-opacity-10 transition-colors"
-                  aria-label="Next testimonial"
+                  aria-label={translate('nextTestimonial')}
                 >
                   <ArrowRight size={20} className="text-evo-text" />
                 </button>
