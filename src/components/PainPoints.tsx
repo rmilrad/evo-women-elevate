@@ -2,14 +2,18 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { AlertCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+interface PainPointProps { 
+  translationKey: string;
+  delay?: number;
+}
 
 const PainPoint = ({ 
-  text, 
+  translationKey, 
   delay = 0
-}: { 
-  text: string;
-  delay?: number;
-}) => {
+}: PainPointProps) => {
+  const { translate } = useLanguage();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -24,12 +28,13 @@ const PainPoint = ({
       <div className="flex-shrink-0 bg-white/90 p-2 rounded-full shadow-sm">
         <AlertCircle className="text-evo-pink" size={20} />
       </div>
-      <p className="text-evo-text font-medium text-lg">{text}</p>
+      <p className="text-evo-text font-medium text-lg">{translate(translationKey)}</p>
     </div>
   );
 };
 
 const PainPoints = () => {
+  const { translate } = useLanguage();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -71,26 +76,24 @@ const PainPoints = () => {
           <h2 
             ref={ref}
             className={`text-evo-text text-4xl md:text-5xl lg:text-6xl font-bold mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-          >
-            Have you ever <span className="text-evo-pink">felt like</span> <br/>
-            <span className="text-evo-text/60">this?</span>
-          </h2>
+            dangerouslySetInnerHTML={{ __html: translate('haveYouEverFelt') }}
+          />
         
           <div className="mb-10">
             <PainPoint 
-              text="You wish there were more hours in the day to be consistent like everyone says you should?" 
+              translationKey="painPoint1" 
               delay={0.1}
             />
             <PainPoint 
-              text="You've tried EVERYTHING marketing gurus tell you on Instagram, but nothing works?" 
+              translationKey="painPoint2" 
               delay={0.2}
             />
             <PainPoint 
-              text="You have no idea how to grow your personal brand?" 
+              translationKey="painPoint3" 
               delay={0.3}
             />
             <PainPoint 
-              text="You have big dreams for your business but no clarity on how to get there?" 
+              translationKey="painPoint4" 
               delay={0.4}
             />
           </div>

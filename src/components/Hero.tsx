@@ -1,10 +1,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDownCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
+  const { translate } = useLanguage();
   
   useEffect(() => {
     // Add parallax scroll effect
@@ -72,15 +74,14 @@ const Hero = () => {
         <h1 
           className="headline-xl text-white font-bold mb-3 text-5xl md:text-6xl lg:text-7xl xl:text-7xl tracking-tight leading-none max-w-5xl"
           style={{ transform: titleTransform }}
-        >
-          Evolve your <span className="opacity-70">business</span> through your <span className="opacity-70">"why."</span>
-        </h1>
+          dangerouslySetInnerHTML={{ __html: translate('evolveYourBusiness') }}
+        />
         
         <p 
           className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed"
           style={{ transform: subtitleTransform }}
         >
-          I help coaches & digital entrepreneurs grow their business through branding and content creation.
+          {translate('iHelpCoaches')}
         </p>
         
         <div 
@@ -88,10 +89,10 @@ const Hero = () => {
           style={{ transform: buttonsTransform }}
         >
           <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg hover:scale-105">
-            View my work
+            {translate('viewMyWork')}
           </a>
           <a href="#contact" className="bg-transparent text-white border-2 border-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:shadow-lg hover:scale-105">
-            Schedule a call
+            {translate('scheduleACall')}
           </a>
         </div>
       </div>

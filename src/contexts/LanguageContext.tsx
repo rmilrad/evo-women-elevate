@@ -44,6 +44,42 @@ const enTranslations: Record<string, string> = {
   'whenWeWorkTogether': 'When we work together, we\'re not just creating content. We\'re crafting your evolution.',
   'withPurpose': 'With purpose,',
   'founderAndContentCreator': 'FOUNDER & CONTENT CREATOR',
+  
+  // Hero
+  'evolveYourBusiness': 'Evolve your <span class="opacity-70">business</span> through your <span class="opacity-70">"why."</span>',
+  'iHelpCoaches': 'I help coaches & digital entrepreneurs grow their business through branding and content creation.',
+  'viewMyWork': 'View my work',
+  'scheduleACall': 'Schedule a call',
+  
+  // PainPoints
+  'haveYouEverFelt': 'Have you ever <span class="text-evo-pink">felt like</span> <br/><span class="text-evo-text/60">this?</span>',
+  'painPoint1': 'You wish there were more hours in the day to be consistent like everyone says you should?',
+  'painPoint2': 'You\'ve tried EVERYTHING marketing gurus tell you on Instagram, but nothing works?',
+  'painPoint3': 'You have no idea how to grow your personal brand?',
+  'painPoint4': 'You have big dreams for your business but no clarity on how to get there?',
+  
+  // Contact
+  'letsConnect': 'Let\'s Connect',
+  'beginYourEvolution': 'Begin Your Evolution Today',
+  'readyToTransform': 'Ready to transform your coaching business? I\'m here to guide you every step of the way.',
+  'sendAMessage': 'Send a Message',
+  'success': 'Success!',
+  'thankYouForReaching': 'Thank you for reaching out! I\'ll get back to you soon.',
+  'name': 'Name',
+  'yourName': 'Your name',
+  'email': 'Email',
+  'yourEmail': 'Your email address',
+  'message': 'Message',
+  'tellMeAbout': 'Tell me about your coaching business...',
+  'sendMessage': 'Send Message',
+  'sending': 'Sending...',
+  'personalAttention': 'Personal Attention',
+  'bookAFree': 'Book a free 30-minute discovery call where we\'ll discuss your unique coaching business needs.',
+  'scheduleCall': 'Schedule a Call',
+  
+  // Footer
+  'allRightsReserved': '© {year} evocreative.com. All rights reserved.',
+  'scrollToTop': 'Scroll to top'
 };
 
 // Spanish translations
@@ -79,6 +115,42 @@ const esTranslations: Record<string, string> = {
   'whenWeWorkTogether': 'Cuando trabajamos juntas, no solo estamos creando contenido. Estamos creando tu evolución.',
   'withPurpose': 'Con propósito,',
   'founderAndContentCreator': 'FUNDADORA & CREADORA DE CONTENIDO',
+  
+  // Hero
+  'evolveYourBusiness': 'Evoluciona tu <span class="opacity-70">negocio</span> a través de tu <span class="opacity-70">"por qué."</span>',
+  'iHelpCoaches': 'Ayudo a coaches y emprendedores digitales a hacer crecer su negocio mediante branding y creación de contenido.',
+  'viewMyWork': 'Ver mi trabajo',
+  'scheduleACall': 'Programa una llamada',
+  
+  // PainPoints
+  'haveYouEverFelt': '¿Alguna vez te has <span class="text-evo-pink">sentido así</span>? <br/><span class="text-evo-text/60">así?</span>',
+  'painPoint1': '¿Deseas que hubiera más horas en el día para ser constante como todos dicen que deberías?',
+  'painPoint2': '¿Has probado TODO lo que los gurús de marketing te dicen en Instagram, pero nada funciona?',
+  'painPoint3': '¿No tienes idea de cómo hacer crecer tu marca personal?',
+  'painPoint4': '¿Tienes grandes sueños para tu negocio pero no tienes claridad sobre cómo llegar allí?',
+  
+  // Contact
+  'letsConnect': 'Conectemos',
+  'beginYourEvolution': 'Comienza Tu Evolución Hoy',
+  'readyToTransform': '¿Lista para transformar tu negocio de coaching? Estoy aquí para guiarte en cada paso del camino.',
+  'sendAMessage': 'Envía un Mensaje',
+  'success': '¡Éxito!',
+  'thankYouForReaching': '¡Gracias por contactarme! Me pondré en contacto contigo pronto.',
+  'name': 'Nombre',
+  'yourName': 'Tu nombre',
+  'email': 'Correo electrónico',
+  'yourEmail': 'Tu dirección de correo electrónico',
+  'message': 'Mensaje',
+  'tellMeAbout': 'Cuéntame sobre tu negocio de coaching...',
+  'sendMessage': 'Enviar Mensaje',
+  'sending': 'Enviando...',
+  'personalAttention': 'Atención Personal',
+  'bookAFree': 'Reserva una llamada de descubrimiento gratuita de 30 minutos donde discutiremos las necesidades específicas de tu negocio de coaching.',
+  'scheduleCall': 'Programar Llamada',
+  
+  // Footer
+  'allRightsReserved': '© {year} evocreative.com. Todos los derechos reservados.',
+  'scrollToTop': 'Volver arriba'
 };
 
 interface LanguageProviderProps {
