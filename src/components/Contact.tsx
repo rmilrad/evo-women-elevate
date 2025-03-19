@@ -1,7 +1,11 @@
+
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -31,21 +35,21 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Use the mailto protocol to open the default email client
-      const subject = `New Inquiry - ${name}`;
-      const body = `
-Name: ${name}
-Email: ${email}
-
-Message:
-${message}
-      `;
+      // Create the form data
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('message', message);
       
-      // Create mailto link
-      const mailtoLink = `mailto:ryanmilrad34@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Send POST request to form handling service
+      const response = await fetch('https://formsubmit.co/ryanmilrad34@gmail.com', {
+        method: 'POST',
+        body: formData,
+      });
       
-      // Open the email client
-      window.location.href = mailtoLink;
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
       
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -54,8 +58,8 @@ ${message}
       setMessage('');
       
       toast({
-        title: "Email client opened",
-        description: "Your default email client has been opened with the message. Please send the email to complete.",
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
         variant: "default",
       });
       
@@ -64,12 +68,12 @@ ${message}
         setIsSubmitted(false);
       }, 5000);
     } catch (error) {
-      console.error("Error opening email client:", error);
+      console.error("Error submitting form:", error);
       setIsSubmitting(false);
       
       toast({
-        title: "Failed to open email client",
-        description: "There was an error opening your email client. Please try again or contact directly via email.",
+        title: "Failed to send message",
+        description: "There was an error sending your message. Please try again later.",
         variant: "destructive",
       });
     }
@@ -103,21 +107,28 @@ ${message}
             <h3 className="font-rufina text-2xl mb-6 text-evo-text">Send a Message</h3>
             
             {isSubmitted ? (
-              <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg p-4 mb-6 flex items-center gap-2">
-                <Heart size={18} className="text-green-600" />
-                <span>Thank you for reaching out! I'll get back to you soon.</span>
-              </div>
+              <Alert className="mb-6 bg-green-50 border-green-200 text-green-700">
+                <Heart className="h-4 w-4 text-green-600" />
+                <AlertTitle>Success!</AlertTitle>
+                <AlertDescription>
+                  Thank you for reaching out! I'll get back to you soon.
+                </AlertDescription>
+              </Alert>
             ) : null}
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" action="https://formsubmit.co/ryanmilrad34@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value={`New Inquiry - ${name}`} />
+              <input type="hidden" name="_captcha" value="false" />
+              
               <div>
                 <label htmlFor="name" className="block text-evo-text mb-2 text-sm">Name</label>
-                <input
+                <Input
                   type="text"
                   id="name"
+                  name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="elegant-input rounded-full"
+                  className="rounded-full"
                   placeholder="Your name"
                   required
                 />
@@ -125,12 +136,13 @@ ${message}
               
               <div>
                 <label htmlFor="email" className="block text-evo-text mb-2 text-sm">Email</label>
-                <input
+                <Input
                   type="email"
                   id="email"
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="elegant-input rounded-full"
+                  className="rounded-full"
                   placeholder="Your email address"
                   required
                 />
@@ -140,16 +152,17 @@ ${message}
                 <label htmlFor="message" className="block text-evo-text mb-2 text-sm">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="elegant-input rounded-xl"
+                  className="elegant-input rounded-xl w-full"
                   placeholder="Tell me about your coaching business..."
                   rows={5}
                   required
                 />
               </div>
               
-              <button
+              <Button
                 type="submit"
                 className="bg-evo-pink text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink-dark hover:translate-y-[-2px] hover:shadow-md w-full flex items-center justify-center gap-2 shadow-sm"
                 disabled={isSubmitting}
@@ -160,7 +173,7 @@ ${message}
                     <Send size={18} />
                   </>
                 )}
-              </button>
+              </Button>
             </form>
           </div>
           
