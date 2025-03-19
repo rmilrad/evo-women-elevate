@@ -97,7 +97,11 @@ const Contact = () => {
               </Alert>
             ) : null}
             
-            <form onSubmit={handleSubmit} className="space-y-6" action="https://formsubmit.co/ryanmilrad34@gmail.com" method="POST">
+            <form 
+              action="https://formsubmit.co/ryanmilrad34@gmail.com" 
+              method="POST" 
+              className="space-y-6"
+            >
               <input type="hidden" name="_subject" value="New Inquiry from Website" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_next" value={window.location.href} />
