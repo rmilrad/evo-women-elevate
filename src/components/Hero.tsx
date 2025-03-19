@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075] pt-16 pb-32 md:pb-24" // Increased bottom padding for more space
+      className="min-h-screen flex flex-col items-center justify-between relative overflow-hidden bg-[#f78075]"
     >
       {/* Spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
@@ -45,61 +45,64 @@ const Hero = () => {
         />
       </div>
       
-      <div className="container-custom text-center max-w-3xl mx-auto px-4 md:px-6 flex-grow flex flex-col items-center justify-center relative z-10">
-        <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-3 tracking-tight leading-tight max-w-5xl font-rufina"
-          style={{ transform: titleTransform }}
-          dangerouslySetInnerHTML={{ __html: translate('evolveYourBusiness') }}
-        />
+      {/* Main content - centered in the viewport */}
+      <div className="flex-1 flex flex-col justify-center w-full py-24 md:py-20">
+        <div className="container-custom text-center max-w-3xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center relative z-10">
+          <h1 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-3 tracking-tight leading-tight max-w-5xl font-rufina"
+            style={{ transform: titleTransform }}
+            dangerouslySetInnerHTML={{ __html: translate('evolveYourBusiness') }}
+          />
+          
+          <p 
+            className="text-base md:text-xl text-white/90 mb-8 md:mb-10 max-w-lg mx-auto font-light leading-relaxed"
+            style={{ transform: subtitleTransform }}
+          >
+            {translate('iHelpCoaches')}
+          </p>
+          
+          <div 
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto mb-12 md:mb-16"
+            style={{ transform: buttonsTransform }}
+          >
+            <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
+              {translate('viewMyWork')}
+            </a>
+            <a href="#contact" className="bg-transparent text-white border-2 border-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
+              {translate('scheduleACall')}
+            </a>
+          </div>
         
-        <p 
-          className="text-base md:text-xl text-white/90 mb-6 md:mb-10 max-w-lg mx-auto font-light leading-relaxed"
-          style={{ transform: subtitleTransform }}
-        >
-          {translate('iHelpCoaches')}
-        </p>
-        
-        <div 
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto"
-          style={{ transform: buttonsTransform }}
-        >
-          <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
-            {translate('viewMyWork')}
-          </a>
-          <a href="#contact" className="bg-transparent text-white border-2 border-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
-            {translate('scheduleACall')}
-          </a>
-        </div>
-      </div>
-      
-      {/* Avatar circles positioned above the arrow */}
-      <div className="relative z-10 mt-10 md:mt-12 mb-10 flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4">
-        <div className="flex items-center">
-          {Array.from({ length: 8 }).map((_, index) => (
-            <div 
-              key={index} 
-              className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
-            >
-              <img 
-                src={`/lovable-uploads/${[
-                  '1203331d-f085-412a-a8ca-8029d14dfd05.png', 
-                  '26ecf43d-faaf-42c1-be20-cd07d399a287.png',
-                  '539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png',
-                  '65cb9449-de78-4118-9e12-49a490c71309.png',
-                  '72435939-277e-4724-92eb-c226341545b6.png',
-                  '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
-                ][index % 6]}`} 
-                alt="" 
-                className="w-full h-full object-cover"
-              />
+          {/* Avatar circles */}
+          <div className="flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 mt-2 mb-4">
+            <div className="flex items-center">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <div 
+                  key={index} 
+                  className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
+                >
+                  <img 
+                    src={`/lovable-uploads/${[
+                      '1203331d-f085-412a-a8ca-8029d14dfd05.png', 
+                      '26ecf43d-faaf-42c1-be20-cd07d399a287.png',
+                      '539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png',
+                      '65cb9449-de78-4118-9e12-49a490c71309.png',
+                      '72435939-277e-4724-92eb-c226341545b6.png',
+                      '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
+                    ][index % 6]}`} 
+                    alt="" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
       
-      {/* Arrow positioned clearly below the avatar circles */}
-      <div className="cursor-pointer animate-bounce mb-8 flex justify-center w-full z-10" onClick={scrollToNextSection}>
-        <ArrowDownCircle className="text-white hover:text-white/80 transition-colors" size={28} />
+      {/* Arrow positioned at the bottom of the section */}
+      <div className="cursor-pointer animate-bounce mb-8 w-full flex justify-center relative z-10" onClick={scrollToNextSection}>
+        <ArrowDownCircle className="text-white hover:text-white/80 transition-colors" size={32} />
       </div>
     </section>
   );
