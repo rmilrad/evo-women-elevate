@@ -30,8 +30,8 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled 
-          ? "py-3 bg-white shadow-md" 
-          : "py-5 bg-transparent"
+          ? "py-2 bg-white shadow-md" 
+          : "py-3 bg-transparent"
       )}
     >
       <div className="container-custom flex items-center justify-between relative z-10">
@@ -47,7 +47,7 @@ const Navbar = () => {
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden md:flex items-center space-x-8">
           <a 
             href="#process" 
             className={cn(
@@ -98,8 +98,8 @@ const Navbar = () => {
             className={cn(
               "text-sm transition-all duration-300",
               scrolled 
-                ? "bg-evo-pink text-white px-6 py-3 rounded-full hover:bg-evo-pink-dark" 
-                : "bg-white text-evo-pink px-6 py-3 rounded-full hover:bg-white/90"
+                ? "bg-evo-pink text-white px-5 py-2 rounded-full hover:bg-evo-pink-dark" 
+                : "bg-white text-evo-pink px-5 py-2 rounded-full hover:bg-white/90"
             )}
           >
             {translate('getStarted')}
@@ -111,21 +111,23 @@ const Navbar = () => {
           {/* Language Switcher in Mobile Top Bar */}
           <LanguageSwitcher 
             className={cn(
-              "bg-opacity-20",
-              scrolled ? "bg-evo-neutral-light text-foreground" : "bg-white/30 text-white"
+              "bg-opacity-30 rounded-full px-3 py-1.5 border border-white/20",
+              scrolled ? "bg-evo-neutral-light text-foreground" : "bg-white/20 text-white"
             )}
           />
           
           {/* Mobile Menu Button */}
           <button 
             className={cn(
-              "",
-              scrolled ? "text-foreground" : "text-white"
+              "p-1.5 rounded-full",
+              scrolled 
+                ? "text-foreground bg-evo-neutral-light" 
+                : "text-white bg-white/20 border border-white/20"
             )}
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -133,35 +135,35 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div 
         className={cn(
-          "fixed inset-0 bg-white z-40 flex flex-col pt-20 px-6 transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 transition-transform duration-300 ease-in-out md:hidden",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <nav className="flex flex-col space-y-8 items-center relative z-10">
+        <nav className="flex flex-col space-y-6 items-center relative z-10">
           <a 
             href="#process" 
-            className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
+            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
             {translate('process')}
           </a>
           <a 
             href="#about" 
-            className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
+            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
             {translate('about')}
           </a>
           <a 
             href="#testimonials" 
-            className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
+            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
             {translate('testimonials')}
           </a>
           <a 
             href="#portfolio" 
-            className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
+            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
             {translate('portfolio')}
@@ -169,7 +171,7 @@ const Navbar = () => {
           
           <a 
             href="#contact" 
-            className="btn-primary mt-4 w-full text-center" 
+            className="bg-evo-pink text-white px-6 py-3 rounded-full w-full text-center font-medium hover:bg-evo-pink-dark transition-colors mt-4" 
             onClick={toggleMenu}
           >
             {translate('getStarted')}

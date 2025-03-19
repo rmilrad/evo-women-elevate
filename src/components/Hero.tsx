@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075]" // Lighter shade of the red
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075] pt-16" // Added pt-16 for mobile
     >
       {/* Spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
@@ -45,13 +45,13 @@ const Hero = () => {
         />
       </div>
       
-      {/* Avatar circles moved above the arrow */}
-      <div className="absolute bottom-24 left-0 right-0 flex justify-center space-x-2 md:space-x-4 overflow-hidden px-4 z-10">
+      {/* Avatar circles moved closer to the bottom */}
+      <div className="absolute bottom-16 left-0 right-0 flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 z-10">
         <div className="flex items-center">
-          {Array.from({ length: 10 }).map((_, index) => (
+          {Array.from({ length: 8 }).map((_, index) => ( // Reduced from 10 to 8 avatars for mobile
             <div 
               key={index} 
-              className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
+              className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
             >
               <img 
                 src={`/lovable-uploads/${[
@@ -70,35 +70,35 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="container-custom text-center max-w-3xl mx-auto px-6 flex-grow flex flex-col items-center justify-center relative z-10">
+      <div className="container-custom text-center max-w-3xl mx-auto px-4 md:px-6 flex-grow flex flex-col items-center justify-center relative z-10">
         <h1 
-          className="headline-xl text-white font-bold mb-3 text-5xl md:text-6xl lg:text-7xl xl:text-7xl tracking-tight leading-none max-w-5xl"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-3 tracking-tight leading-tight max-w-5xl font-rufina"
           style={{ transform: titleTransform }}
           dangerouslySetInnerHTML={{ __html: translate('evolveYourBusiness') }}
         />
         
         <p 
-          className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed"
+          className="text-base md:text-xl text-white/90 mb-6 md:mb-10 max-w-lg mx-auto font-light leading-relaxed"
           style={{ transform: subtitleTransform }}
         >
           {translate('iHelpCoaches')}
         </p>
         
         <div 
-          className="flex gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto"
           style={{ transform: buttonsTransform }}
         >
-          <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg hover:scale-105">
+          <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
             {translate('viewMyWork')}
           </a>
-          <a href="#contact" className="bg-transparent text-white border-2 border-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:shadow-lg hover:scale-105">
+          <a href="#contact" className="bg-transparent text-white border-2 border-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
             {translate('scheduleACall')}
           </a>
         </div>
       </div>
       
-      <div className="cursor-pointer animate-bounce mb-12 flex justify-center w-full" onClick={scrollToNextSection} style={{ zIndex: 10 }}>
-        <ArrowDownCircle className="text-white hover:text-white/80 transition-colors" size={32} />
+      <div className="cursor-pointer animate-bounce mb-6 md:mb-12 flex justify-center w-full" onClick={scrollToNextSection} style={{ zIndex: 10 }}>
+        <ArrowDownCircle className="text-white hover:text-white/80 transition-colors" size={28} />
       </div>
     </section>
   );

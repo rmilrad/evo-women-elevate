@@ -1,18 +1,11 @@
 
 import React from 'react';
-import { Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
   const { translate } = useLanguage();
   
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
   const currentYear = new Date().getFullYear();
   const allRightsReserved = translate('allRightsReserved').replace('{year}', currentYear.toString());
 
@@ -60,14 +53,6 @@ const Footer = () => {
               <Linkedin size={20} className="text-evo-text" />
             </a>
           </div>
-          
-          <button 
-            onClick={scrollToTop} 
-            className="fixed bottom-8 right-8 bg-white shadow-md p-3 rounded-full hover:bg-evo-pink hover:bg-opacity-10 transition-all z-10"
-            aria-label={translate('scrollToTop')}
-          >
-            <ArrowUp size={20} className="text-evo-text" />
-          </button>
         </div>
       </div>
     </footer>
