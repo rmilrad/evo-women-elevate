@@ -1,7 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart } from 'lucide-react';
+import emailjs from 'emailjs-com';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -9,29 +11,74 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
+  
+  // Initialize EmailJS with your public key
+  useEffect(() => {
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key when deploying
+  }, []);
   
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!name || !email || !message) {
+      toast({
+        title: "All fields are required",
+        description: "Please fill in all the fields before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        to_email: "ryanmilrad34@gmail.com",
+        from_name: name,
+        from_email: email,
+        message: message,
+        subject: `New Inquiry - ${name}`,
+      };
+      
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        templateParams
+      );
+      
       setIsSubmitting(false);
       setIsSubmitted(true);
       setName('');
       setEmail('');
       setMessage('');
       
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+        variant: "default",
+      });
+      
       // Reset success message after a delay
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setIsSubmitting(false);
+      
+      toast({
+        title: "Failed to send message",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
