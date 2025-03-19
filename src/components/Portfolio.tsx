@@ -10,9 +10,11 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Portfolio = () => {
   const { translate } = useLanguage();
+  const isMobile = useIsMobile();
   
   // Portfolio images with titles and descriptions
   const portfolioItems = [
@@ -148,7 +150,7 @@ const Portfolio = () => {
           <Carousel className="w-full">
             <CarouselContent className="-ml-2 md:-ml-3">
               {limitedItems.map((item) => (
-                <CarouselItem key={item.id} className="pl-2 md:pl-3 md:basis-1/3 lg:basis-1/4">
+                <CarouselItem key={item.id} className="pl-2 md:pl-3 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                   <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
                     <div className="aspect-[3/4] relative">
                       <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
