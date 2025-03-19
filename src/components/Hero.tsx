@@ -31,18 +31,22 @@ const Hero = () => {
         style={{ zIndex: -1 }}
       />
       
-      {/* Emblem background - full viewport width */}
+      {/* Emblem background - centered with appropriate opacity */}
       {isImageLoaded && (
         <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: -1 }}>
           <img 
             src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
             alt="" 
-            className="w-full max-w-none min-w-[100vw] opacity-[0.03]" 
+            className="w-[120%] max-w-none opacity-[0.05]" 
+            style={{
+              objectFit: "contain",
+              objectPosition: "center"
+            }}
           />
         </div>
       )}
       
-      <div className="container-custom text-center max-w-3xl mx-auto px-6 flex-grow flex flex-col items-center justify-center">
+      <div className="container-custom text-center max-w-3xl mx-auto px-6 flex-grow flex flex-col items-center justify-center relative z-10">
         <h1 className="headline-xl mb-6 text-evo-text leading-[1.15]">
           Evolve your business through your "why."
         </h1>
