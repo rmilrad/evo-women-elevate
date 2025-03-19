@@ -45,8 +45,11 @@ const Hero = () => {
         />
       </div>
       
+      {/* Added a spacer div to create more space between navbar and content */}
+      <div className="h-20 md:h-28"></div>
+      
       {/* Main content - centered in the viewport */}
-      <div className="flex-1 flex flex-col justify-center w-full py-24 md:py-20">
+      <div className="flex-1 flex flex-col justify-center w-full">
         <div className="container-custom text-center max-w-3xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center relative z-10">
           <h1 
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-3 tracking-tight leading-tight max-w-5xl font-rufina"
@@ -62,7 +65,7 @@ const Hero = () => {
           </p>
           
           <div 
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto mb-12 md:mb-16"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto mb-10"
             style={{ transform: buttonsTransform }}
           >
             <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
@@ -74,7 +77,7 @@ const Hero = () => {
           </div>
         
           {/* Avatar circles */}
-          <div className="flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 mt-2 mb-4">
+          <div className="flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 mb-8">
             <div className="flex items-center">
               {Array.from({ length: 8 }).map((_, index) => (
                 <div 
@@ -99,6 +102,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      {/* Flexible spacer to push arrow to bottom */}
+      <div className="flex-grow"></div>
       
       {/* Arrow positioned at the bottom of the section */}
       <div className="cursor-pointer animate-bounce mb-8 w-full flex justify-center relative z-10" onClick={scrollToNextSection}>
