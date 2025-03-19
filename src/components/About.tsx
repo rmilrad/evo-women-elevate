@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 const About = () => {
   const { ref: sectionRef, inView: sectionInView } = useInView({
@@ -28,9 +29,25 @@ const About = () => {
           <div 
             className={`transition-all duration-700 ${sectionInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
           >
-            <div className="rounded-2xl overflow-hidden relative aspect-[3/4] bg-gradient-to-b from-evo-pink-light to-evo-pink flex items-center justify-center shadow-md">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-evo-pink/40 opacity-40"></div>
-              <h3 className="font-rufina text-4xl relative z-10 text-white">Naza</h3>
+            <div className="rounded-2xl overflow-hidden relative aspect-[3/4] bg-gradient-to-b from-evo-pink-light to-evo-pink shadow-md">
+              <img 
+                src="/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png" 
+                alt="Nazareth working on a laptop" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-evo-pink/80 to-transparent p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-rufina text-3xl text-white">Naza</h3>
+                  
+                  <div className="animate-pulse">
+                    <Badge 
+                      className="bg-white/90 hover:bg-white text-evo-pink border-0 px-4 py-1 text-xs font-bold shadow-lg"
+                    >
+                      3+ YEARS EXPERIENCE
+                    </Badge>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -40,25 +57,26 @@ const About = () => {
             <Card className="bg-white/80 backdrop-blur-sm border-evo-pink/10 shadow-md">
               <CardContent className="p-8">
                 <div className="space-y-6 text-evo-text">
-                  <p className="italic text-evo-text/80">"Evo comes from the word evolution. It was born from my story—and yours."</p>
+                  <p className="italic text-evo-text/80 font-medium">"Evo comes from the word evolution. It was born from my story—and yours."</p>
                   
                   <Separator className="my-4 bg-evo-pink/20" />
                   
                   <p>Hi, I'm Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉</p>
                   
-                  <p>I started in the marketing world over three years ago because I craved a remote life since I was a kid.</p>
+                  <p>I love what I do because I feel a deep connection to helping women who empower others. It's a cycle — I help you make their message visible so you can go on to help someone else.</p>
                   
-                  <p>I wanted to travel, open my mind, and keep evolving—because I've always been curious and a bit wild.</p>
+                  <div className="my-8 bg-evo-neutral-light p-6 rounded-lg border-l-4 border-evo-pink">
+                    <p className="text-lg font-medium">I find purpose in everything I do. I find purpose in what <span className="font-bold text-evo-pink">YOU</span> do.</p>
+                  </div>
                   
-                  <p>But I didn't realize when I first started that I needed to focus on someone else's evolution for my own.</p>
+                  <p className="text-evo-text font-bold">That's the difference between content that works and content that doesn't.</p>
                   
-                  <p className="font-medium text-evo-pink">Understanding this changed how I see my content. From that moment on, I connected with why I do what I do.</p>
-                  
-                  <p className="font-bold">I do it to help other women who empower others. It's a cycle—I help them make their message visible so they can go on to help someone else.</p>
-                  
-                  <p>I'm a content manager, and what sets me apart is that <span className="italic">I find purpose in what I do. I find purpose in what you do.</span> That's the difference between content that works and content that doesn't.</p>
-                  
-                  <p className="bg-evo-neutral-light p-4 rounded-lg">3+ years creating content for women like you.</p>
+                  <div className="flex justify-center mt-8">
+                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-evo-pink to-evo-pink-dark text-white font-medium shadow-md">
+                      <span className="text-sm">Creating content for women like you</span>
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white text-evo-pink font-bold text-xs">3+</span>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
