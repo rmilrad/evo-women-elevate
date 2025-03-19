@@ -31,7 +31,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-evo-pink"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075]" // Lighter shade of the red
     >
       {/* Spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
@@ -87,7 +87,7 @@ const Hero = () => {
           className="flex gap-4 justify-center"
           style={{ transform: buttonsTransform }}
         >
-          <a href="#portfolio" className="bg-white text-evo-pink px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg hover:scale-105">
+          <a href="#portfolio" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg hover:scale-105">
             View my work
           </a>
           <a href="#contact" className="bg-transparent text-white border-2 border-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/10 hover:shadow-lg hover:scale-105">
