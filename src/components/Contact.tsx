@@ -6,6 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
+import { Textarea } from './ui/textarea';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -34,49 +35,29 @@ const Contact = () => {
     
     setIsSubmitting(true);
     
-    try {
-      // Create the form data
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('message', message);
-      
-      // Send POST request to form handling service
-      const response = await fetch('https://formsubmit.co/ryanmilrad34@gmail.com', {
-        method: 'POST',
-        body: formData,
-      });
-      
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
-      
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+    // For FormSubmit.co, we'll use the actual form submission instead of fetch
+    // This lets FormSubmit handle the submission process
+    const form = e.target as HTMLFormElement;
+    form.submit();
+    
+    // Since we're using the native form submission, we need to handle the UI state here
+    // as we won't get a response back from the form submission
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    
+    toast({
+      title: "Message sent successfully!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+      variant: "default",
+    });
+    
+    // Reset form after submission
+    setTimeout(() => {
       setName('');
       setEmail('');
       setMessage('');
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-        variant: "default",
-      });
-      
-      // Reset success message after a delay
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setIsSubmitting(false);
-      
-      toast({
-        title: "Failed to send message",
-        description: "There was an error sending your message. Please try again later.",
-        variant: "destructive",
-      });
-    }
+      setIsSubmitted(false);
+    }, 3000);
   };
 
   return (
@@ -117,8 +98,9 @@ const Contact = () => {
             ) : null}
             
             <form onSubmit={handleSubmit} className="space-y-6" action="https://formsubmit.co/ryanmilrad34@gmail.com" method="POST">
-              <input type="hidden" name="_subject" value={`New Inquiry - ${name}`} />
+              <input type="hidden" name="_subject" value="New Inquiry from Website" />
               <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value={window.location.href} />
               
               <div>
                 <label htmlFor="name" className="block text-evo-text mb-2 text-sm">Name</label>
@@ -150,12 +132,12 @@ const Contact = () => {
               
               <div>
                 <label htmlFor="message" className="block text-evo-text mb-2 text-sm">Message</label>
-                <textarea
+                <Textarea
                   id="message"
                   name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="elegant-input rounded-xl w-full"
+                  className="rounded-xl w-full"
                   placeholder="Tell me about your coaching business..."
                   rows={5}
                   required
