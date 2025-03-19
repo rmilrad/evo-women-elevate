@@ -71,13 +71,14 @@ const About = () => {
                 
                 {/* Removed white box border */}
                 <p className="text-evo-text">{translate('recentlyIveLearned')}</p>
-              </div>
-              
-              <div className="space-y-6">
+
+                {/* Moved the "I find purpose..." text here */}
                 <div className="bg-white/50 p-6 rounded-lg">
                   <p className="text-lg font-medium text-evo-text">{translate('iFindPurpose')}</p>
                 </div>
-                
+              </div>
+              
+              <div className="space-y-6">
                 <p className="text-evo-text">{translate('thatsTheDifference')}</p>
                 
                 <p className="text-evo-text font-bold">{translate('whenWeWorkTogether')}</p>

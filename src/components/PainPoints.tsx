@@ -1,7 +1,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { AlertCircle } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PainPointProps { 
@@ -26,9 +26,9 @@ const PainPoint = ({
       style={{ transitionDelay: `${delay}s` }}
     >
       <div className="flex-shrink-0 bg-white/90 p-2 rounded-full shadow-sm">
-        <AlertCircle className="text-evo-pink" size={20} />
+        <ChevronRight className="text-evo-pink" size={20} />
       </div>
-      <p className="text-evo-text font-medium text-lg">{translate(translationKey)}</p>
+      <p className="text-evo-text font-medium text-lg max-w-prose">{translate(translationKey)}</p>
     </div>
   );
 };
