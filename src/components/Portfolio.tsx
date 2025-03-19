@@ -96,8 +96,33 @@ const Portfolio = () => {
       image: "/lovable-uploads/72435939-277e-4724-92eb-c226341545b6.png",
       title: "Personal Branding",
       description: "Professional presence for coaching clients"
-    }
+    },
+    {
+      id: 15,
+      image: "/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png",
+      title: "Marketing Strategy",
+      description: "Visual approach to effective digital marketing"
+    },
+    {
+      id: 16,
+      image: "/lovable-uploads/8cb72782-e6af-46b3-a365-a483d1f3f3c3.png",
+      title: "Content Creation",
+      description: "Professional design for digital content creators"
+    },
   ];
+
+  // Function to shuffle array - Fisher-Yates algorithm
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
+  // Shuffle the portfolio items
+  const shuffledItems = React.useMemo(() => shuffleArray(portfolioItems), []);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -108,9 +133,14 @@ const Portfolio = () => {
     <section 
       id="portfolio" 
       ref={ref}
-      className="section-padding bg-white"
+      className="section-padding bg-white relative"
     >
-      <div className="container-custom">
+      {/* Subtle emblem background */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+        <img src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" alt="" className="w-full max-w-5xl" />
+      </div>
+      
+      <div className="container-custom relative z-10">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h2 
             className={`headline-lg mb-4 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
@@ -129,7 +159,7 @@ const Portfolio = () => {
         >
           <Carousel className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
-              {portfolioItems.map((item) => (
+              {shuffledItems.map((item) => (
                 <CarouselItem key={item.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
                     <div className="aspect-[3/4] relative">

@@ -29,9 +29,22 @@ const Navbar = () => {
         scrolled ? "glassmorphism py-3" : "bg-transparent py-5"
       )}
     >
-      <div className="container-custom flex items-center justify-between">
+      {/* Subtle emblem background for the navbar */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img 
+          src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
+          alt="" 
+          className="w-full h-full object-cover opacity-[0.02]" 
+        />
+      </div>
+      
+      <div className="container-custom flex items-center justify-between relative z-10">
         <a href="#" className="flex items-center">
-          <h1 className="text-2xl font-rufina font-bold tracking-tight text-gradient">evo</h1>
+          <img 
+            src="/lovable-uploads/8cb72782-e6af-46b3-a365-a483d1f3f3c3.png"
+            alt="evo"
+            className="h-8 md:h-10"
+          />
         </a>
         
         {/* Desktop Navigation */}
@@ -60,7 +73,16 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <nav className="flex flex-col space-y-8 items-center">
+        {/* Emblem background for mobile menu */}
+        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
+          <img 
+            src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
+            alt="" 
+            className="w-4/5 max-w-sm opacity-[0.03]" 
+          />
+        </div>
+        
+        <nav className="flex flex-col space-y-8 items-center relative z-10">
           <a 
             href="#process" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
