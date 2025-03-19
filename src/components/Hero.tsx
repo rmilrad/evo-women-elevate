@@ -2,11 +2,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDownCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { 
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
@@ -53,16 +48,6 @@ const Hero = () => {
     '65cb9449-de78-4118-9e12-49a490c71309.png',
     '72435939-277e-4724-92eb-c226341545b6.png',
     '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
-  ];
-  
-  // Client testimonial snippets for hover cards
-  const testimonialSnippets = [
-    "Transformed my coaching business...",
-    "Clear, professional designs...",
-    "Exceeded my expectations...",
-    "Helped me double my client base...",
-    "Beautiful visuals that convert...",
-    "Perfect balance of style and substance..."
   ];
 
   return (
@@ -115,44 +100,28 @@ const Hero = () => {
             </button>
           </div>
         
-          {/* Avatar circles with improved hover effect */}
+          {/* Avatar circles with improved hover effect - without HoverCard */}
           <div className="flex justify-center pt-4 px-4 mb-8 relative h-16">
             <div className="flex items-center">
               {Array.from({ length: 6 }).map((_, index) => (
-                <HoverCard key={index}>
-                  <HoverCardTrigger asChild>
-                    <div 
-                      className="relative"
-                      style={{ marginLeft: index === 0 ? '0' : '-12px', zIndex: activeAvatarIndex === index ? 10 : 6 - index }}
-                      onMouseEnter={() => setActiveAvatarIndex(index)}
-                      onMouseLeave={() => setActiveAvatarIndex(null)}
-                    >
-                      <Avatar 
-                        className={`w-8 h-8 md:w-12 md:h-12 border-2 border-white shadow-md
-                                   transition-all duration-300 cursor-pointer
-                                   ${activeAvatarIndex === index ? 'scale-125' : 'scale-100'}`}
-                      >
-                        <AvatarImage 
-                          src={`/lovable-uploads/${avatarImages[index % avatarImages.length]}`} 
-                          alt="Client" 
-                        />
-                      </Avatar>
-                    </div>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-60">
-                    <div className="flex justify-between space-x-4">
-                      <Avatar className="w-12 h-12">
-                        <AvatarImage src={`/lovable-uploads/${avatarImages[index % avatarImages.length]}`} />
-                      </Avatar>
-                      <div className="space-y-1">
-                        <h4 className="text-sm font-semibold">{`Client ${index + 1}`}</h4>
-                        <p className="text-sm text-gray-500">
-                          {testimonialSnippets[index % testimonialSnippets.length]}
-                        </p>
-                      </div>
-                    </div>
-                  </HoverCardContent>
-                </HoverCard>
+                <div 
+                  key={index}
+                  className="relative"
+                  style={{ marginLeft: index === 0 ? '0' : '-12px', zIndex: activeAvatarIndex === index ? 10 : 6 - index }}
+                  onMouseEnter={() => setActiveAvatarIndex(index)}
+                  onMouseLeave={() => setActiveAvatarIndex(null)}
+                >
+                  <Avatar 
+                    className={`w-8 h-8 md:w-12 md:h-12 border-2 border-white shadow-md
+                               transition-all duration-300 cursor-pointer
+                               ${activeAvatarIndex === index ? 'scale-125' : 'scale-100'}`}
+                  >
+                    <AvatarImage 
+                      src={`/lovable-uploads/${avatarImages[index % avatarImages.length]}`} 
+                      alt="Client" 
+                    />
+                  </Avatar>
+                </div>
               ))}
             </div>
           </div>
