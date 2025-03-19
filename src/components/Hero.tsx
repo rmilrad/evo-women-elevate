@@ -3,17 +3,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDownCircle } from 'lucide-react';
 
 const Hero = () => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isEmblemLoaded, setIsEmblemLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Preload the emblem image
-    const img = new Image();
-    img.src = "/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png";
-    img.onload = () => setIsImageLoaded(true);
-    
     // Preload the logo_red image
     const emblemImg = new Image();
     emblemImg.src = "/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png";
@@ -78,22 +72,6 @@ const Hero = () => {
             alt="" 
             className="w-full h-full object-cover opacity-[0.1]" 
             style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-          />
-        </div>
-      )}
-      
-      {/* Emblem background - centered with appropriate opacity */}
-      {isImageLoaded && (
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
-          <img 
-            src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
-            alt="" 
-            className="w-[150%] max-w-none opacity-[0.1]" 
-            style={{
-              objectFit: "contain",
-              objectPosition: "center",
-              transform: `translateY(${scrollY * 0.1}px)` 
-            }}
           />
         </div>
       )}
