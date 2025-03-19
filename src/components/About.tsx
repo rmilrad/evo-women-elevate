@@ -4,8 +4,10 @@ import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { translate } = useLanguage();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true,
@@ -30,7 +32,7 @@ const About = () => {
             )}>
               <blockquote className="text-3xl md:text-4xl lg:text-5xl font-rufina leading-tight text-evo-text mb-8 relative">
                 <span className="text-6xl font-rufina text-evo-pink absolute -left-6 -top-6">"</span>
-                "Evo comes from the word evolution. It was born from my story—and yours."
+                {translate('evoQuote')}
                 <span className="text-6xl font-rufina text-evo-pink absolute -bottom-12 right-6">"</span>
               </blockquote>
             </div>
@@ -63,27 +65,27 @@ const About = () => {
           )}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
-                <p className="text-evo-text">Hi, I'm Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉</p>
+                <p className="text-evo-text">{translate('hiImNazareth')}</p>
                 
-                <p className="text-evo-text">I love what I do because I feel a deep connection to helping women who empower others. It's a cycle — I help you make their message visible so you can go on to help someone else.</p>
+                <p className="text-evo-text">{translate('iLoveWhatIDo')}</p>
                 
                 {/* Removed white box border */}
-                <p className="text-evo-text">Recently, I've learned that the most important part of my job is understanding your mission. That's how I can truly help you shine.</p>
+                <p className="text-evo-text">{translate('recentlyIveLearned')}</p>
               </div>
               
               <div className="space-y-6">
                 <div className="bg-white/50 p-6 rounded-lg">
-                  <p className="text-lg font-medium text-evo-text">I find purpose in everything I do. I find purpose in what <span className="font-bold text-evo-pink">YOU</span> do.</p>
+                  <p className="text-lg font-medium text-evo-text">{translate('iFindPurpose')}</p>
                 </div>
                 
-                <p className="text-evo-text">That's the difference between content that works and content that doesn't. It's not just about beautiful visuals or clever words—it's about capturing the essence of your mission.</p>
+                <p className="text-evo-text">{translate('thatsTheDifference')}</p>
                 
-                <p className="text-evo-text font-bold">When we work together, we're not just creating content. We're crafting your evolution.</p>
+                <p className="text-evo-text font-bold">{translate('whenWeWorkTogether')}</p>
                 
                 <div className="pt-4">
-                  <p className="italic text-evo-text/80 font-medium">With purpose,</p>
+                  <p className="italic text-evo-text/80 font-medium">{translate('withPurpose')}</p>
                   <p className="font-rufina text-2xl text-evo-pink">Nazareth</p>
-                  <p className="text-evo-text/70 text-sm">FOUNDER & CONTENT CREATOR</p>
+                  <p className="text-evo-text/70 text-sm">{translate('founderAndContentCreator')}</p>
                 </div>
               </div>
             </div>

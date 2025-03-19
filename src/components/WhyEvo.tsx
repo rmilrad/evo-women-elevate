@@ -2,15 +2,17 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Clock, Heart, Eye, TrendingUp } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FeatureProps {
   icon: React.ReactNode;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   delay?: number;
 }
 
-const Feature = ({ icon, title, description, delay = 0 }: FeatureProps) => {
+const Feature = ({ icon, titleKey, descriptionKey, delay = 0 }: FeatureProps) => {
+  const { translate } = useLanguage();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -29,13 +31,14 @@ const Feature = ({ icon, title, description, delay = 0 }: FeatureProps) => {
           {icon}
         </div>
       </div>
-      <h3 className="headline-md mb-3 text-evo-text">{title}</h3>
-      <p className="text-evo-text/80 max-w-sm">{description}</p>
+      <h3 className="headline-md mb-3 text-evo-text">{translate(titleKey)}</h3>
+      <p className="text-evo-text/80 max-w-sm">{translate(descriptionKey)}</p>
     </div>
   );
 };
 
 const WhyEvo = () => {
+  const { translate } = useLanguage();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -45,41 +48,41 @@ const WhyEvo = () => {
     <section className="section-padding bg-gradient-to-b from-white to-evo-neutral-light/30 relative overflow-hidden">
       <div className="container-custom">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <span className="section-tag mb-4">Why Choose Evo</span>
+          <span className="section-tag mb-4">{translate('whyChooseEvo')}</span>
           <h2 
             ref={ref}
             className={`headline-lg mb-6 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
           >
-            Evo Creative was made for you to…
+            {translate('evoCreativeWasMade')}
           </h2>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           <Feature 
             icon={<Clock size={36} className="text-evo-pink" />}
-            title="Save You Time"
-            description="Feel at ease knowing you have the right tools to succeed in your business."
+            titleKey="saveYouTime"
+            descriptionKey="saveYouTimeDesc"
             delay={0.1}
           />
           
           <Feature 
             icon={<Heart size={36} className="text-evo-pink" />}
-            title="Trust Yourself"
-            description="Develop a mindset that helps you grow while enjoying the process."
+            titleKey="trustYourself"
+            descriptionKey="trustYourselfDesc"
             delay={0.2}
           />
           
           <Feature 
             icon={<Eye size={36} className="text-evo-pink" />}
-            title="Gain Clarity"
-            description="Stop communicating what you're not and start making space for what makes you 'you'."
+            titleKey="gainClarity"
+            descriptionKey="gainClarityDesc"
             delay={0.3}
           />
           
           <Feature 
             icon={<TrendingUp size={36} className="text-evo-pink" />}
-            title="Convert"
-            description="Create content that doesn't just grow your audience—it turns followers into clients."
+            titleKey="convert"
+            descriptionKey="convertDesc"
             delay={0.4}
           />
         </div>
@@ -89,7 +92,7 @@ const WhyEvo = () => {
             href="#contact" 
             className="btn-primary rounded-full bg-evo-pink text-white hover:bg-evo-pink-dark border-0"
           >
-            Let's Chat
+            {translate('letsChat')}
           </a>
         </div>
       </div>

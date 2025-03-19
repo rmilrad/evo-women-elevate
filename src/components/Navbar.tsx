@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { translate } = useLanguage();
   
   const toggleMenu = () => setIsOpen(!isOpen);
   
@@ -52,7 +55,7 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            Process
+            {translate('process')}
           </a>
           <a 
             href="#about" 
@@ -61,7 +64,7 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            About
+            {translate('about')}
           </a>
           <a 
             href="#testimonials" 
@@ -70,7 +73,7 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            Testimonials
+            {translate('testimonials')}
           </a>
           <a 
             href="#portfolio" 
@@ -79,8 +82,17 @@ const Navbar = () => {
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
           >
-            Portfolio
+            {translate('portfolio')}
           </a>
+          
+          {/* Language Switcher */}
+          <LanguageSwitcher 
+            className={cn(
+              "bg-opacity-20 hover:bg-opacity-30",
+              scrolled ? "bg-evo-neutral-light text-foreground" : "bg-white text-white"
+            )}
+          />
+          
           <a 
             href="#contact" 
             className={cn(
@@ -90,7 +102,7 @@ const Navbar = () => {
                 : "bg-white text-evo-pink px-6 py-3 rounded-full hover:bg-white/90"
             )}
           >
-            Get Started
+            {translate('getStarted')}
           </a>
         </nav>
         
@@ -120,35 +132,43 @@ const Navbar = () => {
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            Process
+            {translate('process')}
           </a>
           <a 
             href="#about" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            About
+            {translate('about')}
           </a>
           <a 
             href="#testimonials" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            Testimonials
+            {translate('testimonials')}
           </a>
           <a 
             href="#portfolio" 
             className="text-xl text-foreground hover:text-evo-pink-dark transition-colors" 
             onClick={toggleMenu}
           >
-            Portfolio
+            {translate('portfolio')}
           </a>
+          
+          {/* Language Switcher in Mobile Menu */}
+          <div className="flex justify-center w-full">
+            <LanguageSwitcher 
+              className="bg-evo-neutral-light text-foreground hover:bg-evo-neutral"
+            />
+          </div>
+          
           <a 
             href="#contact" 
             className="btn-primary mt-4 w-full text-center" 
             onClick={toggleMenu}
           >
-            Get Started
+            {translate('getStarted')}
           </a>
         </nav>
       </div>
