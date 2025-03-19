@@ -40,7 +40,6 @@ const About = () => {
               <div className="md:col-span-5 relative">
                 <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-evo-pink/80 to-transparent p-6 z-10">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-rufina text-3xl text-white">Naza</h3>
                     <div className="animate-pulse">
                       <div className="bg-white/90 hover:bg-white text-evo-pink border-0 px-4 py-1 text-xs font-bold shadow-lg rounded-full">
                         3+ YEARS EXPERIENCE

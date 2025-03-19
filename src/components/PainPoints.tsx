@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { AlertCircle, ArrowRight } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 
 const PainPoint = ({ 
   text, 
@@ -63,21 +63,6 @@ const PainPoints = () => {
               text="You have big dreams for your business but no clarity on how to get there?" 
               delay={0.4}
             />
-          </div>
-          
-          <div className="flex flex-wrap gap-6 justify-start">
-            <a 
-              href="#contact" 
-              className="btn-primary rounded-full bg-gray-800 text-white hover:bg-gray-900 border-0 flex items-center gap-2"
-            >
-              Let's Chat
-            </a>
-            <a 
-              href="#portfolio" 
-              className="flex items-center gap-2 text-evo-text hover:text-evo-pink transition-colors"
-            >
-              View My Work <ArrowRight size={16} />
-            </a>
           </div>
         </div>
       </div>

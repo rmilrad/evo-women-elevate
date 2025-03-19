@@ -111,8 +111,8 @@ const Portfolio = () => {
     },
   ];
 
-  // Take only the first 9 items for better performance
-  const limitedItems = React.useMemo(() => portfolioItems.slice(0, 9), []);
+  // Take only the first 12 items for better performance
+  const limitedItems = React.useMemo(() => portfolioItems.slice(0, 12), []);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -140,12 +140,12 @@ const Portfolio = () => {
         </div>
         
         <div 
-          className={`transition-all duration-700 delay-400 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-5xl mx-auto`}
+          className={`transition-all duration-700 delay-400 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-4xl mx-auto`}
         >
           <Carousel className="w-full">
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-2 md:-ml-3">
               {limitedItems.map((item) => (
-                <CarouselItem key={item.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={item.id} className="pl-2 md:pl-3 md:basis-1/3 lg:basis-1/4">
                   <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
                     <div className="aspect-[3/4] relative">
                       <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
@@ -153,8 +153,8 @@ const Portfolio = () => {
                           src={item.image} 
                           alt={item.title}
                           loading="lazy"
-                          width="400"
-                          height="533"
+                          width="300"
+                          height="400"
                           className="object-cover w-full h-full rounded-t-xl"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;

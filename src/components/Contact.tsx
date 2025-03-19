@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -14,12 +14,18 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
   const { toast } = useToast();
   
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  
+  // Check if all form fields are filled
+  useEffect(() => {
+    setIsFormValid(name.trim() !== '' && email.trim() !== '' && message.trim() !== '');
+  }, [name, email, message]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -167,7 +173,9 @@ const Contact = () => {
               
               <Button
                 type="submit"
-                className="bg-evo-pink text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink-dark hover:translate-y-[-2px] hover:shadow-md w-full flex items-center justify-center gap-2 shadow-sm"
+                className={`${isFormValid ? 'bg-evo-pink text-white border-evo-pink' : 'bg-white text-evo-pink border-evo-pink'} 
+                  px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink hover:text-white 
+                  hover:translate-y-[-2px] hover:shadow-md w-full flex items-center justify-center gap-2 shadow-sm border-2`}
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Sending...' : (

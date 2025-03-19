@@ -4,12 +4,18 @@ import { ArrowDownCircle } from 'lucide-react';
 
 const Hero = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isEmblemLoaded, setIsEmblemLoaded] = useState(false);
   
   useEffect(() => {
     // Preload the emblem image
     const img = new Image();
     img.src = "/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png";
     img.onload = () => setIsImageLoaded(true);
+    
+    // Preload the logo_red image
+    const emblemImg = new Image();
+    emblemImg.src = "/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png";
+    emblemImg.onload = () => setIsEmblemLoaded(true);
   }, []);
 
   const scrollToNextSection = () => {
@@ -30,6 +36,17 @@ const Hero = () => {
         className="absolute bottom-0 right-0 w-96 h-96 bg-evo-blue rounded-full opacity-20 blur-[80px] translate-x-1/3 translate-y-1/3"
         style={{ zIndex: -1 }}
       />
+      
+      {/* Red brand emblem as background */}
+      {isEmblemLoaded && (
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: -1 }}>
+          <img 
+            src="/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png" 
+            alt="" 
+            className="w-full h-full object-cover opacity-[0.05]" 
+          />
+        </div>
+      )}
       
       {/* Emblem background - centered with appropriate opacity */}
       {isImageLoaded && (
