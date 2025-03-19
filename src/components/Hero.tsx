@@ -70,14 +70,14 @@ const Hero = () => {
       
       <div className="container-custom text-center max-w-3xl mx-auto px-6 flex-grow flex flex-col items-center justify-center relative z-10">
         <h1 
-          className="headline-xl text-white font-bold mb-3 text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none"
+          className="headline-xl text-white font-bold mb-3 text-5xl md:text-6xl lg:text-7xl xl:text-7xl tracking-tight leading-none max-w-5xl"
           style={{ transform: titleTransform }}
         >
           Evolve your <span className="opacity-70">business</span> through your <span className="opacity-70">"why."</span>
         </h1>
         
         <p 
-          className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-light leading-relaxed"
+          className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto font-light leading-relaxed"
           style={{ transform: subtitleTransform }}
         >
           I help coaches & digital entrepreneurs grow their business through branding and content creation.
