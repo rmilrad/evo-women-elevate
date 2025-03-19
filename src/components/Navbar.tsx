@@ -106,17 +106,28 @@ const Navbar = () => {
           </a>
         </nav>
         
-        {/* Mobile Menu Button */}
-        <button 
-          className={cn(
-            "md:hidden",
-            scrolled ? "text-foreground" : "text-white"
-          )}
-          onClick={toggleMenu}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Top Bar: Language Switcher + Menu Button */}
+        <div className="flex items-center gap-3 md:hidden">
+          {/* Language Switcher in Mobile Top Bar */}
+          <LanguageSwitcher 
+            className={cn(
+              "bg-opacity-20",
+              scrolled ? "bg-evo-neutral-light text-foreground" : "bg-white/30 text-white"
+            )}
+          />
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className={cn(
+              "",
+              scrolled ? "text-foreground" : "text-white"
+            )}
+            onClick={toggleMenu}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation */}
@@ -155,13 +166,6 @@ const Navbar = () => {
           >
             {translate('portfolio')}
           </a>
-          
-          {/* Language Switcher in Mobile Menu */}
-          <div className="flex justify-center w-full">
-            <LanguageSwitcher 
-              className="bg-evo-neutral-light text-foreground hover:bg-evo-neutral"
-            />
-          </div>
           
           <a 
             href="#contact" 

@@ -21,7 +21,7 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
       aria-label={translate('language')}
     >
       <Globe size={16} className="mr-1" />
-      <span>{language === 'en' ? 'ES' : 'EN'}</span>
+      <span>{language === 'en' ? 'EN' : 'ES'}</span>
     </button>
   );
 };
