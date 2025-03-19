@@ -139,6 +139,15 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
+        {/* Close button at the top of mobile menu */}
+        <button 
+          className="absolute top-6 right-6 p-2 text-foreground"
+          onClick={toggleMenu}
+          aria-label="Close menu"
+        >
+          <X size={24} />
+        </button>
+        
         <nav className="flex flex-col space-y-6 items-center relative z-10">
           <a 
             href="#process" 

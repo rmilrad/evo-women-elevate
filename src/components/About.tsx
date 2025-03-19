@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
@@ -30,7 +31,9 @@ const About = () => {
               sectionInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             )}>
               <blockquote className="text-3xl md:text-4xl lg:text-5xl font-rufina leading-tight text-evo-text mb-8 relative">
+                <span className="text-evo-pink text-5xl md:text-6xl absolute -left-4 -top-6">"</span>
                 {translate('evoQuote')}
+                <span className="text-evo-pink text-5xl md:text-6xl absolute -right-1 -bottom-10">"</span>
               </blockquote>
             </div>
             

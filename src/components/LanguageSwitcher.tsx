@@ -15,12 +15,12 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
     <button
       onClick={toggleLanguage}
       className={cn(
-        "flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 hover:bg-white/30 text-sm transition-all duration-300",
+        "flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 text-sm transition-all duration-300",
         className
       )}
       aria-label={translate('language')}
     >
-      <Globe size={16} className="mr-0.5" />
+      <Globe size={16} />
       <span>{language === 'en' ? 'EN' : 'ES'}</span>
     </button>
   );
