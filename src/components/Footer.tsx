@@ -15,7 +15,11 @@ const Footer = () => {
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <a href="#" className="mb-6 md:mb-0">
-            <h2 className="text-3xl font-rufina font-bold tracking-tight text-evo-text">evo</h2>
+            <img 
+              src="/evo_red.png" 
+              alt="Evo Creative" 
+              className="h-10 w-auto" 
+            />
           </a>
           
           <div className="flex flex-wrap justify-center gap-4 md:gap-8">

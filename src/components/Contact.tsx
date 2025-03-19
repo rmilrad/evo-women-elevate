@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -7,7 +7,6 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { Textarea } from './ui/textarea';
-import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -16,7 +15,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
-  const formRef = useRef<HTMLFormElement>(null);
   
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -38,37 +36,42 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Using EmailJS to send the form data
-      // You'll need to set up your EmailJS service ID, template ID, and user ID
-      // Replace the placeholders with your actual IDs
-      const result = await emailjs.sendForm(
-        'service_placeholder', // Replace with your service ID
-        'template_placeholder', // Replace with your template ID
-        formRef.current as HTMLFormElement,
-        'user_placeholder' // Replace with your user ID
-      );
-      
-      console.log('Email successfully sent!', result.text);
-      setIsSubmitted(true);
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-        variant: "default",
+      // Using Formspree for form submissions
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
       });
       
-      // Reset form after submission
-      setName('');
-      setEmail('');
-      setMessage('');
-      
-      // Reset isSubmitted after a delay
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000);
-      
+      if (response.ok) {
+        setIsSubmitted(true);
+        
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+          variant: "default",
+        });
+        
+        // Reset form after submission
+        setName('');
+        setEmail('');
+        setMessage('');
+        
+        // Reset isSubmitted after a delay
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 3000);
+      } else {
+        throw new Error('Failed to submit form');
+      }
     } catch (error) {
-      console.error('Failed to send email:', error);
+      console.error('Failed to send message:', error);
       toast({
         title: "Failed to send message",
         description: "There was an error sending your message. Please try again later.",
@@ -117,7 +120,6 @@ const Contact = () => {
             ) : null}
             
             <form 
-              ref={formRef}
               onSubmit={handleSubmit}
               className="space-y-6"
             >
