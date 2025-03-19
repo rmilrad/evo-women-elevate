@@ -135,11 +135,6 @@ const Portfolio = () => {
       ref={ref}
       className="section-padding bg-white relative"
     >
-      {/* Subtle emblem background */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-        <img src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" alt="" className="w-full max-w-5xl" />
-      </div>
-      
       <div className="container-custom relative z-10">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h2 
