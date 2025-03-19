@@ -22,7 +22,7 @@ const Feature = ({ icon, title, description, delay = 0 }: FeatureProps) => {
       className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="bg-gray-100 rounded-full p-6 inline-flex items-center justify-center mb-5">
+      <div className="bg-white/70 rounded-full p-6 inline-flex items-center justify-center mb-5 shadow-sm">
         {icon}
       </div>
       <h3 className="headline-md mb-3 text-evo-text">{title}</h3>
@@ -52,29 +52,29 @@ const WhyEvo = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center max-w-5xl mx-auto">
           <Feature 
             icon={<Clock size={40} className="text-gray-700" />}
-            title="Recuperar Horas"
-            description="Hacerte sentir tranquila por tener las herramientas necesarias para tener éxito con tu negocio."
+            title="Save You Time"
+            description="Feel at ease knowing you have the right tools to succeed in your business."
             delay={0.1}
           />
           
           <Feature 
             icon={<Heart size={40} className="text-gray-700" />}
-            title="Confiar en Ti Misma"
-            description="Y que desarrolles una mentalidad que te impulse a evolucionar disfrutando el proceso sin sentirte abrumada."
+            title="Trust Yourself"
+            description="Develop a mindset that helps you grow while enjoying the process."
             delay={0.2}
           />
           
           <Feature 
             icon={<Eye size={40} className="text-gray-700" />}
-            title="Ganar Claridad"
-            description="Para que dejes de comunicar lo que no eres y que des espacio para comunicar lo que sí. Recuerda que cuando estás confundida, tu mensaje es confuso."
+            title="Gain Clarity"
+            description="Stop communicating what you're not and start making space for what makes you 'you'."
             delay={0.3}
           />
           
           <Feature 
             icon={<TrendingUp size={40} className="text-gray-700" />}
-            title="Convertir"
-            description="Para que crees contenido que no solamente aumenta tus seguidores, si no que convierte."
+            title="Convert"
+            description="Create content that doesn't just grow your audience—it turns followers into clients."
             delay={0.4}
           />
         </div>
@@ -82,7 +82,7 @@ const WhyEvo = () => {
         <div className="flex justify-center mt-16">
           <a 
             href="#contact" 
-            className="btn-primary rounded-full bg-gray-800 text-white hover:bg-gray-900 border-0"
+            className="btn-primary rounded-full bg-evo-pink text-white hover:bg-evo-pink-dark border-0"
           >
             Let's Chat
           </a>

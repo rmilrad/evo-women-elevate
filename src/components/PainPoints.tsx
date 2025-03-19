@@ -43,7 +43,7 @@ const PainPoints = () => {
             ref={ref}
             className={`headline-lg mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
           >
-            Alguna vez, has sentido qué...
+            Have you ever felt like...
           </h2>
         
           <div className="mb-10">
