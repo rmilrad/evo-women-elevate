@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -14,12 +14,18 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
   const { toast } = useToast();
   
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Check if the form is valid whenever inputs change
+  useEffect(() => {
+    setIsFormValid(!!name && !!email && !!message);
+  }, [name, email, message]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -165,9 +171,15 @@ const Contact = () => {
                 />
               </div>
               
-              <Button
+              <button
                 type="submit"
-                className="bg-evo-pink text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink-dark hover:translate-y-[-2px] hover:shadow-md w-full flex items-center justify-center gap-2 shadow-sm"
+                className={`
+                  px-6 py-3 rounded-full font-medium transition-all duration-300 
+                  w-full flex items-center justify-center gap-2 shadow-sm
+                  ${isFormValid 
+                    ? 'bg-evo-pink text-white hover:bg-evo-pink-dark hover:translate-y-[-2px] hover:shadow-md' 
+                    : 'bg-white text-evo-pink border-2 border-evo-pink hover:bg-white/80'}
+                `}
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Sending...' : (
@@ -176,7 +188,7 @@ const Contact = () => {
                     <Send size={18} />
                   </>
                 )}
-              </Button>
+              </button>
             </form>
           </div>
           

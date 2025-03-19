@@ -142,10 +142,10 @@ const Portfolio = () => {
         <div 
           className={`transition-all duration-700 delay-400 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-5xl mx-auto`}
         >
-          <Carousel className="w-full">
+          <Carousel className="w-full max-w-[90%] mx-auto">
             <CarouselContent className="-ml-2 md:-ml-4">
               {limitedItems.map((item) => (
-                <CarouselItem key={item.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={item.id} className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/4">
                   <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
                     <div className="aspect-[3/4] relative">
                       <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
