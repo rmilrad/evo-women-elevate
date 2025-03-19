@@ -1,8 +1,16 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowDownCircle } from 'lucide-react';
 
 const Hero = () => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png";
+    img.onload = () => setIsImageLoaded(true);
+  }, []);
+
   const scrollToNextSection = () => {
     const processSection = document.getElementById('process');
     if (processSection) {
@@ -22,14 +30,16 @@ const Hero = () => {
         style={{ zIndex: -1 }}
       />
       
-      {/* Emblem background */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: -1 }}>
-        <img 
-          src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
-          alt="" 
-          className="w-full max-w-none min-w-[100vw] opacity-[0.03]" 
-        />
-      </div>
+      {/* Emblem background - conditionally render when loaded */}
+      {isImageLoaded && (
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: -1 }}>
+          <img 
+            src="/lovable-uploads/c5d0e305-2097-4ada-8174-d647cbbdb8e3.png" 
+            alt="" 
+            className="w-full max-w-none min-w-[100vw] opacity-[0.03]" 
+          />
+        </div>
+      )}
       
       <div className="container-custom text-center max-w-3xl mx-auto px-6 flex-grow flex flex-col items-center justify-center">
         <h1 className="headline-xl mb-6 text-evo-text leading-[1.15]">

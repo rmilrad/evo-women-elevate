@@ -1,15 +1,22 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
 const About = () => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png";
+    img.onload = () => setIsImageLoaded(true);
+  }, []);
 
   return (
     <section id="about" ref={sectionRef} className="section-padding overflow-hidden bg-gradient-to-b from-white to-evo-neutral-light">
@@ -42,11 +49,19 @@ const About = () => {
                   </div>
                 </div>
                 <div className="h-full min-h-[400px] md:min-h-full bg-gradient-to-b from-evo-pink-light to-evo-pink">
-                  <img 
-                    src="/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png" 
-                    alt="Nazareth working on a laptop" 
-                    className="w-full h-full object-cover"
-                  />
+                  {isImageLoaded ? (
+                    <img 
+                      src="/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png" 
+                      alt="Nazareth working on a laptop" 
+                      className="w-full h-full object-cover"
+                      width="400" 
+                      height="600"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="animate-pulse w-16 h-16 rounded-full bg-evo-pink-light"></div>
+                    </div>
+                  )}
                 </div>
               </div>
               

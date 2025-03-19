@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -14,6 +14,8 @@ interface Testimonial {
 }
 
 const Testimonials = () => {
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  
   const testimonials: Testimonial[] = [
     {
       id: 1,
@@ -40,6 +42,21 @@ const Testimonials = () => {
       accent: "bg-rose-50"
     }
   ];
+
+  // Preload images
+  useEffect(() => {
+    const preloadImages = () => {
+      testimonials.forEach(testimonial => {
+        const img = new Image();
+        img.src = testimonial.image;
+        img.onload = () => {
+          setLoadedImages(prev => new Set(prev).add(testimonial.image));
+        };
+      });
+    };
+    
+    preloadImages();
+  }, []);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const { ref, inView } = useInView({
@@ -96,11 +113,19 @@ const Testimonials = () => {
                   <div className="flex flex-col md:flex-row items-center gap-8 mb-6">
                     <div className={`relative rounded-2xl overflow-hidden shadow-sm flex-shrink-0 ${testimonial.accent} p-1`}>
                       <div className="rounded-xl overflow-hidden w-32 h-32 md:w-40 md:h-40">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.author}
-                          className="w-full h-full object-cover" 
-                        />
+                        {loadedImages.has(testimonial.image) ? (
+                          <img 
+                            src={testimonial.image} 
+                            alt={testimonial.author}
+                            className="w-full h-full object-cover"
+                            width="160"
+                            height="160"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gray-200">
+                            <div className="animate-pulse w-8 h-8 rounded-full bg-gray-300"></div>
+                          </div>
+                        )}
                       </div>
                     </div>
                     

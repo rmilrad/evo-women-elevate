@@ -111,18 +111,8 @@ const Portfolio = () => {
     },
   ];
 
-  // Function to shuffle array - Fisher-Yates algorithm
-  const shuffleArray = (array) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
-
-  // Shuffle the portfolio items
-  const shuffledItems = React.useMemo(() => shuffleArray(portfolioItems), []);
+  // Take only the first 9 items for better performance
+  const limitedItems = React.useMemo(() => portfolioItems.slice(0, 9), []);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -154,15 +144,23 @@ const Portfolio = () => {
         >
           <Carousel className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
-              {shuffledItems.map((item) => (
+              {limitedItems.map((item) => (
                 <CarouselItem key={item.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
                     <div className="aspect-[3/4] relative">
                       <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
                         <img 
                           src={item.image} 
-                          alt={item.title} 
+                          alt={item.title}
+                          loading="lazy"
+                          width="400"
+                          height="533"
                           className="object-cover w-full h-full rounded-t-xl"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            console.log(`Failed to load image: ${target.src}`);
+                            target.src = '/placeholder.svg';
+                          }}
                         />
                       </AspectRatio>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
