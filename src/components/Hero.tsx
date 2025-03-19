@@ -23,12 +23,6 @@ const Hero = () => {
       />
       
       <div className="container-custom text-center max-w-3xl mx-auto px-6 flex-grow flex flex-col items-center justify-center">
-        <div className="mb-6">
-          <span className="inline-block bg-white/50 px-4 py-1 rounded-full text-sm font-medium text-evo-text border border-evo-pink/20 shadow-sm">
-            evocreative.com
-          </span>
-        </div>
-        
         <h1 className="headline-xl mb-6 text-evo-text leading-[1.15]">
           Evolve your business through your "why."
         </h1>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, ArrowRight } from 'lucide-react';
 
 const PainPoint = ({ 
   text, 
@@ -18,13 +18,13 @@ const PainPoint = ({
   return (
     <div 
       ref={ref}
-      className={`bg-white/80 p-6 rounded-xl shadow-sm transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`flex items-start gap-4 mb-8 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="flex items-start gap-4">
-        <AlertCircle className="text-evo-pink mt-1 flex-shrink-0" size={20} />
-        <p className="text-evo-text">{text}</p>
+      <div className="flex-shrink-0 bg-white/80 p-2 rounded-full shadow-sm">
+        <AlertCircle className="text-evo-pink" size={20} />
       </div>
+      <p className="text-evo-text font-medium text-lg">{text}</p>
     </div>
   );
 };
@@ -36,43 +36,49 @@ const PainPoints = () => {
   });
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-evo-neutral-light">
+    <section className="section-padding bg-white border-t border-b border-evo-neutral/30">
       <div className="container-custom">
-        <div className="text-center mb-12 max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 
             ref={ref}
-            className={`headline-lg mb-6 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
+            className={`headline-lg mb-12 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} text-evo-text`}
           >
-            Have you ever felt like…
+            Alguna vez, has sentido qué...
           </h2>
-        </div>
         
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <PainPoint 
-            text="You wish there were more hours in the day to be consistent like everyone says you should?" 
-            delay={0.1}
-          />
-          <PainPoint 
-            text="You've tried EVERYTHING marketing gurus tell you on Instagram, but nothing works?" 
-            delay={0.2}
-          />
-          <PainPoint 
-            text="You have no idea how to grow your personal brand?" 
-            delay={0.3}
-          />
-          <PainPoint 
-            text="You have big dreams for your business but no clarity on how to get there?" 
-            delay={0.4}
-          />
-        </div>
-        
-        <div className="mt-12 text-center">
-          <a 
-            href="#contact" 
-            className="btn-outline rounded-full hover:bg-evo-pink hover:text-white hover:border-transparent transition-all"
-          >
-            Let's Chat
-          </a>
+          <div className="mb-10">
+            <PainPoint 
+              text="You wish there were more hours in the day to be consistent like everyone says you should?" 
+              delay={0.1}
+            />
+            <PainPoint 
+              text="You've tried EVERYTHING marketing gurus tell you on Instagram, but nothing works?" 
+              delay={0.2}
+            />
+            <PainPoint 
+              text="You have no idea how to grow your personal brand?" 
+              delay={0.3}
+            />
+            <PainPoint 
+              text="You have big dreams for your business but no clarity on how to get there?" 
+              delay={0.4}
+            />
+          </div>
+          
+          <div className="flex flex-wrap gap-6 justify-start">
+            <a 
+              href="#contact" 
+              className="btn-primary rounded-full bg-gray-800 text-white hover:bg-gray-900 border-0 flex items-center gap-2"
+            >
+              Let's Chat
+            </a>
+            <a 
+              href="#portfolio" 
+              className="flex items-center gap-2 text-evo-text hover:text-evo-pink transition-colors"
+            >
+              View My Work <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
       </div>
     </section>

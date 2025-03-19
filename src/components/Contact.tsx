@@ -57,8 +57,8 @@ const Contact = () => {
         <div 
           className={`flex flex-col gap-8 max-w-2xl mx-auto transition-all duration-700 delay-400 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         >
-          {/* Send a Message Box */}
-          <div className="bg-gradient-to-br from-evo-blue-light to-white p-8 rounded-2xl border border-evo-blue-light/50 shadow-sm">
+          {/* Send a Message Box - White background */}
+          <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
             <h3 className="font-rufina text-2xl mb-6 text-evo-text">Send a Message</h3>
             
             {isSubmitted ? (
@@ -123,8 +123,8 @@ const Contact = () => {
             </form>
           </div>
           
-          {/* Personal Attention Box */}
-          <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+          {/* Personal Attention Box - Blue gradient */}
+          <div className="bg-gradient-to-br from-evo-blue-light to-evo-blue p-8 rounded-2xl border border-evo-blue-light shadow-sm">
             <h4 className="font-rufina text-xl mb-4 text-evo-text">Personal Attention</h4>
             <p className="text-evo-text mb-6">Book a free 30-minute discovery call where we'll discuss your unique coaching business needs.</p>
             <a 
