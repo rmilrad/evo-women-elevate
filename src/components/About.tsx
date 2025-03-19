@@ -39,7 +39,8 @@ const About = () => {
               {/* Image area */}
               <div className="md:col-span-5 relative">
                 <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-evo-pink/80 to-transparent p-6 z-10">
-                  <div className="flex items-center justify-end">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-rufina text-3xl text-white">Naza</h3>
                     <div className="animate-pulse">
                       <div className="bg-white/90 hover:bg-white text-evo-pink border-0 px-4 py-1 text-xs font-bold shadow-lg rounded-full">
                         3+ YEARS EXPERIENCE
@@ -51,7 +52,7 @@ const About = () => {
                   {isImageLoaded ? (
                     <img 
                       src="/lovable-uploads/1569bdcd-f056-4328-a9f6-fc36153dcb08.png" 
-                      alt="Woman working on a laptop" 
+                      alt="Nazareth working on a laptop" 
                       className="w-full h-full object-cover"
                       width="400" 
                       height="600"
