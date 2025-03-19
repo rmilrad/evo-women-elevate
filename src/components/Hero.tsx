@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDownCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -32,7 +33,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075] pt-16 pb-24 md:pb-16" // Added padding bottom for mobile
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-[#f78075] pt-16 pb-32 md:pb-24" // Increased bottom padding for more space
     >
       {/* Spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
@@ -42,31 +43,6 @@ const Hero = () => {
           className="w-[90%] md:w-[85%] lg:w-[80%] max-w-4xl object-contain mx-auto mix-blend-multiply opacity-30" 
           style={{ transform: `translateY(${scrollY * 0.05}px) rotate(${scrollY * 0.02}deg)` }}
         />
-      </div>
-      
-      {/* Avatar circles moved further up from bottom */}
-      <div className="absolute bottom-28 md:bottom-24 left-0 right-0 flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4 z-10">
-        <div className="flex items-center">
-          {Array.from({ length: 8 }).map((_, index) => (
-            <div 
-              key={index} 
-              className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
-            >
-              <img 
-                src={`/lovable-uploads/${[
-                  '1203331d-f085-412a-a8ca-8029d14dfd05.png', 
-                  '26ecf43d-faaf-42c1-be20-cd07d399a287.png',
-                  '539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png',
-                  '65cb9449-de78-4118-9e12-49a490c71309.png',
-                  '72435939-277e-4724-92eb-c226341545b6.png',
-                  '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
-                ][index % 6]}`} 
-                alt="" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
       </div>
       
       <div className="container-custom text-center max-w-3xl mx-auto px-4 md:px-6 flex-grow flex flex-col items-center justify-center relative z-10">
@@ -96,7 +72,33 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="cursor-pointer animate-bounce mb-10 md:mb-12 mt-8 flex justify-center w-full" onClick={scrollToNextSection} style={{ zIndex: 10 }}>
+      {/* Avatar circles positioned above the arrow */}
+      <div className="relative z-10 mt-10 md:mt-12 mb-10 flex justify-center space-x-1 md:space-x-2 overflow-hidden px-4">
+        <div className="flex items-center">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <div 
+              key={index} 
+              className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-white shadow-md -ml-1 first:ml-0 overflow-hidden border-2 border-white flex-shrink-0"
+            >
+              <img 
+                src={`/lovable-uploads/${[
+                  '1203331d-f085-412a-a8ca-8029d14dfd05.png', 
+                  '26ecf43d-faaf-42c1-be20-cd07d399a287.png',
+                  '539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png',
+                  '65cb9449-de78-4118-9e12-49a490c71309.png',
+                  '72435939-277e-4724-92eb-c226341545b6.png',
+                  '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
+                ][index % 6]}`} 
+                alt="" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Arrow positioned clearly below the avatar circles */}
+      <div className="cursor-pointer animate-bounce mb-8 flex justify-center w-full z-10" onClick={scrollToNextSection}>
         <ArrowDownCircle className="text-white hover:text-white/80 transition-colors" size={28} />
       </div>
     </section>
