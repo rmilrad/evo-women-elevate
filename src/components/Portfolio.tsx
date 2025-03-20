@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/carousel';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
-import graphicDesignImages from '@/assets/graphicdesignimages';
 
 type PortfolioCategory = {
   key: string;
@@ -71,7 +70,34 @@ const Portfolio = () => {
   // Placeholder image for Digital Products, Social Carousels, and Reels categories
   const placeholderImage = '/placeholder.svg';
   
-  // Categories with placeholder images for other categories and imported images for Graphic Design
+  // Use the direct Lovable upload URLs for the graphic design images
+  const graphicDesignImages = [
+    '/lovable-uploads/532ae445-5839-4994-bb8d-5789d6b0dcfc.png', // image1
+    '/lovable-uploads/53ae287a-26d5-4fb4-8021-1d1464806a55.png', // image2
+    '/lovable-uploads/f07fee27-e0d1-4d99-835f-80b9f88b61c7.png', // image3
+    '/lovable-uploads/a25f99a0-071b-46e5-954f-d627377fbe4d.png', // image4
+    '/lovable-uploads/2c47c61c-d1f4-49a9-b2bd-c34141d4cbfe.png', // image5
+    '/lovable-uploads/3805eedd-2dcf-44fb-9c57-a62015accb31.png', // image6
+    '/lovable-uploads/45be423c-bd1c-49a8-9cac-0ec73e1b950a.png', // image7
+    '/lovable-uploads/3dc7088d-cdd5-42b0-a934-b3de03723807.png', // image8
+    '/lovable-uploads/167099ad-df27-4df0-98c6-9817ea5dbc99.png', // image9
+    '/lovable-uploads/b9ecd03f-9d38-4e72-ac02-4c87e53f7d0f.png', // image10
+    '/lovable-uploads/a20d4ea5-e67d-4250-a00e-025f6fed7b91.png', // image11
+    '/lovable-uploads/86173fb1-7490-478b-9457-14cb75fedfad.png', // image12
+    '/lovable-uploads/5ad39167-1cf6-4f52-8ae0-d7c0ba6496c2.png', // image13
+    '/lovable-uploads/28a7c071-4944-43d7-bffb-8a49afb63647.png', // image14
+    '/lovable-uploads/f95e4e76-f0e0-4f0e-a64e-adc6ac281a53.png', // image15
+    '/lovable-uploads/19afe613-1d16-4ac4-9cfe-5cc53cb7afa9.png', // image16
+    // New images from this message
+    '/lovable-uploads/a0d28ae1-49e7-479a-927e-daa662312ecf.png',
+    '/lovable-uploads/a526fd50-3042-42e5-bd7f-aa2f3c929271.png',
+    '/lovable-uploads/d50abfc4-289c-4a36-9181-3d918009eb15.png',
+    '/lovable-uploads/1defe4d2-0544-443e-8bc0-e2d8fb58d16f.png',
+    '/lovable-uploads/0e572c9d-045b-4e61-8b56-ca987f7299bc.png',
+    '/lovable-uploads/409a9a17-84d8-40fa-8bd1-65f5d1541b16.png'
+  ];
+  
+  // Categories with placeholder images for other categories and direct URLs for Graphic Design
   const portfolioCategories: PortfolioCategory[] = [
     {
       key: 'digitalProducts',
@@ -112,17 +138,9 @@ const Portfolio = () => {
     threshold: 0.1,
   });
 
-  // Enhanced debug log to verify image paths
+  // Debug log to verify image paths
   React.useEffect(() => {
     console.log("Graphic design images loaded:", graphicDesignImages);
-    
-    // Test image loading
-    graphicDesignImages.forEach((src, index) => {
-      const img = new Image();
-      img.onload = () => console.log(`Image ${index + 1} loaded successfully: ${src}`);
-      img.onerror = () => console.error(`Failed to load image ${index + 1}: ${src}`);
-      img.src = src;
-    });
   }, []);
 
   return (

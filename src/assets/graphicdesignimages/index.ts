@@ -1,6 +1,7 @@
+// This file is now no longer used directly by the portfolio component
+// The Portfolio component now uses direct URLs to the Lovable uploads
 
-// This file exports all graphic design images as an array
-
+// For backwards compatibility, we keep the exports
 import image1 from './image1.png';
 import image2 from './image2.png';
 import image3 from './image3.png';
