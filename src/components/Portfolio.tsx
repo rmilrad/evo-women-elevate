@@ -70,7 +70,7 @@ const Portfolio = () => {
   // Placeholder image for Digital Products, Social Carousels, and Reels categories
   const placeholderImage = '/placeholder.svg';
   
-  // Graphic Design images from the uploaded files
+  // Graphic Design images - make sure to use relative paths
   const graphicDesignImages = [
     '/lovable-uploads/3bf50756-433c-4bd8-a388-563ac4d2a479.png',
     '/lovable-uploads/bc29cbf5-99e5-43c4-bfdb-5f3fccc85d14.png',
