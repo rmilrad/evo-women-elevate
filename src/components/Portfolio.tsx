@@ -71,6 +71,7 @@ const Portfolio = () => {
   const placeholderImage = '/placeholder.svg';
   
   // Use the direct Lovable upload URLs for the graphic design images
+  // Include both previously added images and newly uploaded ones
   const graphicDesignImages = [
     '/lovable-uploads/532ae445-5839-4994-bb8d-5789d6b0dcfc.png', // image1
     '/lovable-uploads/53ae287a-26d5-4fb4-8021-1d1464806a55.png', // image2
@@ -96,7 +97,15 @@ const Portfolio = () => {
     '/lovable-uploads/0e572c9d-045b-4e61-8b56-ca987f7299bc.png',
     '/lovable-uploads/409a9a17-84d8-40fa-8bd1-65f5d1541b16.png',
     // Adding the emblem from the hero section
-    '/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png'
+    '/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png',
+    // New uploaded images
+    '/lovable-uploads/024ae9fd-a05d-4fa0-ba4e-e0291d861d0f.png',
+    '/lovable-uploads/3f5c518d-c387-4c60-a60c-6a9768286cd2.png',
+    '/lovable-uploads/135bbd47-e19c-420f-ac56-e839638fa8ac.png',
+    '/lovable-uploads/7927e413-467f-4e1d-9680-fff0a37cf4e3.png',
+    '/lovable-uploads/23c31b83-e897-447b-9c91-788b397025e7.png',
+    '/lovable-uploads/48d48d4d-94a5-4f62-a62e-e0fd95d38bb6.png',
+    '/lovable-uploads/493948e8-374e-400e-a282-f9a5290ef865.png'
   ];
   
   // Categories with placeholder images for other categories and direct URLs for Graphic Design
