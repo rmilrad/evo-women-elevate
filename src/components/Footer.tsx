@@ -22,7 +22,6 @@ const Footer = () => {
           </a>
           
           <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-            <a href="#process" className="text-evo-text hover:text-evo-pink transition-colors">{translate('process')}</a>
             <a href="#about" className="text-evo-text hover:text-evo-pink transition-colors">{translate('about')}</a>
             <a href="#testimonials" className="text-evo-text hover:text-evo-pink transition-colors">{translate('testimonials')}</a>
             <a href="#portfolio" className="text-evo-text hover:text-evo-pink transition-colors">{translate('portfolio')}</a>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Clock, Heart, Eye, TrendingUp } from 'lucide-react';

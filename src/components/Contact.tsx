@@ -198,7 +198,9 @@ const Contact = () => {
             <h4 className="font-rufina text-xl mb-4 text-evo-text relative z-10">{translate('personalAttention')}</h4>
             <p className="text-evo-text mb-6 relative z-10">{translate('bookAFree')}</p>
             <a 
-              href="#" 
+              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ezhw_HsoCeHCRA-8rVNY30LCsMlYT2iScbk0K_wqh7O4E-WCx3qwyoaXj8iAKnGU53Ofru4nc" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 border-2 border-evo-blue/80 bg-white/50 hover:bg-white hover:translate-y-[-2px] hover:shadow-md text-evo-text relative z-10"
             >
               {translate('scheduleCall')}

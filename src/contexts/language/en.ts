@@ -19,7 +19,7 @@ const enTranslations: TranslationRecord = {
   'trustYourselfDesc': 'Develop a mindset that helps you grow while enjoying the process.',
   'gainClarity': 'Gain Clarity',
   'gainClarityDesc': 'Stop communicating what you\'re not and start making space for what makes you \'you\'.',
-  'convert': 'Convert & Sells',
+  'convert': 'Convert & Sell',
   'convertDesc': 'Create content that doesn\'t just grow your audience—it turns followers into clients.',
   'letsChat': 'Let\'s Chat',
   

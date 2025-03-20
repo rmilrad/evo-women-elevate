@@ -171,6 +171,29 @@ const esTranslations: TranslationRecord = {
   'useExperience': 'Aprovechando experiencias compartidas para el crecimiento',
   'socialCarousel17': 'Compartir con la Pareja',
   'shareWithPartner': 'Estrategias de comunicación para fortalecer la intimidad',
+  
+  // Contact
+  'letsConnect': 'Conectémonos',
+  'beginYourEvolution': 'Comienza Tu Evolución Hoy',
+  'readyToTransform': '¿Listo para transformar tu negocio? Estoy aquí para guiarte en cada paso del camino.',
+  'sendAMessage': 'Enviar un Mensaje',
+  'success': '¡Éxito!',
+  'thankYouForReaching': '¡Gracias por contactarme! Te responderé pronto.',
+  'name': 'Nombre',
+  'yourName': 'Tu nombre',
+  'email': 'Correo Electrónico',
+  'yourEmail': 'Tu dirección de correo electrónico',
+  'message': 'Mensaje',
+  'tellMeAbout': 'Cuéntame sobre tu negocio...',
+  'sendMessage': 'Enviar Mensaje',
+  'sending': 'Enviando...',
+  'personalAttention': 'Atención Personalizada',
+  'bookAFree': 'Reserva una llamada de descubrimiento gratuita de 30 minutos donde discutiremos las necesidades únicas de tu negocio.',
+  'scheduleCall': 'Programar una Llamada',
+  
+  // Footer
+  'allRightsReserved': '© {year} evocreative.com. Todos los derechos reservados.',
+  'scrollToTop': 'Ir arriba'
 };
 
 export default esTranslations;
