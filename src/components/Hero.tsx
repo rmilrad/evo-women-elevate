@@ -3,9 +3,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDownCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [activeAvatarIndex, setActiveAvatarIndex] = useState<number | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const { translate } = useLanguage();
   
@@ -20,9 +22,9 @@ const Hero = () => {
   }, []);
 
   const scrollToNextSection = () => {
-    const painPointsSection = document.getElementById('pain-points');
-    if (painPointsSection) {
-      painPointsSection.scrollIntoView({ behavior: 'smooth' });
+    const processSection = document.getElementById('process');
+    if (processSection) {
+      processSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
   
@@ -37,6 +39,16 @@ const Hero = () => {
   const titleTransform = `translateY(${scrollY * 0.2}px)`;
   const subtitleTransform = `translateY(${scrollY * 0.15}px)`;
   const buttonsTransform = `translateY(${scrollY * 0.1}px)`;
+  
+  // Avatar image sources
+  const avatarImages = [
+    '1203331d-f085-412a-a8ca-8029d14dfd05.png', 
+    '26ecf43d-faaf-42c1-be20-cd07d399a287.png',
+    '539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png',
+    '65cb9449-de78-4118-9e12-49a490c71309.png',
+    '72435939-277e-4724-92eb-c226341545b6.png',
+    '8cb72782-e6af-46b3-a365-a483d1f3f3c3.png'
+  ];
 
   return (
     <section 
@@ -86,6 +98,32 @@ const Hero = () => {
               {translate('viewMyWork')}
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
             </button>
+          </div>
+        
+          {/* Avatar circles with improved hover effect - without HoverCard */}
+          <div className="flex justify-center pt-4 px-4 mb-8 relative h-16">
+            <div className="flex items-center">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <div 
+                  key={index}
+                  className="relative"
+                  style={{ marginLeft: index === 0 ? '0' : '-12px', zIndex: activeAvatarIndex === index ? 10 : 6 - index }}
+                  onMouseEnter={() => setActiveAvatarIndex(index)}
+                  onMouseLeave={() => setActiveAvatarIndex(null)}
+                >
+                  <Avatar 
+                    className={`w-8 h-8 md:w-12 md:h-12 border-2 border-white shadow-md
+                               transition-all duration-300 cursor-pointer
+                               ${activeAvatarIndex === index ? 'scale-125' : 'scale-100'}`}
+                  >
+                    <AvatarImage 
+                      src={`/lovable-uploads/${avatarImages[index % avatarImages.length]}`} 
+                      alt="Client" 
+                    />
+                  </Avatar>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
