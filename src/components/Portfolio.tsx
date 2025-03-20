@@ -67,10 +67,30 @@ const Portfolio = () => {
   const { translate } = useLanguage();
   const isMobile = useIsMobile();
   
-  // Empty placeholder images for each category
+  // Placeholder image for Digital Products, Social Carousels, and Reels categories
   const placeholderImage = '/placeholder.svg';
   
-  // Categories with placeholder images
+  // Graphic Design images from the uploaded files
+  const graphicDesignImages = [
+    '/lovable-uploads/3bf50756-433c-4bd8-a388-563ac4d2a479.png',
+    '/lovable-uploads/bc29cbf5-99e5-43c4-bfdb-5f3fccc85d14.png',
+    '/lovable-uploads/9db3dd5a-129b-410f-88f0-d7365748cea2.png',
+    '/lovable-uploads/41deda31-2887-4371-a07c-b86ab2d6ff0e.png',
+    '/lovable-uploads/55ff2762-7ccc-47dd-9b4c-94daf273bf98.png',
+    '/lovable-uploads/e2abd5f6-7011-46b9-922a-8af07f421679.png',
+    '/lovable-uploads/2003dc51-ef50-4904-9a7b-7d891afe9178.png',
+    '/lovable-uploads/19069738-9d87-4259-a88d-a6de9cf1a5e3.png',
+    '/lovable-uploads/cac2fff3-31b4-47a9-a0e0-c5bddb02c6e3.png',
+    '/lovable-uploads/7793d865-8c5b-45f1-91b3-46f892ebc502.png',
+    '/lovable-uploads/3a056af1-0b05-4b4b-8044-0a03063f2b91.png',
+    '/lovable-uploads/4a6a12ee-7c92-4856-b305-daac30bd1081.png',
+    '/lovable-uploads/85fd8f1d-aa2f-40b6-9f93-375a01f3ea7d.png',
+    '/lovable-uploads/40319b0a-2653-40ee-9618-4d4b41e53cf0.png',
+    '/lovable-uploads/245ba89f-a1d0-4b25-947f-0a79155437b4.png',
+    '/lovable-uploads/8d0f7fd2-250c-4af5-9b45-7d87f0d8651b.png',
+  ];
+  
+  // Categories with placeholder images for other categories and real images for Graphic Design
   const portfolioCategories: PortfolioCategory[] = [
     {
       key: 'digitalProducts',
@@ -91,9 +111,9 @@ const Portfolio = () => {
     {
       key: 'graphicDesign',
       titleKey: 'graphicDesign',
-      items: Array.from({ length: 5 }, (_, i) => ({
-        id: i + 1,
-        image: placeholderImage,
+      items: graphicDesignImages.map((image, index) => ({
+        id: index + 1,
+        image,
       }))
     },
     {

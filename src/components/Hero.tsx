@@ -20,9 +20,9 @@ const Hero = () => {
   }, []);
 
   const scrollToNextSection = () => {
-    const processSection = document.getElementById('process');
-    if (processSection) {
-      processSection.scrollIntoView({ behavior: 'smooth' });
+    const painPointsSection = document.getElementById('pain-points');
+    if (painPointsSection) {
+      painPointsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
   
