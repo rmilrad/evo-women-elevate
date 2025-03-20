@@ -282,6 +282,48 @@ const Portfolio = () => {
       image: "/lovable-uploads/d757894d-4277-41c0-8885-f501dbc15697.png",
       titleKey: "socialCarousel10",
       descriptionKey: "workBalanceTips"
+    },
+    {
+      id: 11,
+      image: "/lovable-uploads/24fea0e4-e337-4739-980d-75958c9a3fd7.png",
+      titleKey: "socialCarousel11",
+      descriptionKey: "rekindlePassion"
+    },
+    {
+      id: 12,
+      image: "/lovable-uploads/5f23f8a8-6c01-420e-ad27-0063fb524985.png",
+      titleKey: "socialCarousel12",
+      descriptionKey: "relationshipBeginning"
+    },
+    {
+      id: 13,
+      image: "/lovable-uploads/ee1da4e0-7561-48d3-b1ba-9fbd4934835e.png",
+      titleKey: "socialCarousel13",
+      descriptionKey: "complexityOfLife"
+    },
+    {
+      id: 14,
+      image: "/lovable-uploads/b7e962cb-61b0-4908-9875-51da204bedce.png",
+      titleKey: "socialCarousel14",
+      descriptionKey: "buildAnticipation"
+    },
+    {
+      id: 15,
+      image: "/lovable-uploads/f1aaea4e-1f6e-455a-a9b7-d55bfd542d96.png",
+      titleKey: "socialCarousel15",
+      descriptionKey: "fosterTrust"
+    },
+    {
+      id: 16,
+      image: "/lovable-uploads/90f734ea-494d-4405-8f03-1a10b5f20b4b.png",
+      titleKey: "socialCarousel16",
+      descriptionKey: "useExperience"
+    },
+    {
+      id: 17,
+      image: "/lovable-uploads/84d21488-c913-4100-9af8-ead9aeca072d.png",
+      titleKey: "socialCarousel17",
+      descriptionKey: "shareWithPartner"
     }
   ];
 
@@ -364,7 +406,7 @@ const Portfolio = () => {
           {renderCarousel(digitalProductItems, 700)}
         </div>
         
-        {/* Social Carousels Carousel - New addition */}
+        {/* Social Carousels Carousel */}
         <div className="mb-16">
           <h3 className={`text-2xl font-semibold mb-6 text-left transition-all duration-700 delay-900 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             Social Carousels

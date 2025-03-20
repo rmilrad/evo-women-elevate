@@ -1,4 +1,3 @@
-
 import { TranslationRecord } from './types';
 
 // English translations
@@ -118,6 +117,42 @@ const enTranslations: TranslationRecord = {
   'connectingReal': 'Real-life examples of parent-child connection',
   'digitalProduct8': 'Parenting Tool',
   'parentingTool': 'Tool #2 for effective parenting strategies',
+  
+  // Social Carousel portfolio items
+  'socialCarousel1': 'Company Culture',
+  'companyCulture': 'Visual content for fostering positive workplace culture',
+  'socialCarousel2': 'Career Growth',
+  'careerGrowth': 'Professional development strategies for career advancement',
+  'socialCarousel3': 'Burnout Warning',
+  'burnoutWarning': 'Educational content about workplace burnout signs',
+  'socialCarousel4': 'Mind Racing',
+  'mindRacing': 'Strategies for calming an overactive mind',
+  'socialCarousel5': 'Burnout Ticket',
+  'burnoutTicket': 'Visual metaphor for burnout warning signs',
+  'socialCarousel6': 'Work Resilience',
+  'workResilience': 'Building resilience in challenging work environments',
+  'socialCarousel7': 'Burnout Cycle',
+  'burnoutCycle': 'Understanding the cyclical nature of workplace burnout',
+  'socialCarousel8': 'Healing Burnout',
+  'healingBurnout': 'Strategies for recovery from workplace exhaustion',
+  'socialCarousel9': 'Corporate Mentor',
+  'corporateMentor': 'Building connection and guidance for professionals',
+  'socialCarousel10': 'Work Balance Tips',
+  'workBalanceTips': 'Practical advice for achieving work-life balance',
+  'socialCarousel11': 'Rekindle Passion',
+  'rekindlePassion': 'Tips for bringing back the spark in relationships',
+  'socialCarousel12': 'Relationship Beginning',
+  'relationshipBeginning': 'Understanding the early phases of relationships',
+  'socialCarousel13': 'Complexity of Life',
+  'complexityOfLife': 'Managing relationship challenges in complex lives',
+  'socialCarousel14': 'Build Anticipation',
+  'buildAnticipation': 'Understanding different types of desire in relationships',
+  'socialCarousel15': 'Foster Trust',
+  'fosterTrust': 'Building emotional intimacy through trust',
+  'socialCarousel16': 'Use Experience',
+  'useExperience': 'Leveraging shared experiences for relationship growth',
+  'socialCarousel17': 'Share With Partner',
+  'shareWithPartner': 'Communication strategies to strengthen intimacy',
   
   // Contact
   'letsConnect': 'Let\'s Connect',
