@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'es';
@@ -29,7 +30,7 @@ const enTranslations: Record<string, string> = {
   'trustYourselfDesc': 'Develop a mindset that helps you grow while enjoying the process.',
   'gainClarity': 'Gain Clarity',
   'gainClarityDesc': 'Stop communicating what you\'re not and start making space for what makes you \'you\'.',
-  'convert': 'Convert',
+  'convert': 'Convert & Sells',
   'convertDesc': 'Create content that doesn\'t just grow your audience—it turns followers into clients.',
   'letsChat': 'Let\'s Chat',
   
@@ -37,21 +38,21 @@ const enTranslations: Record<string, string> = {
   'evoQuote': 'Evo comes from the word evolution. It was born from my story—and yours.',
   'hiImNazareth': 'Hi, I\'m Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉',
   'iLoveWhatIDo': 'I love what I do because I feel a deep connection to helping women who empower others. It\'s a cycle — I help you make their message visible so you can go on to help someone else.',
-  'recentlyIveLearned': 'Recently, I\'ve learned that the most important part of my job is understanding your mission. That\'s how I can truly help you shine.',
+  'recentlyIveLearned': 'Recently, I\'ve learned that the most important part of my job is understanding your business. That\'s how I can help you shine.',
   'iFindPurpose': 'I find purpose in everything I do. I find purpose in what YOU do.',
-  'thatsTheDifference': 'That\'s the difference between content that works and content that doesn\'t. It\'s not just about beautiful visuals or clever words—it\'s about capturing the essence of your mission.',
+  'thatsTheDifference': 'That\'s the difference between content that works and content that doesn\'t.',
   'whenWeWorkTogether': 'When we work together, we\'re not just creating content. We\'re crafting your evolution.',
   'withPurpose': 'With purpose,',
   'founderAndContentCreator': 'FOUNDER & CONTENT CREATOR',
   
   // Hero
   'evolveYourBusiness': 'Evolve your <span class="opacity-70">business</span> through your <span class="opacity-70">"why."</span>',
-  'iHelpCoaches': 'I help coaches & digital entrepreneurs grow their business through branding and content creation.',
+  'iHelpCoaches': 'I help coaches, entrepreneurs & digital business owners grow their business through branding and content creation.',
   'viewMyWork': 'View my work',
   'scheduleACall': 'Schedule a call',
   
   // PainPoints
-  'haveYouEverFelt': 'Have you ever <span class="text-evo-pink">felt like</span>',
+  'haveYouEverFelt': 'Have you ever <span class="text-evo-pink">felt like</span>...',
   'painPoint1': 'You wish there were more hours in the day to be consistent like everyone says you should?',
   'painPoint2': 'You\'ve tried EVERYTHING marketing gurus tell you on Instagram, but nothing works?',
   'painPoint3': 'You have no idea how to grow your personal brand?',
@@ -59,7 +60,7 @@ const enTranslations: Record<string, string> = {
   
   // Testimonials
   'whatMyClientsSay': 'What My Clients Say',
-  'successStories': 'Success stories from coaches who transformed their businesses with strategic content and branding.',
+  'successStories': 'Success stories from coaches and entrepreneurs who transformed their businesses with strategic content and branding.',
   'testimonial1': 'I have been working with Nazareth for quite some time now and she has been integral to my business. She helped me create a beautiful e-book which has been downloaded over 1,000 times and has always been incredibly helpful with design. She took the time to understand my business and is always willing to go above and beyond to support me. I\'ve been very happy working with her!',
   'testimonial1Author': 'Cassandra Muscara',
   'testimonial1Title': 'Leadership Coach',
@@ -74,7 +75,7 @@ const enTranslations: Record<string, string> = {
   
   // Portfolio
   'recentWork': 'Some of my recent work',
-  'portfolioDescription': 'A showcase of my previous work creating impactful visuals and content for coaches.',
+  'portfolioDescription': 'A showcase of my previous work creating content for my clients.',
   'canvaShortcuts': 'Canva Shortcuts',
   'essentialShortcuts': 'Essential shortcuts for efficient design workflow',
   'professionalLayout': 'Professional layout for design reference',
@@ -109,7 +110,7 @@ const enTranslations: Record<string, string> = {
   // Contact
   'letsConnect': 'Let\'s Connect',
   'beginYourEvolution': 'Begin Your Evolution Today',
-  'readyToTransform': 'Ready to transform your coaching business? I\'m here to guide you every step of the way.',
+  'readyToTransform': 'Ready to transform your business? I\'m here to guide you every step of the way.',
   'sendAMessage': 'Send a Message',
   'success': 'Success!',
   'thankYouForReaching': 'Thank you for reaching out! I\'ll get back to you soon.',
@@ -118,11 +119,11 @@ const enTranslations: Record<string, string> = {
   'email': 'Email',
   'yourEmail': 'Your email address',
   'message': 'Message',
-  'tellMeAbout': 'Tell me about your coaching business...',
+  'tellMeAbout': 'Tell me about your business...',
   'sendMessage': 'Send Message',
   'sending': 'Sending...',
   'personalAttention': 'Personal Attention',
-  'bookAFree': 'Book a free 30-minute discovery call where we\'ll discuss your unique coaching business needs.',
+  'bookAFree': 'Book a free 30-minute discovery call where we\'ll discuss your unique business needs.',
   'scheduleCall': 'Schedule a Call',
   
   // Footer
@@ -149,7 +150,7 @@ const esTranslations: Record<string, string> = {
   'trustYourselfDesc': 'Desarrolla una mentalidad que te ayude a crecer mientras disfrutas del proceso.',
   'gainClarity': 'Ganes claridad',
   'gainClarityDesc': 'Deja de comunicar lo que no eres y comienza a hacer espacio para lo que te hace "tú".',
-  'convert': 'Conviertas',
+  'convert': 'Conviertas & Vendas',
   'convertDesc': 'Crea contenido que no solo haga crecer tu audiencia, sino que convierta seguidores en clientes.',
   'letsChat': 'Hablemos',
   
@@ -157,21 +158,21 @@ const esTranslations: Record<string, string> = {
   'evoQuote': 'Evo viene de la palabra evolución. Nació de mi historia y de la tuya.',
   'hiImNazareth': 'Hola, soy Nazareth, tu creadora de contenido. Nací y crecí en Costa Rica, y ahora viajo para encontrar mi creatividad y a mí misma en cada país al que voy. 🍉',
   'iLoveWhatIDo': 'Amo lo que hago porque siento una conexión profunda al ayudar a mujeres que empoderan a otras. Es un ciclo — te ayudo a hacer visible su mensaje para que puedas seguir ayudando a alguien más.',
-  'recentlyIveLearned': 'Recientemente, he aprendido que la parte más importante de mi trabajo es entender tu misión. Así es como puedo realmente ayudarte a brillar.',
+  'recentlyIveLearned': 'Recientemente, he aprendido que la parte más importante de mi trabajo es entender tu negocio. Así es como puedo ayudarte a brillar.',
   'iFindPurpose': 'Encuentro propósito en todo lo que hago. Encuentro propósito en lo que TÚ haces.',
-  'thatsTheDifference': 'Esa es la diferencia entre el contenido que funciona y el que no. No se trata solo de hermosas imágenes o palabras inteligentes, se trata de capturar la esencia de tu misión.',
+  'thatsTheDifference': 'Esa es la diferencia entre el contenido que funciona y el que no.',
   'whenWeWorkTogether': 'Cuando trabajamos juntas, no solo estamos creando contenido. Estamos creando tu evolución.',
   'withPurpose': 'Con propósito,',
   'founderAndContentCreator': 'FUNDADORA & CREADORA DE CONTENIDO',
   
   // Hero
   'evolveYourBusiness': 'Evoluciona tu <span class="opacity-70">negocio</span> a través de tu <span class="opacity-70">"por qué."</span>',
-  'iHelpCoaches': 'Ayudo a coaches y emprendedores digitales a hacer crecer su negocio mediante branding y creación de contenido.',
+  'iHelpCoaches': 'Ayudo a coaches, emprendedores y dueños de negocios digitales a hacer crecer su negocio mediante branding y creación de contenido.',
   'viewMyWork': 'Ver mi trabajo',
   'scheduleACall': 'Programa una llamada',
   
   // PainPoints
-  'haveYouEverFelt': '¿Alguna vez te has <span class="text-evo-pink">sentido así</span>?',
+  'haveYouEverFelt': '¿Alguna vez te has <span class="text-evo-pink">sentido así</span>?...',
   'painPoint1': '¿Deseas que hubiera más horas en el día para ser constante como todos dicen que deberías?',
   'painPoint2': '¿Has probado TODO lo que los gurús de marketing te dicen en Instagram, pero nada funciona?',
   'painPoint3': '¿No tienes idea de cómo hacer crecer tu marca personal?',
@@ -179,7 +180,7 @@ const esTranslations: Record<string, string> = {
   
   // Testimonials
   'whatMyClientsSay': 'Lo Que Dicen Mis Clientes',
-  'successStories': 'Historias de éxito de coaches que transformaron sus negocios con contenido estratégico y branding.',
+  'successStories': 'Historias de éxito de coaches y emprendedores que transformaron sus negocios con contenido estratégico y branding.',
   'testimonial1': 'He estado trabajando con Nazareth desde hace bastante tiempo y ha sido fundamental para mi negocio. Me ayudó a crear un hermoso e-book que ha sido descargado más de 1,000 veces y siempre ha sido increíblemente útil con el diseño. Se tomó el tiempo para entender mi negocio y siempre está dispuesta a ir más allá para apoyarme. ¡He estado muy feliz trabajando con ella!',
   'testimonial1Author': 'Cassandra Muscara',
   'testimonial1Title': 'Coach de Liderazgo',
@@ -194,7 +195,7 @@ const esTranslations: Record<string, string> = {
   
   // Portfolio
   'recentWork': 'Algunos de mis trabajos recientes',
-  'portfolioDescription': 'Una muestra de mi trabajo previo creando visuales y contenido impactante para coaches.',
+  'portfolioDescription': 'Una muestra de mi trabajo previo creando contenido para mis clientes.',
   'canvaShortcuts': 'Atajos de Canva',
   'essentialShortcuts': 'Atajos esenciales para un flujo de trabajo de diseño eficiente',
   'professionalLayout': 'Diseño profesional para referencia de diseño',
@@ -229,7 +230,7 @@ const esTranslations: Record<string, string> = {
   // Contact
   'letsConnect': 'Conectemos',
   'beginYourEvolution': 'Comienza Tu Evolución Hoy',
-  'readyToTransform': '¿Lista para transformar tu negocio de coaching? Estoy aquí para guiarte en cada paso del camino.',
+  'readyToTransform': '¿Lista para transformar tu negocio? Estoy aquí para guiarte en cada paso del camino.',
   'sendAMessage': 'Envía un Mensaje',
   'success': '¡Éxito!',
   'thankYouForReaching': '¡Gracias por contactarme! Me pondré en contacto contigo pronto.',
@@ -238,11 +239,11 @@ const esTranslations: Record<string, string> = {
   'email': 'Correo electrónico',
   'yourEmail': 'Tu dirección de correo electrónico',
   'message': 'Mensaje',
-  'tellMeAbout': 'Cuéntame sobre tu negocio de coaching...',
+  'tellMeAbout': 'Cuéntame sobre tu negocio...',
   'sendMessage': 'Enviar Mensaje',
   'sending': 'Enviando...',
   'personalAttention': 'Atención Personal',
-  'bookAFree': 'Reserva una llamada de descubrimiento gratuita de 30 minutos donde discutiremos las necesidades específicas de tu negocio de coaching.',
+  'bookAFree': 'Reserva una llamada de descubrimiento gratuita de 30 minutos donde discutiremos las necesidades específicas de tu negocio.',
   'scheduleCall': 'Programar Llamada',
   
   // Footer

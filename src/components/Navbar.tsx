@@ -49,15 +49,6 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <a 
-            href="#process" 
-            className={cn(
-              "transition-colors text-sm tracking-wide",
-              scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
-            )}
-          >
-            {translate('process')}
-          </a>
-          <a 
             href="#about" 
             className={cn(
               "transition-colors text-sm tracking-wide",
@@ -149,13 +140,6 @@ const Navbar = () => {
         </button>
         
         <nav className="flex flex-col space-y-6 items-center relative z-10">
-          <a 
-            href="#process" 
-            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
-            onClick={toggleMenu}
-          >
-            {translate('process')}
-          </a>
           <a 
             href="#about" 
             className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
