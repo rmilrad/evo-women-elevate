@@ -88,13 +88,15 @@ const Portfolio = () => {
     '/lovable-uploads/28a7c071-4944-43d7-bffb-8a49afb63647.png', // image14
     '/lovable-uploads/f95e4e76-f0e0-4f0e-a64e-adc6ac281a53.png', // image15
     '/lovable-uploads/19afe613-1d16-4ac4-9cfe-5cc53cb7afa9.png', // image16
-    // New images from this message
+    // Images from previous upload
     '/lovable-uploads/a0d28ae1-49e7-479a-927e-daa662312ecf.png',
     '/lovable-uploads/a526fd50-3042-42e5-bd7f-aa2f3c929271.png',
     '/lovable-uploads/d50abfc4-289c-4a36-9181-3d918009eb15.png',
     '/lovable-uploads/1defe4d2-0544-443e-8bc0-e2d8fb58d16f.png',
     '/lovable-uploads/0e572c9d-045b-4e61-8b56-ca987f7299bc.png',
-    '/lovable-uploads/409a9a17-84d8-40fa-8bd1-65f5d1541b16.png'
+    '/lovable-uploads/409a9a17-84d8-40fa-8bd1-65f5d1541b16.png',
+    // Adding the emblem from the hero section
+    '/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png'
   ];
   
   // Categories with placeholder images for other categories and direct URLs for Graphic Design
