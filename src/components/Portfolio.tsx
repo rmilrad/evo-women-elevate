@@ -70,24 +70,24 @@ const Portfolio = () => {
   // Placeholder image for Digital Products, Social Carousels, and Reels categories
   const placeholderImage = '/placeholder.svg';
   
-  // Graphic Design images - using both relative and absolute paths to maximize compatibility
+  // Use the newly uploaded images
   const graphicDesignImages = [
-    '/lovable-uploads/3bf50756-433c-4bd8-a388-563ac4d2a479.png',
-    '/lovable-uploads/bc29cbf5-99e5-43c4-bfdb-5f3fccc85d14.png',
-    '/lovable-uploads/9db3dd5a-129b-410f-88f0-d7365748cea2.png',
-    '/lovable-uploads/41deda31-2887-4371-a07c-b86ab2d6ff0e.png',
-    '/lovable-uploads/55ff2762-7ccc-47dd-9b4c-94daf273bf98.png',
-    '/lovable-uploads/e2abd5f6-7011-46b9-922a-8af07f421679.png',
-    '/lovable-uploads/2003dc51-ef50-4904-9a7b-7d891afe9178.png',
-    '/lovable-uploads/19069738-9d87-4259-a88d-a6de9cf1a5e3.png',
-    '/lovable-uploads/cac2fff3-31b4-47a9-a0e0-c5bddb02c6e3.png',
-    '/lovable-uploads/7793d865-8c5b-45f1-91b3-46f892ebc502.png',
-    '/lovable-uploads/3a056af1-0b05-4b4b-8044-0a03063f2b91.png',
-    '/lovable-uploads/4a6a12ee-7c92-4856-b305-daac30bd1081.png',
-    '/lovable-uploads/85fd8f1d-aa2f-40b6-9f93-375a01f3ea7d.png',
-    '/lovable-uploads/40319b0a-2653-40ee-9618-4d4b41e53cf0.png',
-    '/lovable-uploads/245ba89f-a1d0-4b25-947f-0a79155437b4.png',
-    '/lovable-uploads/8d0f7fd2-250c-4af5-9b45-7d87f0d8651b.png',
+    '/lovable-uploads/09315f72-db25-4e7a-b0cd-bf65edf46a2b.png',
+    '/lovable-uploads/2672846a-09da-4e96-981b-7a8aca077128.png',
+    '/lovable-uploads/3f593c9e-442c-484a-bfc0-ab18e9d82864.png',
+    '/lovable-uploads/367105cb-951d-487d-97bc-239beb112abb.png',
+    '/lovable-uploads/12bc9650-e3d8-4741-851c-f50df7511f8d.png',
+    '/lovable-uploads/1b000c99-4a9e-494c-887d-7ae7337d4100.png',
+    '/lovable-uploads/c871be24-df7e-4f0d-8802-27896cee5e56.png',
+    '/lovable-uploads/2c59c9c8-1592-470b-89a8-081137991337.png',
+    '/lovable-uploads/35b0aa96-5288-4e34-a800-cd720a630d62.png',
+    '/lovable-uploads/ab9e9282-f259-432d-8a0b-a64880c865a4.png',
+    '/lovable-uploads/9db21be8-ffb2-45b9-a28d-1d05a8125030.png',
+    '/lovable-uploads/da672d8d-6805-4cc8-b0be-feb381385363.png',
+    '/lovable-uploads/732b273e-8bb5-451c-be45-d20def3f88ac.png',
+    '/lovable-uploads/b99946bb-b650-466c-bc48-76c5acc09de8.png',
+    '/lovable-uploads/b2f424d5-7deb-4292-87a0-d3a435dc34e9.png',
+    '/lovable-uploads/49b4923f-8467-4bb4-a7c4-9edb1b971bd3.png',
   ];
   
   // Categories with placeholder images for other categories and real images for Graphic Design
@@ -131,10 +131,18 @@ const Portfolio = () => {
     threshold: 0.1,
   });
 
-  // Debug log the image paths
+  // Enhanced debug log to verify image paths
   React.useEffect(() => {
-    console.log("Graphic design images:", graphicDesignImages);
-  }, [graphicDesignImages]);
+    console.log("Graphic design images loaded:", graphicDesignImages);
+    
+    // Test image loading
+    graphicDesignImages.forEach((src, index) => {
+      const img = new Image();
+      img.onload = () => console.log(`Image ${index + 1} loaded successfully: ${src}`);
+      img.onerror = () => console.error(`Failed to load image ${index + 1}: ${src}`);
+      img.src = src;
+    });
+  }, []);
 
   return (
     <section 
