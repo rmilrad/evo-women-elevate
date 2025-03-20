@@ -45,8 +45,7 @@ const PortfolioSection = ({ category }: { category: PortfolioCategory }) => {
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         console.error(`Failed to load image: ${target.src}`);
-                        // Use a reliable placeholder from Unsplash
-                        target.src = "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=400&fit=crop";
+                        target.src = '/placeholder.svg';
                       }}
                     />
                   </AspectRatio>
@@ -69,27 +68,26 @@ const Portfolio = () => {
   const isMobile = useIsMobile();
   
   // Placeholder image for Digital Products, Social Carousels, and Reels categories
-  const placeholderImage = "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=300&h=400&fit=crop";
+  const placeholderImage = '/placeholder.svg';
   
-  // Use the following images for graphic design section
-  // Use direct URLs for guaranteed availability
+  // Use the uploaded images
   const graphicDesignImages = [
-    "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=300&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=300&h=400&fit=crop",
+    '/lovable-uploads/09315f72-db25-4e7a-b0cd-bf65edf46a2b.png',
+    '/lovable-uploads/2672846a-09da-4e96-981b-7a8aca077128.png',
+    '/lovable-uploads/3f593c9e-442c-484a-bfc0-ab18e9d82864.png',
+    '/lovable-uploads/367105cb-951d-487d-97bc-239beb112abb.png',
+    '/lovable-uploads/12bc9650-e3d8-4741-851c-f50df7511f8d.png',
+    '/lovable-uploads/1b000c99-4a9e-494c-887d-7ae7337d4100.png',
+    '/lovable-uploads/c871be24-df7e-4f0d-8802-27896cee5e56.png',
+    '/lovable-uploads/2c59c9c8-1592-470b-89a8-081137991337.png',
+    '/lovable-uploads/35b0aa96-5288-4e34-a800-cd720a630d62.png',
+    '/lovable-uploads/ab9e9282-f259-432d-8a0b-a64880c865a4.png',
+    '/lovable-uploads/9db21be8-ffb2-45b9-a28d-1d05a8125030.png',
+    '/lovable-uploads/da672d8d-6805-4cc8-b0be-feb381385363.png',
+    '/lovable-uploads/732b273e-8bb5-451c-be45-d20def3f88ac.png',
+    '/lovable-uploads/b99946bb-b650-466c-bc48-76c5acc09de8.png',
+    '/lovable-uploads/b2f424d5-7deb-4292-87a0-d3a435dc34e9.png',
+    '/lovable-uploads/49b4923f-8467-4bb4-a7c4-9edb1b971bd3.png',
   ];
   
   // Categories with placeholder images for other categories and real images for Graphic Design
@@ -133,11 +131,11 @@ const Portfolio = () => {
     threshold: 0.1,
   });
 
-  // Log that images are being loaded from Unsplash (reliable source)
+  // Enhanced debug log to verify image paths
   React.useEffect(() => {
-    console.log("Using Unsplash images for reliable display");
+    console.log("Graphic design images loaded:", graphicDesignImages);
     
-    // Test image loading from Unsplash
+    // Test image loading
     graphicDesignImages.forEach((src, index) => {
       const img = new Image();
       img.onload = () => console.log(`Image ${index + 1} loaded successfully: ${src}`);
