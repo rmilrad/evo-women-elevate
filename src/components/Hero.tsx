@@ -46,7 +46,7 @@ const Hero = () => {
       {/* New spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
         <img 
-          src="/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png" 
+          src="/src/assets/logo.png"
           alt="" 
           className="w-[95%] md:w-[90%] lg:w-[85%] max-w-5xl object-contain mx-auto mix-blend-multiply opacity-40" 
           style={{ transform: `translateY(${scrollY * 0.05}px) rotate(${scrollY * 0.02}deg)` }}
