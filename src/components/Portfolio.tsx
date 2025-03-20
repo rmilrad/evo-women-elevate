@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -23,15 +22,6 @@ type PortfolioCategory = {
 
 const PortfolioSection = ({ category }: { category: PortfolioCategory }) => {
   const { translate } = useLanguage();
-  const [imageErrors, setImageErrors] = React.useState<Record<string, boolean>>({});
-  
-  const handleImageError = (imageUrl: string) => {
-    console.error(`Failed to load image: ${imageUrl}`);
-    setImageErrors(prev => ({
-      ...prev,
-      [imageUrl]: true
-    }));
-  };
   
   return (
     <div className="mb-16 last:mb-0">
@@ -45,13 +35,12 @@ const PortfolioSection = ({ category }: { category: PortfolioCategory }) => {
                 <div className="aspect-[3/4] relative">
                   <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
                     <img 
-                      src={imageErrors[item.image] ? '/placeholder.svg' : item.image} 
+                      src={item.image} 
                       alt={translate(category.titleKey)}
                       loading="lazy"
                       width="300"
                       height="400"
                       className="object-cover w-full h-full rounded-t-xl"
-                      onError={() => handleImageError(item.image)}
                     />
                   </AspectRatio>
                 </div>
@@ -72,75 +61,45 @@ const Portfolio = () => {
   const { translate } = useLanguage();
   const isMobile = useIsMobile();
   
-  // Placeholder image for Digital Products, Social Carousels, and Reels categories
-  const placeholderImage = '/placeholder.svg';
-  
-  // Use the direct Lovable upload URLs for the graphic design images
-  // Include both previously added images and newly uploaded ones
+  // Use only the newly uploaded images in the graphic design section
   const graphicDesignImages = [
-    // New uploaded images in priority position
-    '/lovable-uploads/2773fdfc-d443-467f-8eb9-ba7cb7a79b34.png', // First new image
-    '/lovable-uploads/20d384b4-a41b-47cd-a502-829a5b960550.png', // Second new image
-    // Previously added images
-    '/lovable-uploads/532ae445-5839-4994-bb8d-5789d6b0dcfc.png', // image1
-    '/lovable-uploads/53ae287a-26d5-4fb4-8021-1d1464806a55.png', // image2
-    '/lovable-uploads/f07fee27-e0d1-4d99-835f-80b9f88b61c7.png', // image3
-    '/lovable-uploads/a25f99a0-071b-46e5-954f-d627377fbe4d.png', // image4
-    '/lovable-uploads/2c47c61c-d1f4-49a9-b2bd-c34141d4cbfe.png', // image5
-    '/lovable-uploads/3805eedd-2dcf-44fb-9c57-a62015accb31.png', // image6
-    '/lovable-uploads/45be423c-bd1c-49a8-9cac-0ec73e1b950a.png', // image7
-    '/lovable-uploads/3dc7088d-cdd5-42b0-a934-b3de03723807.png', // image8
-    '/lovable-uploads/167099ad-df27-4df0-98c6-9817ea5dbc99.png', // image9
-    '/lovable-uploads/b9ecd03f-9d38-4e72-ac02-4c87e53f7d0f.png', // image10
-    '/lovable-uploads/a20d4ea5-e67d-4250-a00e-025f6fed7b91.png', // image11
-    '/lovable-uploads/86173fb1-7490-478b-9457-14cb75fedfad.png', // image12
-    '/lovable-uploads/5ad39167-1cf6-4f52-8ae0-d7c0ba6496c2.png', // image13
-    '/lovable-uploads/28a7c071-4944-43d7-bffb-8a49afb63647.png', // image14
-    '/lovable-uploads/f95e4e76-f0e0-4f0e-a64e-adc6ac281a53.png', // image15
-    '/lovable-uploads/19afe613-1d16-4ac4-9cfe-5cc53cb7afa9.png', // image16
-    // Previous uploads
-    '/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png', // emblem from hero section
-    '/lovable-uploads/024ae9fd-a05d-4fa0-ba4e-e0291d861d0f.png',
-    '/lovable-uploads/3f5c518d-c387-4c60-a60c-6a9768286cd2.png',
-    '/lovable-uploads/135bbd47-e19c-420f-ac56-e839638fa8ac.png',
-    '/lovable-uploads/7927e413-467f-4e1d-9680-fff0a37cf4e3.png',
-    '/lovable-uploads/23c31b83-e897-447b-9c91-788b397025e7.png',
-    '/lovable-uploads/48d48d4d-94a5-4f62-a62e-e0fd95d38bb6.png',
-    '/lovable-uploads/493948e8-374e-400e-a282-f9a5290ef865.png'
+    // New uploaded images from this request
+    '/lovable-uploads/27336602-a4da-49a0-816b-05c4d3a3dc47.png',
+    '/lovable-uploads/db70480f-9964-4ccb-99fa-a46b24ed2dbc.png',
+    '/lovable-uploads/cab0ebbb-5efc-4d9b-9a05-e45f6bf42fed.png',
+    '/lovable-uploads/a027345d-f0b2-4c33-9ff3-018704b11d29.png',
+    '/lovable-uploads/49f8257f-eca4-4828-b075-4019b97262f7.png',
+    '/lovable-uploads/e0c99ea6-8ef8-42c5-9f75-59a551d8a3de.png',
+    // Previously successfully loaded images
+    '/lovable-uploads/2773fdfc-d443-467f-8eb9-ba7cb7a79b34.png',
+    '/lovable-uploads/20d384b4-a41b-47cd-a502-829a5b960550.png',
+    '/lovable-uploads/532ae445-5839-4994-bb8d-5789d6b0dcfc.png',
+    '/lovable-uploads/53ae287a-26d5-4fb4-8021-1d1464806a55.png',
+    '/lovable-uploads/f07fee27-e0d1-4d99-835f-80b9f88b61c7.png',
+    '/lovable-uploads/a25f99a0-071b-46e5-954f-d627377fbe4d.png',
+    '/lovable-uploads/2c47c61c-d1f4-49a9-b2bd-c34141d4cbfe.png',
+    '/lovable-uploads/3805eedd-2dcf-44fb-9c57-a62015accb31.png',
+    '/lovable-uploads/45be423c-bd1c-49a8-9cac-0ec73e1b950a.png',
+    '/lovable-uploads/3dc7088d-cdd5-42b0-a934-b3de03723807.png',
+    '/lovable-uploads/167099ad-df27-4df0-98c6-9817ea5dbc99.png',
+    '/lovable-uploads/b9ecd03f-9d38-4e72-ac02-4c87e53f7d0f.png',
+    '/lovable-uploads/a20d4ea5-e67d-4250-a00e-025f6fed7b91.png',
+    '/lovable-uploads/86173fb1-7490-478b-9457-14cb75fedfad.png',
+    '/lovable-uploads/5ad39167-1cf6-4f52-8ae0-d7c0ba6496c2.png',
+    '/lovable-uploads/28a7c071-4944-43d7-bffb-8a49afb63647.png',
+    '/lovable-uploads/f95e4e76-f0e0-4f0e-a64e-adc6ac281a53.png',
+    '/lovable-uploads/19afe613-1d16-4ac4-9cfe-5cc53cb7afa9.png',
+    '/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png'
   ];
   
-  // Categories with placeholder images for other categories and direct URLs for Graphic Design
+  // Keep only the Graphic Design category with the uploaded images
   const portfolioCategories: PortfolioCategory[] = [
-    {
-      key: 'digitalProducts',
-      titleKey: 'digitalProducts',
-      items: Array.from({ length: 5 }, (_, i) => ({
-        id: i + 1,
-        image: placeholderImage,
-      }))
-    },
-    {
-      key: 'socialCarousels',
-      titleKey: 'socialCarousels',
-      items: Array.from({ length: 5 }, (_, i) => ({
-        id: i + 1,
-        image: placeholderImage,
-      }))
-    },
     {
       key: 'graphicDesign',
       titleKey: 'graphicDesign',
       items: graphicDesignImages.map((image, index) => ({
         id: index + 1,
         image,
-      }))
-    },
-    {
-      key: 'reels',
-      titleKey: 'reels',
-      items: Array.from({ length: 5 }, (_, i) => ({
-        id: i + 1,
-        image: placeholderImage,
       }))
     }
   ];
@@ -152,7 +111,7 @@ const Portfolio = () => {
 
   // Debug log to verify image paths
   React.useEffect(() => {
-    console.log("Graphic design images loaded:", graphicDesignImages);
+    console.log("Using these images for Graphic Design:", graphicDesignImages);
   }, []);
 
   return (
