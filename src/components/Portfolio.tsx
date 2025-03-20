@@ -16,8 +16,8 @@ const Portfolio = () => {
   const { translate } = useLanguage();
   const isMobile = useIsMobile();
   
-  // Updated portfolio images with new uploads
-  const portfolioItems = [
+  // Graphic design portfolio items
+  const graphicDesignItems = [
     {
       id: 1,
       image: "/lovable-uploads/8ac1df72-95ff-4faa-aefb-c8cb59a7cf3a.png",
@@ -116,10 +116,100 @@ const Portfolio = () => {
     },
   ];
 
+  // Digital products portfolio items with the newly uploaded images
+  const digitalProductItems = [
+    {
+      id: 1,
+      image: "/lovable-uploads/b5ee2f5d-9737-42b5-abba-c51089bba330.png",
+      titleKey: "digitalProduct1",
+      descriptionKey: "empoweredParent"
+    },
+    {
+      id: 2,
+      image: "/lovable-uploads/646176b1-3ec5-4d0e-b057-cf2784b49710.png",
+      titleKey: "digitalProduct2",
+      descriptionKey: "moduleIntro"
+    },
+    {
+      id: 3,
+      image: "/lovable-uploads/7ca73d50-fc6b-4c4f-bfda-3dec346af1af.png",
+      titleKey: "digitalProduct3",
+      descriptionKey: "selfCare"
+    },
+    {
+      id: 4,
+      image: "/lovable-uploads/dd73f129-2e4c-4459-a56e-ea321f0e3650.png",
+      titleKey: "digitalProduct4",
+      descriptionKey: "takeCareOfYourself"
+    },
+    {
+      id: 5,
+      image: "/lovable-uploads/f62ea566-a1aa-416e-a9fd-678bace85e03.png",
+      titleKey: "digitalProduct5",
+      descriptionKey: "sneakInYouTime"
+    },
+    {
+      id: 6,
+      image: "/lovable-uploads/eea1da58-1135-4a04-bd0a-a1620b52e88c.png",
+      titleKey: "digitalProduct6",
+      descriptionKey: "connectBeforeCorrect"
+    },
+    {
+      id: 7,
+      image: "/lovable-uploads/872109e2-00dd-4220-9698-3d2add8ad405.png",
+      titleKey: "digitalProduct7",
+      descriptionKey: "connectingReal"
+    },
+    {
+      id: 8,
+      image: "/lovable-uploads/1db5059e-f86b-430c-96b4-3e1bf071344d.png",
+      titleKey: "digitalProduct8",
+      descriptionKey: "parentingTool"
+    },
+  ];
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Function to render a carousel with the provided items
+  const renderCarousel = (items, animationDelay = 400) => (
+    <div 
+      className={`transition-all duration-700 delay-${animationDelay} ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-full mx-auto`}
+    >
+      <Carousel className="w-full">
+        <CarouselContent className="-ml-2 md:-ml-3">
+          {items.map((item) => (
+            <CarouselItem key={item.id} className="pl-2 md:pl-3 md:basis-1/3 lg:basis-1/5">
+              <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
+                <div className="aspect-[3/4] relative">
+                  <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
+                    <img 
+                      src={item.image} 
+                      alt={translate(item.titleKey)}
+                      loading="lazy"
+                      width="300"
+                      height="400"
+                      className="object-cover w-full h-full rounded-t-xl"
+                    />
+                  </AspectRatio>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <h3 className="text-white font-medium text-lg">{translate(item.titleKey)}</h3>
+                    <p className="text-white/80 text-sm">{translate(item.descriptionKey)}</p>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="flex items-center justify-center mt-8 gap-4">
+          <CarouselPrevious className="relative static left-0 right-0 translate-y-0 h-10 w-10" />
+          <CarouselNext className="relative static left-0 right-0 translate-y-0 h-10 w-10" />
+        </div>
+      </Carousel>
+    </div>
+  );
 
   return (
     <section 
@@ -141,39 +231,20 @@ const Portfolio = () => {
           </p>
         </div>
         
-        <div 
-          className={`transition-all duration-700 delay-400 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-full mx-auto`}
-        >
-          <Carousel className="w-full">
-            <CarouselContent className="-ml-2 md:-ml-3">
-              {portfolioItems.map((item) => (
-                <CarouselItem key={item.id} className="pl-2 md:pl-3 md:basis-1/3 lg:basis-1/5">
-                  <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
-                    <div className="aspect-[3/4] relative">
-                      <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
-                        <img 
-                          src={item.image} 
-                          alt={translate(item.titleKey)}
-                          loading="lazy"
-                          width="300"
-                          height="400"
-                          className="object-cover w-full h-full rounded-t-xl"
-                        />
-                      </AspectRatio>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                        <h3 className="text-white font-medium text-lg">{translate(item.titleKey)}</h3>
-                        <p className="text-white/80 text-sm">{translate(item.descriptionKey)}</p>
-                      </div>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex items-center justify-center mt-8 gap-4">
-              <CarouselPrevious className="relative static left-0 right-0 translate-y-0 h-10 w-10" />
-              <CarouselNext className="relative static left-0 right-0 translate-y-0 h-10 w-10" />
-            </div>
-          </Carousel>
+        {/* Graphic Design Carousel */}
+        <div className="mb-16">
+          <h3 className={`text-2xl font-semibold mb-6 text-left transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+            Graphic Design
+          </h3>
+          {renderCarousel(graphicDesignItems, 400)}
+        </div>
+        
+        {/* Digital Products Carousel */}
+        <div>
+          <h3 className={`text-2xl font-semibold mb-6 text-left transition-all duration-700 delay-600 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+            Digital Products
+          </h3>
+          {renderCarousel(digitalProductItems, 700)}
         </div>
       </div>
     </section>
