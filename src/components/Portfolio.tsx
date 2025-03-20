@@ -23,6 +23,15 @@ type PortfolioCategory = {
 
 const PortfolioSection = ({ category }: { category: PortfolioCategory }) => {
   const { translate } = useLanguage();
+  const [imageErrors, setImageErrors] = React.useState<Record<string, boolean>>({});
+  
+  const handleImageError = (imageUrl: string) => {
+    console.error(`Failed to load image: ${imageUrl}`);
+    setImageErrors(prev => ({
+      ...prev,
+      [imageUrl]: true
+    }));
+  };
   
   return (
     <div className="mb-16 last:mb-0">
@@ -36,17 +45,13 @@ const PortfolioSection = ({ category }: { category: PortfolioCategory }) => {
                 <div className="aspect-[3/4] relative">
                   <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
                     <img 
-                      src={item.image} 
+                      src={imageErrors[item.image] ? '/placeholder.svg' : item.image} 
                       alt={translate(category.titleKey)}
                       loading="lazy"
                       width="300"
                       height="400"
                       className="object-cover w-full h-full rounded-t-xl"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        console.error(`Failed to load image: ${target.src}`);
-                        target.src = '/placeholder.svg';
-                      }}
+                      onError={() => handleImageError(item.image)}
                     />
                   </AspectRatio>
                 </div>
@@ -73,6 +78,10 @@ const Portfolio = () => {
   // Use the direct Lovable upload URLs for the graphic design images
   // Include both previously added images and newly uploaded ones
   const graphicDesignImages = [
+    // New uploaded images in priority position
+    '/lovable-uploads/2773fdfc-d443-467f-8eb9-ba7cb7a79b34.png', // First new image
+    '/lovable-uploads/20d384b4-a41b-47cd-a502-829a5b960550.png', // Second new image
+    // Previously added images
     '/lovable-uploads/532ae445-5839-4994-bb8d-5789d6b0dcfc.png', // image1
     '/lovable-uploads/53ae287a-26d5-4fb4-8021-1d1464806a55.png', // image2
     '/lovable-uploads/f07fee27-e0d1-4d99-835f-80b9f88b61c7.png', // image3
@@ -89,16 +98,8 @@ const Portfolio = () => {
     '/lovable-uploads/28a7c071-4944-43d7-bffb-8a49afb63647.png', // image14
     '/lovable-uploads/f95e4e76-f0e0-4f0e-a64e-adc6ac281a53.png', // image15
     '/lovable-uploads/19afe613-1d16-4ac4-9cfe-5cc53cb7afa9.png', // image16
-    // Images from previous upload
-    '/lovable-uploads/a0d28ae1-49e7-479a-927e-daa662312ecf.png',
-    '/lovable-uploads/a526fd50-3042-42e5-bd7f-aa2f3c929271.png',
-    '/lovable-uploads/d50abfc4-289c-4a36-9181-3d918009eb15.png',
-    '/lovable-uploads/1defe4d2-0544-443e-8bc0-e2d8fb58d16f.png',
-    '/lovable-uploads/0e572c9d-045b-4e61-8b56-ca987f7299bc.png',
-    '/lovable-uploads/409a9a17-84d8-40fa-8bd1-65f5d1541b16.png',
-    // Adding the emblem from the hero section
-    '/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png',
-    // New uploaded images
+    // Previous uploads
+    '/lovable-uploads/0fc99ab9-2ce2-4c9e-a0f8-de7ea6202f3a.png', // emblem from hero section
     '/lovable-uploads/024ae9fd-a05d-4fa0-ba4e-e0291d861d0f.png',
     '/lovable-uploads/3f5c518d-c387-4c60-a60c-6a9768286cd2.png',
     '/lovable-uploads/135bbd47-e19c-420f-ac56-e839638fa8ac.png',
