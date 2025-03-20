@@ -1,0 +1,146 @@
+
+import { TranslationRecord } from './types';
+
+// English translations
+const enTranslations: TranslationRecord = {
+  // Navbar
+  'language': 'Language',
+  'process': 'Process',
+  'about': 'About',
+  'testimonials': 'Testimonials',
+  'portfolio': 'Portfolio',
+  'getStarted': 'Get Started',
+  
+  // WhyEvo
+  'whyChooseEvo': 'Why Choose Evo',
+  'evoCreativeWasMade': 'Evo Creative was made for you to…',
+  'saveYouTime': 'Save You Time',
+  'saveYouTimeDesc': 'Feel at ease knowing you have the right tools to succeed in your business.',
+  'trustYourself': 'Trust Yourself',
+  'trustYourselfDesc': 'Develop a mindset that helps you grow while enjoying the process.',
+  'gainClarity': 'Gain Clarity',
+  'gainClarityDesc': 'Stop communicating what you\'re not and start making space for what makes you \'you\'.',
+  'convert': 'Convert & Sells',
+  'convertDesc': 'Create content that doesn\'t just grow your audience—it turns followers into clients.',
+  'letsChat': 'Let\'s Chat',
+  
+  // About
+  'evoQuote': 'Evo comes from the word evolution. It was born from my story—and yours.',
+  'hiImNazareth': 'Hi, I\'m Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉',
+  'iLoveWhatIDo': 'I love what I do because I feel a deep connection to helping women who empower others. It\'s a cycle — I help you make their message visible so you can go on to help someone else.',
+  'recentlyIveLearned': 'Recently, I\'ve learned that the most important part of my job is understanding your business. That\'s how I can help you shine.',
+  'iFindPurpose': 'I find purpose in everything I do. I find purpose in what YOU do.',
+  'thatsTheDifference': 'That\'s the difference between content that works and content that doesn\'t.',
+  'whenWeWorkTogether': 'When we work together, we\'re not just creating content. We\'re crafting your evolution.',
+  'withPurpose': 'With purpose,',
+  'founderAndContentCreator': 'FOUNDER & CONTENT CREATOR',
+  
+  // Hero
+  'evolveYourBusiness': 'Evolve your <span class="opacity-70">business</span> through your <span class="opacity-70">"why."</span>',
+  'iHelpCoaches': 'I help coaches, entrepreneurs & digital business owners grow their business through branding and content creation.',
+  'viewMyWork': 'View my work',
+  'scheduleACall': 'Schedule a call',
+  
+  // PainPoints
+  'haveYouEverFelt': 'Have you ever <span class="text-evo-pink">felt like</span>...',
+  'painPoint1': 'You wish there were more hours in the day to be consistent like everyone says you should?',
+  'painPoint2': 'You\'ve tried EVERYTHING marketing gurus tell you on Instagram, but nothing works?',
+  'painPoint3': 'You have no idea how to grow your personal brand?',
+  'painPoint4': 'You have big dreams for your business but no clarity on how to get there?',
+  
+  // Testimonials
+  'whatMyClientsSay': 'What My Clients Say',
+  'successStories': 'Success stories from coaches and entrepreneurs who transformed their businesses with strategic content and branding.',
+  'testimonial1': 'I have been working with Nazareth for quite some time now and she has been integral to my business. She helped me create a beautiful e-book which has been downloaded over 1,000 times and has always been incredibly helpful with design. She took the time to understand my business and is always willing to go above and beyond to support me. I\'ve been very happy working with her!',
+  'testimonial1Author': 'Cassandra Muscara',
+  'testimonial1Title': 'Leadership Coach',
+  'testimonial2': 'Working with Naza was such a gift! She made social media feel way less overwhelming and so much more doable. From helping me get my reels up and running to refining posts and offering input on strategy, she was there every step of the way and worked hard to keep me on tract. Naza was always accessible, responsive and full of encouragement. Her warmth, positive energy and helpful insights made the process not only easier, but actually more enjoyable! I loved having her in my corner. If you need someone who truly gets social media and can help you show up in a way that feels authentic and aligned, she\'s your person!',
+  'testimonial2Author': 'Debbie Zeichner',
+  'testimonial2Title': 'Parent Coach',
+  'testimonial3': 'I have been thrilled to work with Nazareth as my content manager. She is driven, creative, responsible, and reliable. I cannot recommend her highly enough!',
+  'testimonial3Author': 'Felicia Kashevaroff',
+  'testimonial3Title': 'Relationship Coach',
+  'previousTestimonial': 'Previous testimonial',
+  'nextTestimonial': 'Next testimonial',
+  
+  // Portfolio
+  'recentWork': 'Some of my recent work',
+  'portfolioDescription': 'A showcase of my previous work creating content for my clients.',
+  
+  // Graphic Design portfolio items
+  'parentingContent': 'Parenting Content',
+  'whiningContent': 'Engaging content for parents dealing with challenging behaviors',
+  'parentingStrategy': 'Parenting Strategy',
+  'behaviorContent': 'Visual content for behavior management techniques',
+  'emotionalRegulation': 'Emotional Regulation',
+  'kidsEmotions': 'Content helping parents navigate kids\' emotions',
+  'parentingTips': 'Parenting Tips',
+  'triggerStrategies': 'Strategies for handling parental triggers',
+  'backToSchool': 'Back to School',
+  'stressManagement': 'Stress management for parents during school transitions',
+  'bodyTemplates': 'Body Templates',
+  'visualContent': 'Visual content for coaching programs',
+  'parentAnxiety': 'Parent Anxiety',
+  'schoolWorries': 'Content addressing school-related parental concerns',
+  'healthCare': 'Health Care',
+  'studentHealth': 'Student health and wellness visual resources',
+  'studentSuccess': 'Student Success',
+  'wellnessGraphic': 'Wellness graphic for student success',
+  'campusHealth': 'Campus Health',
+  'partnershipContent': 'Partnership content for campus wellness initiatives',
+  'delayedCare': 'Delayed Care',
+  'studentMinds': 'Content addressing mental health in students',
+  'studentLearning': 'Student Learning',
+  'healthImportance': 'Graphics highlighting the importance of health in learning',
+  'campusInnovation': 'Campus Innovation',
+  'leadershipContent': 'Leadership content for campus wellness programs',
+  'studentStatistics': 'Student Statistics',
+  'healthcareAccess': 'Visualizing healthcare access for students',
+  'studentConversation': 'Student Conversation',
+  'wellnessProducts': 'Wellness products and resources for students',
+  'campusResources': 'Campus Resources',
+  'wellnessLocations': 'Visual guide to wellness locations on campus',
+  
+  // Digital Products portfolio items
+  'digitalProduct1': 'Becoming an Empowered Parent',
+  'empoweredParent': 'E-book cover for parenting guide',
+  'digitalProduct2': 'Introduction Module',
+  'moduleIntro': 'Course module design for parenting program',
+  'digitalProduct3': 'Self-Care Tool',
+  'selfCare': 'Self-care strategies for parents',
+  'digitalProduct4': 'Take Care of Yourself',
+  'takeCareOfYourself': 'Emotional and physical self-care guide',
+  'digitalProduct5': 'You Time',
+  'sneakInYouTime': 'Guide for making time for self-care',
+  'digitalProduct6': 'Connect Before Correct',
+  'connectBeforeCorrect': 'Parenting strategy module',
+  'digitalProduct7': 'Connection Techniques',
+  'connectingReal': 'Real-life examples of parent-child connection',
+  'digitalProduct8': 'Parenting Tool',
+  'parentingTool': 'Tool #2 for effective parenting strategies',
+  
+  // Contact
+  'letsConnect': 'Let\'s Connect',
+  'beginYourEvolution': 'Begin Your Evolution Today',
+  'readyToTransform': 'Ready to transform your business? I\'m here to guide you every step of the way.',
+  'sendAMessage': 'Send a Message',
+  'success': 'Success!',
+  'thankYouForReaching': 'Thank you for reaching out! I\'ll get back to you soon.',
+  'name': 'Name',
+  'yourName': 'Your name',
+  'email': 'Email',
+  'yourEmail': 'Your email address',
+  'message': 'Message',
+  'tellMeAbout': 'Tell me about your business...',
+  'sendMessage': 'Send Message',
+  'sending': 'Sending...',
+  'personalAttention': 'Personal Attention',
+  'bookAFree': 'Book a free 30-minute discovery call where we\'ll discuss your unique business needs.',
+  'scheduleCall': 'Schedule a Call',
+  
+  // Footer
+  'allRightsReserved': '© {year} evocreative.com. All rights reserved.',
+  'scrollToTop': 'Scroll to top'
+};
+
+export default enTranslations;
