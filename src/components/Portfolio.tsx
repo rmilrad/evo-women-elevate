@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -166,7 +165,6 @@ const Portfolio = () => {
       titleKey: "digitalProduct8",
       descriptionKey: "parentingTool"
     },
-    // Adding new images
     {
       id: 9,
       image: "/lovable-uploads/25c723b9-4978-47bb-8e6b-b68c3a9e13d8.png", 
@@ -220,6 +218,70 @@ const Portfolio = () => {
       image: "/lovable-uploads/43d37cd4-f987-42d5-8686-2de924125eb6.png",
       titleKey: "digitalProduct17",
       descriptionKey: "presentMomentAwareness"
+    }
+  ];
+
+  // Social Carousels portfolio items
+  const socialCarouselItems = [
+    {
+      id: 1,
+      image: "/lovable-uploads/5f9aaa16-bca4-42a9-ac2b-3bdeb4171e95.png",
+      titleKey: "socialCarousel1",
+      descriptionKey: "companyCulture"
+    },
+    {
+      id: 2,
+      image: "/lovable-uploads/10228d42-e40e-479e-9cb4-62fea9558b3a.png",
+      titleKey: "socialCarousel2",
+      descriptionKey: "careerGrowth"
+    },
+    {
+      id: 3,
+      image: "/lovable-uploads/c31851fc-8ae8-4bfd-91d3-757471d18af9.png",
+      titleKey: "socialCarousel3",
+      descriptionKey: "burnoutWarning"
+    },
+    {
+      id: 4,
+      image: "/lovable-uploads/00d0aac3-7cb6-4221-901e-dadfffcd250d.png",
+      titleKey: "socialCarousel4",
+      descriptionKey: "mindRacing"
+    },
+    {
+      id: 5,
+      image: "/lovable-uploads/bd5450a2-2385-468d-9edb-b402e45f1c63.png",
+      titleKey: "socialCarousel5",
+      descriptionKey: "burnoutTicket"
+    },
+    {
+      id: 6,
+      image: "/lovable-uploads/04cb0047-d8b4-4e89-a957-3d38fc81e86b.png",
+      titleKey: "socialCarousel6",
+      descriptionKey: "workResilience"
+    },
+    {
+      id: 7,
+      image: "/lovable-uploads/ecae35c9-7870-43a4-b8fe-74527a81803a.png",
+      titleKey: "socialCarousel7",
+      descriptionKey: "burnoutCycle"
+    },
+    {
+      id: 8,
+      image: "/lovable-uploads/e141d733-cb84-4a0b-86b3-66c2d0aab5ed.png",
+      titleKey: "socialCarousel8",
+      descriptionKey: "healingBurnout"
+    },
+    {
+      id: 9,
+      image: "/lovable-uploads/c5cbb573-57d6-4686-ac49-1dd9f151b6f2.png",
+      titleKey: "socialCarousel9",
+      descriptionKey: "corporateMentor"
+    },
+    {
+      id: 10,
+      image: "/lovable-uploads/d757894d-4277-41c0-8885-f501dbc15697.png",
+      titleKey: "socialCarousel10",
+      descriptionKey: "workBalanceTips"
     }
   ];
 
@@ -300,6 +362,14 @@ const Portfolio = () => {
             Digital Products
           </h3>
           {renderCarousel(digitalProductItems, 700)}
+        </div>
+        
+        {/* Social Carousels Carousel - New addition */}
+        <div className="mb-16">
+          <h3 className={`text-2xl font-semibold mb-6 text-left transition-all duration-700 delay-900 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+            Social Carousels
+          </h3>
+          {renderCarousel(socialCarouselItems, 1000)}
         </div>
       </div>
     </section>
