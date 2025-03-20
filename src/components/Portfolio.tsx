@@ -1,374 +1,19 @@
+
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useIsMobile } from '@/hooks/use-mobile';
+import PortfolioSection from './portfolio/PortfolioSection';
+import { graphicDesignItems } from '@/data/graphicDesignItems';
+import { digitalProductItems } from '@/data/digitalProductItems';
+import { socialCarouselItems } from '@/data/socialCarouselItems';
 
 const Portfolio = () => {
   const { translate } = useLanguage();
-  const isMobile = useIsMobile();
   
-  // Graphic design portfolio items
-  const graphicDesignItems = [
-    {
-      id: 1,
-      image: "/lovable-uploads/8ac1df72-95ff-4faa-aefb-c8cb59a7cf3a.png",
-      titleKey: "parentingContent",
-      descriptionKey: "whiningContent"
-    },
-    {
-      id: 2,
-      image: "/lovable-uploads/686323c2-feab-43be-ad62-99157043eed0.png",
-      titleKey: "parentingStrategy",
-      descriptionKey: "behaviorContent"
-    },
-    {
-      id: 3,
-      image: "/lovable-uploads/f03034cb-7cfb-4981-af4d-9b6b6ac85aca.png",
-      titleKey: "emotionalRegulation",
-      descriptionKey: "kidsEmotions"
-    },
-    {
-      id: 4,
-      image: "/lovable-uploads/fd98e7bf-95cf-46bb-86bb-b463ddce6067.png",
-      titleKey: "parentingTips",
-      descriptionKey: "triggerStrategies"
-    },
-    {
-      id: 5,
-      image: "/lovable-uploads/2fa5c15b-ab8c-4afa-95fa-7dfa1d287058.png",
-      titleKey: "backToSchool",
-      descriptionKey: "stressManagement"
-    },
-    {
-      id: 6,
-      image: "/lovable-uploads/75cb9dba-36cd-4583-8df8-46ea198acdb7.png",
-      titleKey: "bodyTemplates",
-      descriptionKey: "visualContent"
-    },
-    {
-      id: 7,
-      image: "/lovable-uploads/dc89745f-be0b-48e3-aa12-a1a8498fc2e1.png",
-      titleKey: "parentAnxiety",
-      descriptionKey: "schoolWorries"
-    },
-    {
-      id: 8,
-      image: "/lovable-uploads/7a1b8bf9-beda-4664-9587-e473c5edb872.png",
-      titleKey: "healthCare",
-      descriptionKey: "studentHealth"
-    },
-    {
-      id: 9,
-      image: "/lovable-uploads/cb95cf38-72e1-424b-9cb1-455c8fa16931.png",
-      titleKey: "studentSuccess",
-      descriptionKey: "wellnessGraphic"
-    },
-    {
-      id: 10,
-      image: "/lovable-uploads/fb6a1fab-6be4-4a56-b7d5-a4434aa1d940.png",
-      titleKey: "campusHealth",
-      descriptionKey: "partnershipContent"
-    },
-    {
-      id: 11,
-      image: "/lovable-uploads/3fd30bff-1b89-4e02-9ff0-5657908c6ac2.png",
-      titleKey: "delayedCare",
-      descriptionKey: "studentMinds"
-    },
-    {
-      id: 12,
-      image: "/lovable-uploads/73223565-ff63-4ca9-8862-985c8e7ca8fc.png",
-      titleKey: "studentLearning",
-      descriptionKey: "healthImportance"
-    },
-    {
-      id: 13,
-      image: "/lovable-uploads/6a4d2e3d-e427-4f26-bf46-fb344ff7e15e.png",
-      titleKey: "campusInnovation",
-      descriptionKey: "leadershipContent"
-    },
-    {
-      id: 14,
-      image: "/lovable-uploads/db8bcd41-76fc-46cf-b203-597818df55bc.png",
-      titleKey: "studentStatistics",
-      descriptionKey: "healthcareAccess"
-    },
-    {
-      id: 15,
-      image: "/lovable-uploads/cba52e7b-622f-4952-b0cd-7b7efe031734.png",
-      titleKey: "studentConversation",
-      descriptionKey: "wellnessProducts"
-    },
-    {
-      id: 16,
-      image: "/lovable-uploads/fdb5c7c1-9b8e-46b5-b9e3-4f8b69c414c5.png",
-      titleKey: "campusResources",
-      descriptionKey: "wellnessLocations"
-    },
-  ];
-
-  // Digital products portfolio items with the newly uploaded images
-  const digitalProductItems = [
-    {
-      id: 1,
-      image: "/lovable-uploads/b5ee2f5d-9737-42b5-abba-c51089bba330.png",
-      titleKey: "digitalProduct1",
-      descriptionKey: "empoweredParent"
-    },
-    {
-      id: 2,
-      image: "/lovable-uploads/646176b1-3ec5-4d0e-b057-cf2784b49710.png",
-      titleKey: "digitalProduct2",
-      descriptionKey: "moduleIntro"
-    },
-    {
-      id: 3,
-      image: "/lovable-uploads/7ca73d50-fc6b-4c4f-bfda-3dec346af1af.png",
-      titleKey: "digitalProduct3",
-      descriptionKey: "selfCare"
-    },
-    {
-      id: 4,
-      image: "/lovable-uploads/dd73f129-2e4c-4459-a56e-ea321f0e3650.png",
-      titleKey: "digitalProduct4",
-      descriptionKey: "takeCareOfYourself"
-    },
-    {
-      id: 5,
-      image: "/lovable-uploads/f62ea566-a1aa-416e-a9fd-678bace85e03.png",
-      titleKey: "digitalProduct5",
-      descriptionKey: "sneakInYouTime"
-    },
-    {
-      id: 6,
-      image: "/lovable-uploads/eea1da58-1135-4a04-bd0a-a1620b52e88c.png",
-      titleKey: "digitalProduct6",
-      descriptionKey: "connectBeforeCorrect"
-    },
-    {
-      id: 7,
-      image: "/lovable-uploads/872109e2-00dd-4220-9698-3d2add8ad405.png",
-      titleKey: "digitalProduct7",
-      descriptionKey: "connectingReal"
-    },
-    {
-      id: 8,
-      image: "/lovable-uploads/1db5059e-f86b-430c-96b4-3e1bf071344d.png",
-      titleKey: "digitalProduct8",
-      descriptionKey: "parentingTool"
-    },
-    {
-      id: 9,
-      image: "/lovable-uploads/25c723b9-4978-47bb-8e6b-b68c3a9e13d8.png", 
-      titleKey: "digitalProduct9",
-      descriptionKey: "stressResets"
-    },
-    {
-      id: 10,
-      image: "/lovable-uploads/8fe3261d-2d46-4a21-9882-fc3a94411384.png",
-      titleKey: "digitalProduct10",
-      descriptionKey: "aboutMe"
-    },
-    {
-      id: 11,
-      image: "/lovable-uploads/ad6e66b3-eaf9-4a92-9bbe-49e0a669251d.png",
-      titleKey: "digitalProduct11",
-      descriptionKey: "ebookUsage"
-    },
-    {
-      id: 12,
-      image: "/lovable-uploads/f663b59f-0989-409d-a52b-18333f732a87.png",
-      titleKey: "digitalProduct12",
-      descriptionKey: "diaphragmaticBreathing"
-    },
-    {
-      id: 13,
-      image: "/lovable-uploads/1a73e48e-19c8-4d3e-a980-22ec90655d25.png",
-      titleKey: "digitalProduct13",
-      descriptionKey: "twoStepBreathing"
-    },
-    {
-      id: 14,
-      image: "/lovable-uploads/fa5a26ac-b925-4022-9c40-d7c34fffa0fb.png",
-      titleKey: "digitalProduct14",
-      descriptionKey: "journalExercise"
-    },
-    {
-      id: 15,
-      image: "/lovable-uploads/e2a15ada-553d-4edf-a4cd-f55851a1d78c.png",
-      titleKey: "digitalProduct15",
-      descriptionKey: "progressiveMuscleRelaxation"
-    },
-    {
-      id: 16,
-      image: "/lovable-uploads/ec8a0e43-2962-461c-922f-b7395bf0e39a.png",
-      titleKey: "digitalProduct16",
-      descriptionKey: "pmrProcess"
-    },
-    {
-      id: 17,
-      image: "/lovable-uploads/43d37cd4-f987-42d5-8686-2de924125eb6.png",
-      titleKey: "digitalProduct17",
-      descriptionKey: "presentMomentAwareness"
-    }
-  ];
-
-  // Social Carousels portfolio items
-  const socialCarouselItems = [
-    {
-      id: 1,
-      image: "/lovable-uploads/5f9aaa16-bca4-42a9-ac2b-3bdeb4171e95.png",
-      titleKey: "socialCarousel1",
-      descriptionKey: "companyCulture"
-    },
-    {
-      id: 2,
-      image: "/lovable-uploads/10228d42-e40e-479e-9cb4-62fea9558b3a.png",
-      titleKey: "socialCarousel2",
-      descriptionKey: "careerGrowth"
-    },
-    {
-      id: 3,
-      image: "/lovable-uploads/c31851fc-8ae8-4bfd-91d3-757471d18af9.png",
-      titleKey: "socialCarousel3",
-      descriptionKey: "burnoutWarning"
-    },
-    {
-      id: 4,
-      image: "/lovable-uploads/00d0aac3-7cb6-4221-901e-dadfffcd250d.png",
-      titleKey: "socialCarousel4",
-      descriptionKey: "mindRacing"
-    },
-    {
-      id: 5,
-      image: "/lovable-uploads/bd5450a2-2385-468d-9edb-b402e45f1c63.png",
-      titleKey: "socialCarousel5",
-      descriptionKey: "burnoutTicket"
-    },
-    {
-      id: 6,
-      image: "/lovable-uploads/04cb0047-d8b4-4e89-a957-3d38fc81e86b.png",
-      titleKey: "socialCarousel6",
-      descriptionKey: "workResilience"
-    },
-    {
-      id: 7,
-      image: "/lovable-uploads/ecae35c9-7870-43a4-b8fe-74527a81803a.png",
-      titleKey: "socialCarousel7",
-      descriptionKey: "burnoutCycle"
-    },
-    {
-      id: 8,
-      image: "/lovable-uploads/e141d733-cb84-4a0b-86b3-66c2d0aab5ed.png",
-      titleKey: "socialCarousel8",
-      descriptionKey: "healingBurnout"
-    },
-    {
-      id: 9,
-      image: "/lovable-uploads/c5cbb573-57d6-4686-ac49-1dd9f151b6f2.png",
-      titleKey: "socialCarousel9",
-      descriptionKey: "corporateMentor"
-    },
-    {
-      id: 10,
-      image: "/lovable-uploads/d757894d-4277-41c0-8885-f501dbc15697.png",
-      titleKey: "socialCarousel10",
-      descriptionKey: "workBalanceTips"
-    },
-    {
-      id: 11,
-      image: "/lovable-uploads/24fea0e4-e337-4739-980d-75958c9a3fd7.png",
-      titleKey: "socialCarousel11",
-      descriptionKey: "rekindlePassion"
-    },
-    {
-      id: 12,
-      image: "/lovable-uploads/5f23f8a8-6c01-420e-ad27-0063fb524985.png",
-      titleKey: "socialCarousel12",
-      descriptionKey: "relationshipBeginning"
-    },
-    {
-      id: 13,
-      image: "/lovable-uploads/ee1da4e0-7561-48d3-b1ba-9fbd4934835e.png",
-      titleKey: "socialCarousel13",
-      descriptionKey: "complexityOfLife"
-    },
-    {
-      id: 14,
-      image: "/lovable-uploads/b7e962cb-61b0-4908-9875-51da204bedce.png",
-      titleKey: "socialCarousel14",
-      descriptionKey: "buildAnticipation"
-    },
-    {
-      id: 15,
-      image: "/lovable-uploads/f1aaea4e-1f6e-455a-a9b7-d55bfd542d96.png",
-      titleKey: "socialCarousel15",
-      descriptionKey: "fosterTrust"
-    },
-    {
-      id: 16,
-      image: "/lovable-uploads/90f734ea-494d-4405-8f03-1a10b5f20b4b.png",
-      titleKey: "socialCarousel16",
-      descriptionKey: "useExperience"
-    },
-    {
-      id: 17,
-      image: "/lovable-uploads/84d21488-c913-4100-9af8-ead9aeca072d.png",
-      titleKey: "socialCarousel17",
-      descriptionKey: "shareWithPartner"
-    }
-  ];
-
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  // Function to render a carousel with the provided items
-  const renderCarousel = (items, animationDelay = 400) => (
-    <div 
-      className={`transition-all duration-700 delay-${animationDelay} ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} max-w-full mx-auto`}
-    >
-      <Carousel className="w-full">
-        <CarouselContent className="-ml-2 md:-ml-3">
-          {items.map((item) => (
-            <CarouselItem key={item.id} className="pl-2 md:pl-3 md:basis-1/3 lg:basis-1/5">
-              <div className="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 bg-white border border-gray-100">
-                <div className="aspect-[3/4] relative">
-                  <AspectRatio ratio={3/4} className="bg-evo-neutral-light/30">
-                    <img 
-                      src={item.image} 
-                      alt={translate(item.titleKey)}
-                      loading="lazy"
-                      width="300"
-                      height="400"
-                      className="object-cover w-full h-full rounded-t-xl"
-                    />
-                  </AspectRatio>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <h3 className="text-white font-medium text-lg">{translate(item.titleKey)}</h3>
-                    <p className="text-white/80 text-sm">{translate(item.descriptionKey)}</p>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="flex items-center justify-center mt-8 gap-4">
-          <CarouselPrevious className="relative static left-0 right-0 translate-y-0 h-10 w-10" />
-          <CarouselNext className="relative static left-0 right-0 translate-y-0 h-10 w-10" />
-        </div>
-      </Carousel>
-    </div>
-  );
 
   return (
     <section 
@@ -391,28 +36,28 @@ const Portfolio = () => {
         </div>
         
         {/* Graphic Design Carousel */}
-        <div className="mb-16">
-          <h3 className={`text-2xl font-semibold mb-6 text-left transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            Graphic Design
-          </h3>
-          {renderCarousel(graphicDesignItems, 400)}
-        </div>
+        <PortfolioSection
+          title="Graphic Design"
+          items={graphicDesignItems}
+          inView={inView}
+          delayOffset={300}
+        />
         
         {/* Digital Products Carousel */}
-        <div className="mb-16">
-          <h3 className={`text-2xl font-semibold mb-6 text-left transition-all duration-700 delay-600 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            Digital Products
-          </h3>
-          {renderCarousel(digitalProductItems, 700)}
-        </div>
+        <PortfolioSection
+          title="Digital Products"
+          items={digitalProductItems}
+          inView={inView}
+          delayOffset={600}
+        />
         
-        {/* Social Carousels Carousel */}
-        <div className="mb-16">
-          <h3 className={`text-2xl font-semibold mb-6 text-left transition-all duration-700 delay-900 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            Social Carousels
-          </h3>
-          {renderCarousel(socialCarouselItems, 1000)}
-        </div>
+        {/* Social Carousels */}
+        <PortfolioSection
+          title="Social Carousels"
+          items={socialCarouselItems}
+          inView={inView}
+          delayOffset={900}
+        />
       </div>
     </section>
   );
