@@ -44,7 +44,7 @@ const PortfolioSection = ({ category }: { category: PortfolioCategory }) => {
                       className="object-cover w-full h-full rounded-t-xl"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        console.log(`Failed to load image: ${target.src}`);
+                        console.error(`Failed to load image: ${target.src}`);
                         target.src = '/placeholder.svg';
                       }}
                     />
@@ -70,7 +70,7 @@ const Portfolio = () => {
   // Placeholder image for Digital Products, Social Carousels, and Reels categories
   const placeholderImage = '/placeholder.svg';
   
-  // Graphic Design images - make sure to use relative paths
+  // Graphic Design images - using both relative and absolute paths to maximize compatibility
   const graphicDesignImages = [
     '/lovable-uploads/3bf50756-433c-4bd8-a388-563ac4d2a479.png',
     '/lovable-uploads/bc29cbf5-99e5-43c4-bfdb-5f3fccc85d14.png',
@@ -130,6 +130,11 @@ const Portfolio = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Debug log the image paths
+  React.useEffect(() => {
+    console.log("Graphic design images:", graphicDesignImages);
+  }, [graphicDesignImages]);
 
   return (
     <section 
