@@ -4,18 +4,22 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write  # Needed for pushing to gh-pages branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
@@ -24,9 +28,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Prepare for deployment
+        run: |
+          echo "evocreative.me" > dist/CNAME
+          touch dist/.nojekyll
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: evocreative.me
+          force_orphan: true  # Create a clean gh-pages branch
