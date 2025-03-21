@@ -38,14 +38,9 @@ jobs:
       
       - name: Build with Vite
         run: |
-          # Add base path for GitHub Pages (repo name)
-          REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)
-          if [ "$REPO_NAME" != "$GITHUB_REPOSITORY_OWNER.github.io" ]; then
-            echo "Setting base path to /$REPO_NAME/"
-            npm run build -- --base=/$REPO_NAME/
-          else
-            npm run build
-          fi
+          # Always use root path for custom domain
+          echo "Using root path (/) for custom domain"
+          npm run build -- --base=/
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
