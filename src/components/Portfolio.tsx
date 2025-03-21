@@ -35,14 +35,13 @@ const Portfolio = () => {
           </p>
         </div>
         
-        {/* Graphic Design Carousel - Temporarily hidden
+        {/* Graphic Design Carousel */}
         <PortfolioSection
           title="Graphic Design"
           items={graphicDesignItems}
           inView={inView}
           delayOffset={300}
         />
-        */}
         
         {/* Digital Products Carousel */}
         <PortfolioSection
