@@ -48,7 +48,6 @@ const Index = () => {
       <Hero />
       <PainPoints />
       <WhyEvo />
-      <About />
       <Testimonials />
       <Portfolio />
       <Contact />
