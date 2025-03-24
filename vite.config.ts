@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/", // Root path for custom domain
+  // Use relative paths for GitHub Pages deployment
+  // This ensures assets are loaded correctly regardless of the base URL
+  base: "./",
   server: {
     host: "::",
     port: 8080,
@@ -20,4 +22,17 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Ensure assets are properly handled
+    assetsDir: "assets",
+    // Generate sourcemaps for easier debugging
+    sourcemap: mode === 'development',
+    // Optimize output
+    minify: mode === 'production',
+    // Ensure CSS is extracted to separate files
+    cssCodeSplit: true,
+    // Ensure proper path handling
+    outDir:  '_site',
+    emptyOutDir: true, // also necessary
+  }
 }));
