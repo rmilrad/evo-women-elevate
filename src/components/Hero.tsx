@@ -1,42 +1,75 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
 import { ArrowDownCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from "@/components/ui/button";
+// Import logo image
+import logoImage from '/imgs/assets/logo.png';
 
-const Hero = () => {
+/**
+ * Hero component - Main landing section with parallax effects
+ * Displays the main headline, subtitle, and call-to-action buttons
+ */
+const Hero: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const { translate } = useLanguage();
   
-  useEffect(() => {
-    // Add parallax scroll effect
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  // Memoize the scroll handler to prevent unnecessary re-renders
+  const handleScroll = useCallback(() => {
+    setScrollY(window.scrollY);
   }, []);
 
-  const scrollToNextSection = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  
-  const scrollToPortfolio = () => {
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  useEffect(() => {
+    // Add parallax scroll effect
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initial scroll position
+    handleScroll();
+    
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
-  // Calculate parallax effect for text
-  const titleTransform = `translateY(${scrollY * 0.2}px)`;
-  const subtitleTransform = `translateY(${scrollY * 0.15}px)`;
-  const buttonsTransform = `translateY(${scrollY * 0.1}px)`;
+  // Memoize scroll functions to prevent unnecessary re-renders
+  const scrollToNextSection = useCallback(() => {
+    try {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn('About section not found in the DOM');
+      }
+    } catch (error) {
+      console.error('Error scrolling to about section:', error);
+    }
+  }, []);
+  
+  const scrollToPortfolio = useCallback(() => {
+    try {
+      const portfolioSection = document.getElementById('portfolio');
+      if (portfolioSection) {
+        portfolioSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn('Portfolio section not found in the DOM');
+      }
+    } catch (error) {
+      console.error('Error scrolling to portfolio section:', error);
+    }
+  }, []);
+
+  // Calculate parallax effects for different elements
+  const getParallaxStyles = useCallback(() => {
+    return {
+      title: `translateY(${scrollY * 0.2}px)`,
+      subtitle: `translateY(${scrollY * 0.15}px)`,
+      buttons: `translateY(${scrollY * 0.1}px)`,
+      logo: `translateY(${scrollY * 0.05}px) rotate(${scrollY * 0.02}deg)`
+    };
+  }, [scrollY]);
+
+  // Get all parallax transform styles
+  const parallaxStyles = getParallaxStyles();
 
   return (
     <section 
@@ -45,11 +78,15 @@ const Hero = () => {
     >
       {/* New spiral logo background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
-        <img 
-          src="/src/assets/logo.png"
-          alt="" 
-          className="w-[95%] md:w-[90%] lg:w-[85%] max-w-5xl object-contain mx-auto mix-blend-multiply opacity-40" 
-          style={{ transform: `translateY(${scrollY * 0.05}px) rotate(${scrollY * 0.02}deg)` }}
+        <img
+          src={logoImage}
+          alt="EVO Logo Background"
+          className="w-[95%] md:w-[90%] lg:w-[85%] max-w-5xl object-contain mx-auto mix-blend-multiply opacity-40"
+          style={{ transform: parallaxStyles.logo }}
+          onError={(e) => {
+            console.error('Failed to load logo image');
+            e.currentTarget.style.display = 'none';
+          }}
         />
       </div>
       
@@ -59,22 +96,22 @@ const Hero = () => {
       {/* Main content - centered in the viewport */}
       <div className="flex-1 flex flex-col justify-center w-full">
         <div className="container-custom text-center max-w-3xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center relative z-10">
-          <h1 
+          <h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-3 tracking-tight leading-tight max-w-5xl font-rufina"
-            style={{ transform: titleTransform }}
+            style={{ transform: parallaxStyles.title }}
             dangerouslySetInnerHTML={{ __html: translate('evolveYourBusiness') }}
           />
           
-          <p 
+          <p
             className="text-base md:text-xl text-white/90 mb-8 md:mb-10 max-w-lg mx-auto font-light leading-relaxed"
-            style={{ transform: subtitleTransform }}
+            style={{ transform: parallaxStyles.subtitle }}
           >
             {translate('iHelpCoaches')}
           </p>
           
-          <div 
+          <div
             className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center w-full sm:w-auto mb-10"
-            style={{ transform: buttonsTransform }}
+            style={{ transform: parallaxStyles.buttons }}
           >
             <a href="#contact" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
               {translate('scheduleACall')}
@@ -101,4 +138,5 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+// Memoize the component to prevent unnecessary re-renders
+export default memo(Hero);
