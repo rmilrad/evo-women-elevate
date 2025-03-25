@@ -6,7 +6,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Define constants to avoid hardcoding values
-const PROFILE_IMAGE_PATH = 'imgs/assets/naza_sitting.png';
+const PROFILE_IMAGE_PATH = '/imgs/assets/naza_sitting.png';
 
 const About = () => {
   const { translate } = useLanguage();
