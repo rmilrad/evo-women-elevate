@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
@@ -6,9 +5,13 @@ import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Define constants to avoid hardcoding values
+const PROFILE_IMAGE_PATH = 'imgs/assets/naza_sitting.png';
+
 const About = () => {
   const { translate } = useLanguage();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -16,8 +19,19 @@ const About = () => {
   
   useEffect(() => {
     const img = new Image();
-    img.src = "/lovable-uploads/befa01c1-e062-4aa2-b9a1-3546a1ee5582.png";
+    img.src = PROFILE_IMAGE_PATH;
     img.onload = () => setIsImageLoaded(true);
+    img.onerror = () => {
+      console.error('Failed to load image:', PROFILE_IMAGE_PATH);
+      setImageError(true);
+      setIsImageLoaded(true); // Still mark as loaded to avoid infinite loading state
+    };
+    
+    return () => {
+      // Clean up by removing event listeners
+      img.onload = null;
+      img.onerror = null;
+    };
   }, []);
 
   return (
@@ -44,11 +58,19 @@ const About = () => {
               {/* Image container - removed decorative elements and border color */}
               <div className="rounded-3xl overflow-hidden">
                 {isImageLoaded ? (
-                  <img 
-                    src="/lovable-uploads/befa01c1-e062-4aa2-b9a1-3546a1ee5582.png" 
-                    alt="Nazareth working on a laptop" 
-                    className="w-full h-auto object-cover rounded-2xl"
-                  />
+                  imageError ? (
+                    <div className="w-full h-96 flex flex-col items-center justify-center bg-gray-100 rounded-2xl">
+                      <p className="text-red-500">Failed to load image</p>
+                    </div>
+                  ) : (
+                    <img
+                      src={PROFILE_IMAGE_PATH}
+                      alt="Nazareth working on a laptop"
+                      className="w-full h-auto object-cover rounded-2xl"
+                      loading="lazy"
+                      onError={() => setImageError(true)}
+                    />
+                  )
                 ) : (
                   <div className="w-full h-96 flex items-center justify-center">
                     <Skeleton className="w-full h-96 rounded-2xl" />
