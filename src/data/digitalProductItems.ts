@@ -2,7 +2,7 @@
  * Digital product portfolio items
  *
  * This file contains the data for digital product portfolio items displayed in the application.
- * Each item has a unique ID, image path, title key, and description key for localization.
+ * Each item has a unique ID and image path.
  */
 
 import { PortfolioItem } from "@/types/portfolio";
@@ -30,104 +30,70 @@ import img17 from '../../imgs/digital_products/17.png';
 export const digitalProductItems: PortfolioItem[] = [
   {
     id: 1,
-    image: img1,
-    titleKey: "digitalProduct1",
-    descriptionKey: "empoweredParent"
+    image: img1
   },
   {
     id: 2,
-    image: img2,
-    titleKey: "digitalProduct2",
-    descriptionKey: "moduleIntro"
+    image: img2
   },
   {
     id: 3,
-    image: img3,
-    titleKey: "digitalProduct3",
-    descriptionKey: "selfCare"
+    image: img3
   },
   {
     id: 4,
-    image: img4,
-    titleKey: "digitalProduct4",
-    descriptionKey: "takeCareOfYourself"
+    image: img4
   },
   {
     id: 5,
-    image: img5,
-    titleKey: "digitalProduct5",
-    descriptionKey: "sneakInYouTime"
+    image: img5
   },
   {
     id: 6,
-    image: img6,
-    titleKey: "digitalProduct6",
-    descriptionKey: "connectBeforeCorrect"
+    image: img6
   },
   {
     id: 7,
-    image: img7,
-    titleKey: "digitalProduct7",
-    descriptionKey: "connectingReal"
+    image: img7
   },
   {
     id: 8,
-    image: img8,
-    titleKey: "digitalProduct8",
-    descriptionKey: "parentingTool"
+    image: img8
   },
   {
     id: 9,
-    image: img9,
-    titleKey: "digitalProduct9",
-    descriptionKey: "stressResets"
+    image: img9
   },
   {
     id: 10,
-    image: img10,
-    titleKey: "digitalProduct10",
-    descriptionKey: "aboutMe"
+    image: img10
   },
   {
     id: 11,
-    image: img11,
-    titleKey: "digitalProduct11",
-    descriptionKey: "ebookUsage"
+    image: img11
   },
   {
     id: 12,
-    image: img12,
-    titleKey: "digitalProduct12",
-    descriptionKey: "diaphragmaticBreathing"
+    image: img12
   },
   {
     id: 13,
-    image: img13,
-    titleKey: "digitalProduct13",
-    descriptionKey: "twoStepBreathing"
+    image: img13
   },
   {
     id: 14,
-    image: img14,
-    titleKey: "digitalProduct14",
-    descriptionKey: "journalExercise"
+    image: img14
   },
   {
     id: 15,
-    image: img15,
-    titleKey: "digitalProduct15",
-    descriptionKey: "progressiveMuscleRelaxation"
+    image: img15
   },
   {
     id: 16,
-    image: img16,
-    titleKey: "digitalProduct16",
-    descriptionKey: "pmrProcess"
+    image: img16
   },
   {
     id: 17,
-    image: img17,
-    titleKey: "digitalProduct17",
-    descriptionKey: "presentMomentAwareness"
+    image: img17
   }
 ];

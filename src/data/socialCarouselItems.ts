@@ -2,7 +2,7 @@
  * Social carousel portfolio items
  *
  * This file contains the data for social media carousel items displayed in the application.
- * Each item has a unique ID, image path, title key, and description key for localization.
+ * Each item has a unique ID and image path.
  */
 
 import { PortfolioItem } from "@/types/portfolio";
@@ -30,104 +30,70 @@ import img17 from '../../imgs/carousel/17.png';
 export const socialCarouselItems: PortfolioItem[] = [
   {
     id: 1,
-    image: img1,
-    titleKey: "socialCarousel1",
-    descriptionKey: "companyCulture"
+    image: img1
   },
   {
     id: 2,
-    image: img2,
-    titleKey: "socialCarousel2",
-    descriptionKey: "careerGrowth"
+    image: img2
   },
   {
     id: 3,
-    image: img3,
-    titleKey: "socialCarousel3",
-    descriptionKey: "burnoutWarning"
+    image: img3
   },
   {
     id: 4,
-    image: img4,
-    titleKey: "socialCarousel4",
-    descriptionKey: "mindRacing"
+    image: img4
   },
   {
     id: 5,
-    image: img5,
-    titleKey: "socialCarousel5",
-    descriptionKey: "burnoutTicket"
+    image: img5
   },
   {
     id: 6,
-    image: img6,
-    titleKey: "socialCarousel6",
-    descriptionKey: "workResilience"
+    image: img6
   },
   {
     id: 7,
-    image: img7,
-    titleKey: "socialCarousel7",
-    descriptionKey: "burnoutCycle"
+    image: img7
   },
   {
     id: 8,
-    image: img8,
-    titleKey: "socialCarousel8",
-    descriptionKey: "healingBurnout"
+    image: img8
   },
   {
     id: 9,
-    image: img9,
-    titleKey: "socialCarousel9",
-    descriptionKey: "corporateMentor"
+    image: img9
   },
   {
     id: 10,
-    image: img10,
-    titleKey: "socialCarousel10",
-    descriptionKey: "workBalanceTips"
+    image: img10
   },
   {
     id: 11,
-    image: img11,
-    titleKey: "socialCarousel11",
-    descriptionKey: "rekindlePassion"
+    image: img11
   },
   {
     id: 12,
-    image: img12,
-    titleKey: "socialCarousel12",
-    descriptionKey: "relationshipBeginning"
+    image: img12
   },
   {
     id: 13,
-    image: img13,
-    titleKey: "socialCarousel13",
-    descriptionKey: "complexityOfLife"
+    image: img13
   },
   {
     id: 14,
-    image: img14,
-    titleKey: "socialCarousel14",
-    descriptionKey: "buildAnticipation"
+    image: img14
   },
   {
     id: 15,
-    image: img15,
-    titleKey: "socialCarousel15",
-    descriptionKey: "fosterTrust"
+    image: img15
   },
   {
     id: 16,
-    image: img16,
-    titleKey: "socialCarousel16",
-    descriptionKey: "useExperience"
+    image: img16
   },
   {
     id: 17,
-    image: img17,
-    titleKey: "socialCarousel17",
-    descriptionKey: "shareWithPartner"
+    image: img17
   }
 ];

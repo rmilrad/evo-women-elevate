@@ -15,36 +15,26 @@ export const reelItems: PortfolioItem[] = [
   {
     id: 1,
     video: video1Url,
-    mediaType: "video",
-    titleKey: "parentingContent",
-    descriptionKey: "whiningContent"
+    mediaType: "video"
   },
   {
     id: 2,
     video: video2Url,
-    mediaType: "video",
-    titleKey: "parentingStrategy",
-    descriptionKey: "behaviorContent"
+    mediaType: "video"
   },
   {
     id: 3,
     video: video3Url,
-    mediaType: "video",
-    titleKey: "emotionalRegulation",
-    descriptionKey: "kidsEmotions"
+    mediaType: "video"
   },
   {
     id: 4,
     video: video4Url,
-    mediaType: "video",
-    titleKey: "parentingTips",
-    descriptionKey: "triggerStrategies"
+    mediaType: "video"
   },
   {
     id: 5,
     video: video5Url,
-    mediaType: "video",
-    titleKey: "backToSchool",
-    descriptionKey: "stressManagement"
+    mediaType: "video"
   }
 ];

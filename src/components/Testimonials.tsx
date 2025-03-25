@@ -1,16 +1,20 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Import testimonial images
+import cassImage from '../../imgs/assets/Cass.png';
+import debbieImage from '../../imgs/assets/Debbie.png';
+import feliciaImage from '../../imgs/assets/Felicia.jpeg';
+
 interface Testimonial {
   id: number;
   quoteKey: string;
   authorKey: string;
   titleKey: string;
-  image: string;
+  image: string | any; // Allow imported images
   accent: string;
 }
 
@@ -24,7 +28,7 @@ const Testimonials = () => {
       quoteKey: 'testimonial1',
       authorKey: 'testimonial1Author',
       titleKey: 'testimonial1Title',
-      image: "/lovable-uploads/1203331d-f085-412a-a8ca-8029d14dfd05.png",
+      image: cassImage,
       accent: "bg-amber-50"
     },
     {
@@ -32,7 +36,7 @@ const Testimonials = () => {
       quoteKey: 'testimonial2',
       authorKey: 'testimonial2Author',
       titleKey: 'testimonial2Title',
-      image: "/lovable-uploads/26ecf43d-faaf-42c1-be20-cd07d399a287.png",
+      image: debbieImage,
       accent: "bg-green-50"
     },
     {
@@ -40,7 +44,7 @@ const Testimonials = () => {
       quoteKey: 'testimonial3',
       authorKey: 'testimonial3Author',
       titleKey: 'testimonial3Title',
-      image: "/lovable-uploads/539e7f0c-adfc-49e0-af1e-faf2ce1071b1.png",
+      image: feliciaImage,
       accent: "bg-rose-50"
     }
   ];

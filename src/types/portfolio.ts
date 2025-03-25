@@ -4,8 +4,8 @@ export interface PortfolioItem {
   image?: string;  // Optional when video is provided
   video?: string;
   mediaType?: 'image' | 'video';
-  titleKey: string;
-  descriptionKey: string;
+  titleKey?: string;  // Made optional
+  descriptionKey?: string;  // Made optional
 }
 
 // Type guard to ensure either image or video is provided
