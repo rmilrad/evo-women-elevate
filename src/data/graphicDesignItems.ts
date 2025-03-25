@@ -1,7 +1,11 @@
 import { PortfolioItem } from "@/types/portfolio";
 
-// Define video paths using import.meta.url for Vite compatibility
-const videoBasePath = '/imgs/videos/';
+// Import videos with ?url suffix to get their URLs
+import video1Url from '../../imgs/videos/video1.MP4?url';
+import video2Url from '../../imgs/videos/video2.MP4?url';
+import video3Url from '../../imgs/videos/video3.MP4?url';
+import video4Url from '../../imgs/videos/video4.MP4?url';
+import video5Url from '../../imgs/videos/video5.MP4?url';
 
 /**
  * Collection of reel items for the portfolio section
@@ -10,35 +14,35 @@ const videoBasePath = '/imgs/videos/';
 export const reelItems: PortfolioItem[] = [
   {
     id: 1,
-    video: `${videoBasePath}video1.MP4`,
+    video: video1Url,
     mediaType: "video",
     titleKey: "parentingContent",
     descriptionKey: "whiningContent"
   },
   {
     id: 2,
-    video: `${videoBasePath}video2.MP4`,
+    video: video2Url,
     mediaType: "video",
     titleKey: "parentingStrategy",
     descriptionKey: "behaviorContent"
   },
   {
     id: 3,
-    video: `${videoBasePath}video3.MP4`,
+    video: video3Url,
     mediaType: "video",
     titleKey: "emotionalRegulation",
     descriptionKey: "kidsEmotions"
   },
   {
     id: 4,
-    video: `${videoBasePath}video4.MP4`,
+    video: video4Url,
     mediaType: "video",
     titleKey: "parentingTips",
     descriptionKey: "triggerStrategies"
   },
   {
     id: 5,
-    video: `${videoBasePath}video5.MP4`,
+    video: video5Url,
     mediaType: "video",
     titleKey: "backToSchool",
     descriptionKey: "stressManagement"
