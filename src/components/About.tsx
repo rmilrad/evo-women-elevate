@@ -5,8 +5,8 @@ import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Define constants to avoid hardcoding values
-const PROFILE_IMAGE_PATH = './imgs/assets/naza_sitting.png';
+// Import the image directly
+import nazaImage from '../../imgs/assets/naza_sitting.png';
 
 const About = () => {
   const { translate } = useLanguage();
@@ -19,10 +19,10 @@ const About = () => {
   
   useEffect(() => {
     const img = new Image();
-    img.src = PROFILE_IMAGE_PATH;
+    img.src = nazaImage;
     img.onload = () => setIsImageLoaded(true);
     img.onerror = () => {
-      console.error('Failed to load image:', PROFILE_IMAGE_PATH);
+      console.error('Failed to load image:', nazaImage);
       setImageError(true);
       setIsImageLoaded(true); // Still mark as loaded to avoid infinite loading state
     };
@@ -64,7 +64,7 @@ const About = () => {
                     </div>
                   ) : (
                     <img
-                      src={PROFILE_IMAGE_PATH}
+                      src={nazaImage}
                       alt="Nazareth working on a laptop"
                       className="w-full h-auto object-cover rounded-2xl"
                       loading="lazy"
