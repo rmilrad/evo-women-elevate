@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
+import logo from '../../imgs/Vector.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,7 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between relative z-10">
         <a href="#" className="flex items-center">
           <img 
-            src="/lovable-uploads/8cb72782-e6af-46b3-a365-a483d1f3f3c3.png"
+            src={logo}
             alt="evo"
             className={cn(
               "h-8 md:h-10 transition-all duration-500",
