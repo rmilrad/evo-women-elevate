@@ -2,6 +2,7 @@
 import React from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import evoRedLogo from '../../imgs/assets/evo_red.png';
 
 const Footer = () => {
   const { translate } = useLanguage();
@@ -14,10 +15,10 @@ const Footer = () => {
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <a href="#" className="mb-6 md:mb-0">
-            <img 
-              src="/lovable-uploads/8cb72782-e6af-46b3-a365-a483d1f3f3c3.png" 
-              alt="Evo Creative" 
-              className="h-10 w-auto" 
+            <img
+              src={evoRedLogo}
+              alt="Evo Creative"
+              className="h-10 w-auto"
             />
           </a>
           
