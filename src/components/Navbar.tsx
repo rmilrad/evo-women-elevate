@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
-import logo from '../../imgs/Vector.png'
+import logo from '../../imgs/assets/logo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
