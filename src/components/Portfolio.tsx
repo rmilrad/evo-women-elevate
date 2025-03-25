@@ -3,7 +3,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PortfolioSection from './portfolio/PortfolioSection';
-import { graphicDesignItems } from '@/data/graphicDesignItems';
+import { reelItems } from '@/data/graphicDesignItems';
 import { digitalProductItems } from '@/data/digitalProductItems';
 import { socialCarouselItems } from '@/data/socialCarouselItems';
 
@@ -35,14 +35,6 @@ const Portfolio = () => {
           </p>
         </div>
         
-        {/* Graphic Design Carousel */}
-        <PortfolioSection
-          title="Graphic Design"
-          items={graphicDesignItems}
-          inView={inView}
-          delayOffset={300}
-        />
-        
         {/* Digital Products Carousel */}
         <PortfolioSection
           title="Digital Products"
@@ -58,6 +50,15 @@ const Portfolio = () => {
           inView={inView}
           delayOffset={900}
         />
+
+        {/* Video carousel */}
+        <PortfolioSection
+          title="Reels"
+          items={reelItems}
+          inView={inView}
+          delayOffset={300}
+        />
+
       </div>
     </section>
   );
