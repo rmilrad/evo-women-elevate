@@ -30,7 +30,7 @@ const enTranslations: TranslationRecord = {
   'recentlyIveLearned': 'Recently, I\'ve learned that the most important part of my job is understanding your business. That\'s how I can help you shine.',
   'iFindPurpose': 'I find purpose in everything I do. I find purpose in what YOU do.',
   'thatsTheDifference': 'That\'s the difference between content that works and content that doesn\'t.',
-  'whenWeWorkTogether': 'When we work together, we\'re not just creating content. We\'re crafting your evolution.',
+  'whenWeWorkTogether': 'When we work together, we\'re crafting your evolution.',
   'withPurpose': 'With purpose,',
   'founderAndContentCreator': 'FOUNDER & CONTENT CREATOR',
   

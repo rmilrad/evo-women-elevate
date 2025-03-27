@@ -30,7 +30,7 @@ const esTranslations: TranslationRecord = {
   'recentlyIveLearned': 'Recientemente, he aprendido que la parte más importante de mi trabajo es entender tu negocio. Así es como puedo ayudarte a brillar.',
   'iFindPurpose': 'Encuentro propósito en todo lo que hago. Encuentro propósito en lo que TÚ haces.',
   'thatsTheDifference': 'Esa es la diferencia entre el contenido que funciona y el que no.',
-  'whenWeWorkTogether': 'Cuando trabajamos juntas, no solo estamos creando contenido. Estamos creando tu evolución.',
+  'whenWeWorkTogether': 'Cuando trabajamos juntas, estamos creando tu evolución.',
   'withPurpose': 'Con propósito,',
   'founderAndContentCreator': 'FUNDADORA & CREADORA DE CONTENIDO',
   

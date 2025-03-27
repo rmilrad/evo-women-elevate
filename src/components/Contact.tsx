@@ -62,11 +62,14 @@ const Contact = () => {
         width: 1px;
         min-width: 100%;
         height: auto;
+        overflow: visible !important;
       }
       
       .dubsado-form-container {
         position: relative;
         width: 100%;
+        overflow: visible !important;
+        min-height: 200px;
       }
     `;
     document.head.appendChild(style);
@@ -82,6 +85,9 @@ const Contact = () => {
     iframe.frameBorder = '0';
     iframe.style.width = '1px';
     iframe.style.minWidth = '100%';
+    iframe.style.overflow = 'hidden';
+    iframe.style.height = 'auto';
+    iframe.scrolling = 'no';
     iframe.id = 'dubsado-form';
     
     // Create initialization script
@@ -90,11 +96,13 @@ const Contact = () => {
       setTimeout(function(){
         if (window.iFrameResize) {
           iFrameResize({
-            checkOrigin: false, 
-            heightCalculationMethod: "taggedElement",
+            checkOrigin: false,
+            heightCalculationMethod: "bodyOffset",
             scrolling: false,
             sizeWidth: false,
-            maxHeight: 2000,
+            autoResize: true,
+            minHeight: 200,
+            resizeFrom: 'child',
             onMessage: function(messageData) {
               // Check if the message indicates form submission
               if (messageData.message && 
@@ -125,11 +133,41 @@ const Contact = () => {
                         padding: 0.75rem 1rem !important;
                       }
                       
-                      /* Remove any scrolling */
+                      /* Allow content to determine height */
                       html, body {
                         overflow: visible !important;
                         height: auto !important;
-                        min-height: 100% !important;
+                        min-height: auto !important;
+                        max-height: none !important;
+                        scrollbar-width: none !important;
+                        -ms-overflow-style: none !important;
+                      }
+                      
+                      /* Allow form elements to size naturally */
+                      form, .form-container, .form-wrapper, .dubsado-form {
+                        overflow: visible !important;
+                        height: auto !important;
+                        display: block !important;
+                      }
+                      
+                      /* Hide all scrollbars */
+                      *::-webkit-scrollbar {
+                        display: none !important;
+                        width: 0 !important;
+                        height: 0 !important;
+                      }
+                      
+                      /* Set body to fixed layout */
+                      body {
+                        position: static !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                      }
+                      
+                      /* Ensure all content is visible */
+                      .dubsado-form, form, .form-container {
+                        display: block !important;
+                        width: 100% !important;
                       }
                       
                       /* Style the submit button */
@@ -289,7 +327,12 @@ const Contact = () => {
               <div
                 ref={formContainerRef}
                 className={`dubsado-form-container ${isSubmitted ? 'hidden' : 'block'}`}
-                style={{ width: '100%' }}
+                style={{
+                  width: '100%',
+                  overflow: 'hidden',
+                  height: 'auto',
+                  minHeight: '300px'
+                }}
               ></div>
             </div>
           </div>
