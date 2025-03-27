@@ -76,13 +76,15 @@ const Hero: React.FC = () => {
       ref={heroRef}
       className="min-h-screen flex flex-col items-center justify-between relative overflow-hidden bg-[#f78075]"
     >
-      {/* New spiral logo background */}
+      {/* New spiral logo background with rotation animation */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
         <img
           src={logoImage}
           alt="EVO Logo Background"
-          className="w-[95%] md:w-[90%] lg:w-[85%] max-w-5xl object-contain mx-auto mix-blend-multiply opacity-40"
-          style={{ transform: parallaxStyles.logo }}
+          className="w-[95%] md:w-[90%] lg:w-[85%] max-w-5xl object-contain mx-auto mix-blend-multiply opacity-40 animate-spin-slow"
+          style={{
+            transform: `translateY(${scrollY * 0.05}px)`
+          }}
           onError={(e) => {
             console.error('Failed to load logo image');
             e.currentTarget.style.display = 'none';
@@ -97,13 +99,13 @@ const Hero: React.FC = () => {
       <div className="flex-1 flex flex-col justify-center w-full">
         <div className="container-custom text-center max-w-3xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center relative z-10">
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-3 tracking-tight leading-tight max-w-5xl font-rufina"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold mb-8 md:mb-10 tracking-tight leading-tight max-w-5xl font-rufina"
             style={{ transform: parallaxStyles.title }}
             dangerouslySetInnerHTML={{ __html: translate('evolveYourBusiness') }}
           />
           
           <p
-            className="text-base md:text-xl text-white/90 mb-8 md:mb-10 max-w-lg mx-auto font-light leading-relaxed"
+            className="text-base md:text-xl text-white/90 mt-8 mb-8 md:mb-10 max-w-lg mx-auto font-light leading-relaxed"
             style={{ transform: parallaxStyles.subtitle }}
           >
             {translate('iHelpCoaches')}

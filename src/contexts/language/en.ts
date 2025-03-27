@@ -25,8 +25,8 @@ const enTranslations: TranslationRecord = {
   
   // About
   'evoQuote': 'Evo comes from the word evolution. It was born from my story—and yours.',
-  'hiImNazareth': 'Hi, I\'m Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to. 🍉',
-  'iLoveWhatIDo': 'I love what I do because I feel a deep connection to helping women who empower others. It\'s a cycle — I help you make their message visible so you can go on to help someone else.',
+  'hiImNazareth': 'Hi, I\'m Nazareth, your content creator. I was born and raised in Costa Rica, and now I travel to find my creativity and myself in every country I go to.',
+  'iLoveWhatIDo': 'I love what I do because I feel a deep connection to helping women who empower others. It\'s a cycle — I help make your message visible so you can go on to impact others.',
   'recentlyIveLearned': 'Recently, I\'ve learned that the most important part of my job is understanding your business. That\'s how I can help you shine.',
   'iFindPurpose': 'I find purpose in everything I do. I find purpose in what YOU do.',
   'thatsTheDifference': 'That\'s the difference between content that works and content that doesn\'t.',

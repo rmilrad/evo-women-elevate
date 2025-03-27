@@ -190,4 +190,18 @@
   .stagger-in > *:nth-child(8) { animation-delay: 0.8s; }
   .stagger-in > *:nth-child(9) { animation-delay: 0.9s; }
   .stagger-in > *:nth-child(10) { animation-delay: 1s; }
+  
+  /* Animation for rotating the hero background image */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin 10s linear infinite;
+  }
 }
