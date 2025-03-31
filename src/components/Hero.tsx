@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Added a spacer div to create more space between navbar and content */}
-      <div className="h-20 md:h-28"></div>
+      <div className={`${translate('language') === 'Language' ? 'h-20 md:h-28' : 'h-24 md:h-32'}`}></div>
       
       {/* Main content - centered in the viewport */}
       <div className="flex-1 flex flex-col justify-center w-full">

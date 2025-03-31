@@ -9,6 +9,7 @@ import Testimonials from '@/components/Testimonials';
 import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import PromoBanner from '@/components/PromoBanner';
 
 // Add this at the top of the file
 const useScrollToHashOnLoad = () => {
@@ -41,9 +42,9 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
+      <div id="promo-banner"><PromoBanner /></div>
       <Navbar />
       <Hero />
       <PainPoints />

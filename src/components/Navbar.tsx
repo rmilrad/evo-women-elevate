@@ -27,12 +27,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header 
+    <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled 
-          ? "py-2 bg-white shadow-md" 
-          : "py-3 bg-transparent"
+        "fixed left-0 right-0 z-50 transition-all duration-500",
+        scrolled
+          ? "py-2 bg-white shadow-md"
+          : "py-3 bg-transparent",
+        // Adjust top position based on language
+        { "top-0": translate('language') === 'Language', "top-[36px]": translate('language') === 'Idioma' }
       )}
     >
       <div className="container-custom flex items-center justify-between relative z-10">
