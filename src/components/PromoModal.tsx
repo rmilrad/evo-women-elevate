@@ -72,7 +72,16 @@ const PromoModal: React.FC<PromoModalProps> = ({ isOpen, onClose }) => {
             <Link
               to="/conalma"
               className="bg-evo-pink text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink/90 hover:shadow-lg text-base inline-block"
-              onClick={onClose}
+              onClick={(e) => {
+                // Track the click event in Google Analytics
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  (window as any).gtag('event', 'modal_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'ConAlma Promo Modal'
+                  });
+                }
+                onClose();
+              }}
             >
               Descubre más
             </Link>
