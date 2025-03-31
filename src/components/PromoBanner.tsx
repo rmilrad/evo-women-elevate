@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const PromoBanner: React.FC = () => {
   const { language } = useLanguage();
@@ -19,17 +20,15 @@ const PromoBanner: React.FC = () => {
     <div className="bg-gradient-to-r from-[#f78075] to-[#f9a097] text-white py-2 px-4 text-center fixed top-0 left-0 right-0 z-[60]">
       <div className="container-custom flex items-center justify-center">
         <p className="text-sm font-medium mr-2">
-          Discover Con Alma - Our New Wellness Program
+          Descubre Con Alma - Nuestro Nuevo Programa de Contenido
         </p>
-        <a
-          href="https://evocreative.me/conalma"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to="/conalma"
           className="inline-flex items-center bg-white/20 hover:bg-white/30 text-white px-3 py-0.5 rounded-full text-xs font-medium transition-all duration-300 group"
         >
-          Learn more
+          Saber más
           <ArrowRight className="w-3 h-3 ml-1 transform group-hover:translate-x-0.5 transition-transform" />
-        </a>
+        </Link>
         
         {/* Close button */}
         <button
