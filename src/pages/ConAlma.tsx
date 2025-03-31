@@ -17,7 +17,7 @@ const ConAlma = () => {
     // Track page view in Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('config', 'G-88WGN9T5MS', {
-        page_path: '/conalma',
+        page_path: '/#/conalma',
         page_title: 'Contenido con Alma'
       });
     }
