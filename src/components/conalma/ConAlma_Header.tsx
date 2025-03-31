@@ -40,10 +40,7 @@ const ConAlma_Header = () => {
           <img
             src={logo}
             alt="evo"
-            className={cn(
-              "h-8 md:h-10 transition-all duration-500",
-              !scrolled && "invert brightness-0 filter"
-            )}
+            className="h-8 md:h-10 transition-all duration-500"
           />
         </a>
         

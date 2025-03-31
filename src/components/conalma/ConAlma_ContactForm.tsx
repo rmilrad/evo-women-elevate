@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import nazaImage from '/imgs/assets/naza_standing.png';
 
 const ConAlma_ContactForm = () => {
   useEffect(() => {
@@ -33,7 +34,7 @@ const ConAlma_ContactForm = () => {
     <section id="signup-form" className="section-padding bg-white relative">
       <div className="absolute left-0 top-0 w-full md:w-1/3 h-full opacity-5 -z-10">
         <img
-          src="/imgs/assets/naza_sitting.png"
+          src={nazaImage}
           alt=""
           className="w-full h-full object-contain object-center"
         />

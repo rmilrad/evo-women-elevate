@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, AvatarImage } from '../ui/avatar';
-import nazaImage from '/imgs/assets/naza_sitting.png';
+import nazaImage from '/imgs/assets/naza_standing.png';
 
 const ConAlma_About = () => {
   return (
@@ -12,7 +12,7 @@ const ConAlma_About = () => {
           </h2>
           
           <div className="flex flex-col md:flex-row items-center gap-10 mb-12">
-            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
+            <div className="relative w-48 h-60 md:w-56 md:h-72 rounded-xl overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
               <img
                 src={nazaImage}
                 alt="Naza"
