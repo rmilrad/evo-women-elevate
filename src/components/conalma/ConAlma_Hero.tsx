@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../ui/button';
 import { ArrowDown } from 'lucide-react';
+import logoImage from '/imgs/assets/logo.png';
 
 const ConAlma_Hero = () => {
   const scrollToNextSection = () => {
@@ -25,7 +26,7 @@ const ConAlma_Hero = () => {
       {/* Add logo to the hero background with increased size and lighter opacity */}
       <div className="absolute left-0 top-0 w-full h-full flex items-center justify-center opacity-5 -z-10">
         <img
-          src="/imgs/assets/logo.png"
+          src={logoImage}
           alt=""
           className="w-full max-w-[160%] md:max-w-[160%]"
         />

@@ -1,4 +1,5 @@
 import React from 'react';
+import nazaImage from '/imgs/assets/naza_sitting.png';
 
 const ConAlma_Solution = () => {
   return (
@@ -25,7 +26,7 @@ const ConAlma_Solution = () => {
             <div className="md:w-1/2 flex justify-center">
               <div className="w-48 h-60 md:w-56 md:h-72 rounded-xl overflow-hidden shadow-lg transform rotate-3 border-4 border-white">
                 <img
-                  src="/imgs/assets/naza_sitting.png"
+                  src={nazaImage}
                   alt="Creando con alma"
                   className="w-full h-full object-cover"
                 />

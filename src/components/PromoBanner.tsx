@@ -20,7 +20,7 @@ const PromoBanner: React.FC = () => {
     <div className="bg-gradient-to-r from-[#f78075] to-[#f9a097] text-white py-2 px-4 text-center fixed top-0 left-0 right-0 z-[60]">
       <div className="container-custom flex items-center justify-center">
         <p className="text-sm font-medium mr-2">
-          Descubre Con Alma - Nuestro Nuevo Programa de Contenido
+          ¿Quieres aprender tu propia estrategia de contenido? Descubre Contenido con Alma 💐
         </p>
         <Link
           to="/conalma"
