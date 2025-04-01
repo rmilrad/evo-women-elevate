@@ -39,6 +39,7 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
           className
         )}
         aria-label={translate('language')}
+        data-umami-event="Language Switcher"
       >
         <Globe size={16} />
         <span>{language === 'en' ? 'EN' : 'ES'}</span>

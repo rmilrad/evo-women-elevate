@@ -25,6 +25,7 @@ const PromoBanner: React.FC = () => {
         <Link
           to="/conalma"
           className="inline-flex items-center bg-white/20 hover:bg-white/30 text-white px-3 py-0.5 rounded-full text-xs font-medium transition-all duration-300 group"
+          data-umami-event="Promo Banner Saber Mas"
         >
           Saber más
           <ArrowRight className="w-3 h-3 ml-1 transform group-hover:translate-x-0.5 transition-transform" />

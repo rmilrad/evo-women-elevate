@@ -87,14 +87,15 @@ const Navbar = () => {
             )}
           />
           
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className={cn(
               "text-sm transition-all duration-300",
-              scrolled 
-                ? "bg-evo-pink text-white px-5 py-2 rounded-full hover:bg-evo-pink-dark" 
+              scrolled
+                ? "bg-evo-pink text-white px-5 py-2 rounded-full hover:bg-evo-pink-dark"
                 : "bg-white text-evo-pink px-5 py-2 rounded-full hover:bg-white/90"
             )}
+            data-umami-event="Nav Get Started"
           >
             {translate('getStarted')}
           </a>
@@ -165,10 +166,11 @@ const Navbar = () => {
             {translate('portfolio')}
           </a>
           
-          <a 
-            href="#contact" 
-            className="bg-evo-pink text-white px-6 py-3 rounded-full w-full text-center font-medium hover:bg-evo-pink-dark transition-colors mt-4" 
+          <a
+            href="#contact"
+            className="bg-evo-pink text-white px-6 py-3 rounded-full w-full text-center font-medium hover:bg-evo-pink-dark transition-colors mt-4"
             onClick={toggleMenu}
+            data-umami-event="Mobile Nav Get Started"
           >
             {translate('getStarted')}
           </a>

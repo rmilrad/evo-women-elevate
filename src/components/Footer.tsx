@@ -34,21 +34,23 @@ const Footer = () => {
           <p className="text-evo-text/70 mb-4 md:mb-0">{allRightsReserved}</p>
           
           <div className="flex space-x-4">
-            <a 
-              href="https://www.instagram.com/evocreative__/" 
+            <a
+              href="https://www.instagram.com/evocreative__/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-evo-neutral-light p-2 rounded-full hover:bg-evo-pink hover:bg-opacity-10 transition-colors"
               aria-label="Instagram"
+              data-umami-event="Instagram Link"
             >
               <Instagram size={20} className="text-evo-text" />
             </a>
-            <a 
-              href="https://www.linkedin.com/in/nazareth-leon/" 
+            <a
+              href="https://www.linkedin.com/in/nazareth-leon/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-evo-neutral-light p-2 rounded-full hover:bg-evo-pink hover:bg-opacity-10 transition-colors"
               aria-label="LinkedIn"
+              data-umami-event="LinkedIn Link"
             >
               <Linkedin size={20} className="text-evo-text" />
             </a>

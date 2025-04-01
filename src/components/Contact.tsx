@@ -34,6 +34,14 @@ const Contact = () => {
   const handleFormSubmit = () => {
     setIsSubmitted(true);
     
+    // Track form submission in Umami Analytics
+    if (typeof window !== 'undefined' && (window as any).umami) {
+      (window as any).umami.track('form_submission', {
+        form: 'main_contact_form',
+        page: 'landing_page'
+      });
+    }
+    
     toast({
       title: "Message sent successfully!",
       description: "Thank you for reaching out. I'll get back to you soon.",
@@ -85,6 +93,7 @@ const Contact = () => {
     iframe.style.overflow = 'hidden';
     iframe.scrolling = 'no';
     iframe.id = 'dubsado-form';
+    iframe.setAttribute('data-umami-event', 'Main Form View');
     
     // Create initialization script
     const initScript = document.createElement('script');

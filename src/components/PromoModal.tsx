@@ -35,6 +35,7 @@ const PromoModal: React.FC<PromoModalProps> = ({ isOpen, onClose }) => {
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
           aria-label="Cerrar"
+          data-umami-event="Modal Exit Button"
         >
           <X size={24} />
         </button>
@@ -72,6 +73,7 @@ const PromoModal: React.FC<PromoModalProps> = ({ isOpen, onClose }) => {
             <Link
               to="/conalma"
               className="bg-evo-pink text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-evo-pink/90 hover:shadow-lg text-base inline-block"
+              data-umami-event="Modal Descubre Mas"
               onClick={(e) => {
                 // Track the click event in Google Analytics
                 if (typeof window !== 'undefined' && (window as any).gtag) {

@@ -12,13 +12,22 @@ import ConAlma_ContactForm from '../components/conalma/ConAlma_ContactForm';
 import ConAlma_Footer from '../components/conalma/ConAlma_Footer';
 
 const ConAlma = () => {
-  // Track page view in Google Analytics when component mounts
+  // Track page view in analytics when component mounts
   useEffect(() => {
     // Track page view in Google Analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('config', 'G-88WGN9T5MS', {
         page_path: '/#/conalma',
         page_title: 'Contenido con Alma'
+      });
+    }
+    
+    // Track page view in Umami Analytics
+    if (typeof window !== 'undefined' && (window as any).umami) {
+      (window as any).umami.track('pageview', {
+        url: '/#/conalma',
+        title: 'Contenido con Alma',
+        referrer: document.referrer
       });
     }
   }, []);

@@ -33,6 +33,26 @@ const Index = () => {
   useScrollToHashOnLoad();
   const [scrollY, setScrollY] = useState(0);
   
+  // Track page view in analytics when component mounts
+  useEffect(() => {
+    // Track page view in Google Analytics
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('config', 'G-88WGN9T5MS', {
+        page_path: '/',
+        page_title: 'Evo Creative'
+      });
+    }
+    
+    // Track page view in Umami Analytics
+    if (typeof window !== 'undefined' && (window as any).umami) {
+      (window as any).umami.track('pageview', {
+        url: '/',
+        title: 'Evo Creative',
+        referrer: document.referrer
+      });
+    }
+  }, []);
+  
   // Track scroll position for parallax effects
   useEffect(() => {
     const handleScroll = () => {

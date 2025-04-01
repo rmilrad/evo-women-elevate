@@ -34,6 +34,7 @@ const ConAlma_Footer = () => {
               rel="noopener noreferrer"
               className="bg-evo-neutral-light p-2 rounded-full hover:bg-evo-pink hover:bg-opacity-10 transition-colors"
               aria-label="Instagram"
+              data-umami-event="ConAlma Instagram Link"
             >
               <Instagram size={20} className="text-evo-text" />
             </a>
@@ -43,6 +44,7 @@ const ConAlma_Footer = () => {
               rel="noopener noreferrer"
               className="bg-evo-neutral-light p-2 rounded-full hover:bg-evo-pink hover:bg-opacity-10 transition-colors"
               aria-label="LinkedIn"
+              data-umami-event="ConAlma LinkedIn Link"
             >
               <Linkedin size={20} className="text-evo-text" />
             </a>
