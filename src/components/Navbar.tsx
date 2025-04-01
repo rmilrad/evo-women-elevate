@@ -13,6 +13,14 @@ const Navbar = () => {
   
   const toggleMenu = () => setIsOpen(!isOpen);
   
+  // Function to handle smooth scrolling to sections
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -38,8 +46,8 @@ const Navbar = () => {
       )}
     >
       <div className="container-custom flex items-center justify-between relative z-10">
-        <a href="#" className="flex items-center">
-          <img 
+        <button className="flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <img
             src={logo}
             alt="evo"
             className={cn(
@@ -47,37 +55,37 @@ const Navbar = () => {
               !scrolled && "invert brightness-0 filter"
             )}
           />
-        </a>
+        </button>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a 
-            href="#about" 
+          <button
             className={cn(
               "transition-colors text-sm tracking-wide",
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
+            onClick={() => scrollToSection('about')}
           >
             {translate('about')}
-          </a>
-          <a 
-            href="#testimonials" 
+          </button>
+          <button
             className={cn(
               "transition-colors text-sm tracking-wide",
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
+            onClick={() => scrollToSection('testimonials')}
           >
             {translate('testimonials')}
-          </a>
-          <a 
-            href="#portfolio" 
+          </button>
+          <button
             className={cn(
               "transition-colors text-sm tracking-wide",
               scrolled ? "text-foreground hover:text-evo-pink-dark" : "text-white hover:text-white/80"
             )}
+            onClick={() => scrollToSection('portfolio')}
           >
             {translate('portfolio')}
-          </a>
+          </button>
           
           {/* Language Switcher */}
           <LanguageSwitcher 
@@ -87,8 +95,7 @@ const Navbar = () => {
             )}
           />
           
-          <a
-            href="#contact"
+          <button
             className={cn(
               "text-sm transition-all duration-300",
               scrolled
@@ -96,9 +103,10 @@ const Navbar = () => {
                 : "bg-white text-evo-pink px-5 py-2 rounded-full hover:bg-white/90"
             )}
             data-umami-event="Nav Get Started"
+            onClick={() => scrollToSection('contact')}
           >
             {translate('getStarted')}
-          </a>
+          </button>
         </nav>
         
         {/* Mobile Top Bar: Language Switcher + Menu Button */}
@@ -144,36 +152,44 @@ const Navbar = () => {
         </button>
         
         <nav className="flex flex-col space-y-6 items-center relative z-10">
-          <a 
-            href="#about" 
-            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
-            onClick={toggleMenu}
+          <button
+            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors"
+            onClick={() => {
+              toggleMenu();
+              scrollToSection('about');
+            }}
           >
             {translate('about')}
-          </a>
-          <a 
-            href="#testimonials" 
-            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
-            onClick={toggleMenu}
+          </button>
+          <button
+            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors"
+            onClick={() => {
+              toggleMenu();
+              scrollToSection('testimonials');
+            }}
           >
             {translate('testimonials')}
-          </a>
-          <a 
-            href="#portfolio" 
-            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors" 
-            onClick={toggleMenu}
+          </button>
+          <button
+            className="text-lg text-foreground hover:text-evo-pink-dark transition-colors"
+            onClick={() => {
+              toggleMenu();
+              scrollToSection('portfolio');
+            }}
           >
             {translate('portfolio')}
-          </a>
+          </button>
           
-          <a
-            href="#contact"
+          <button
             className="bg-evo-pink text-white px-6 py-3 rounded-full w-full text-center font-medium hover:bg-evo-pink-dark transition-colors mt-4"
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              scrollToSection('contact');
+            }}
             data-umami-event="Mobile Nav Get Started"
           >
             {translate('getStarted')}
-          </a>
+          </button>
         </nav>
       </div>
     </header>

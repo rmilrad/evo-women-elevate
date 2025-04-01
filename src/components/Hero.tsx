@@ -15,6 +15,14 @@ const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { translate } = useLanguage();
   
+  // Function to handle smooth scrolling to sections
+  const scrollToSection = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+  
   // Memoize the scroll handler to prevent unnecessary re-renders
   const handleScroll = useCallback(() => {
     setScrollY(window.scrollY);
@@ -115,9 +123,13 @@ const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center w-full sm:w-auto mb-10"
             style={{ transform: parallaxStyles.buttons }}
           >
-            <a href="#contact" className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto" data-umami-event="Hero Schedule Call">
+            <button
+              className="bg-white text-[#f78075] px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-white/90 hover:shadow-lg text-sm sm:text-base w-full sm:w-auto"
+              data-umami-event="Hero Schedule Call"
+              onClick={() => scrollToSection('contact')}
+            >
               {translate('scheduleACall')}
-            </a>
+            </button>
             <button
               onClick={scrollToPortfolio}
               className="flex items-center justify-center sm:justify-start gap-1 text-white hover:text-white/80 transition-colors px-2 font-medium text-sm sm:text-base w-full sm:w-auto group"
