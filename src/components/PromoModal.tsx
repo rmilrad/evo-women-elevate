@@ -48,7 +48,7 @@ const PromoModal: React.FC<PromoModalProps> = ({ isOpen, onClose }) => {
             </h3>
             <div className="flex items-center justify-center gap-3 my-6">
               <span className="text-evo-text/60 line-through text-xl">$200</span>
-              <span className="text-evo-pink text-5xl font-bold">$60</span>
+              <span className="text-evo-pink text-5xl font-bold">$120</span>
             </div>
             
             <p className="text-evo-text/80 mb-6 max-w-sm mx-auto">

@@ -23,7 +23,7 @@ const ConAlma_Pricing = () => {
           <div className="bg-white p-10 md:p-12 rounded-2xl shadow-lg max-w-md mx-auto mb-10 transform transition-all hover:scale-105 duration-300 border-2 border-evo-pink/20">
             <div className="flex items-center justify-center gap-4 mb-8">
               <span className="text-evo-text/60 line-through text-2xl">$200</span>
-              <span className="text-evo-pink text-5xl font-bold">$60</span>
+              <span className="text-evo-pink text-5xl font-bold">$120</span>
             </div>
             
             <ul className="space-y-4 mb-8 text-left">
