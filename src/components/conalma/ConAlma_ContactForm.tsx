@@ -32,35 +32,23 @@ const ConAlma_ContactForm = () => {
     }, 5000);
   };
   useEffect(() => {
-    // Load iframe resizer script
+    // Create and append the iframe resizer script
     const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js';
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.14/iframeResizer.min.js';
     script.async = true;
     document.body.appendChild(script);
 
+    // Initialize the iframe resizer after script is loaded
     script.onload = () => {
-      // Use setTimeout to ensure the function is available after script is loaded
       setTimeout(() => {
-        // Use window object with type assertion to avoid TypeScript error
         const w = window as any;
         if (w.iFrameResize) {
           w.iFrameResize({
             checkOrigin: false,
-            heightCalculationMethod: "taggedElement",
-            onMessage: function(messageData: any) {
-              // Check if the message indicates form submission
-              if (messageData.message &&
-                  (messageData.message.type === 'form-submit' ||
-                   messageData.message.includes && messageData.message.includes('form-submit') ||
-                   messageData.message.includes && messageData.message.includes('success') ||
-                   messageData.message.includes && messageData.message.includes('submitted'))) {
-                // Call the form submission handler
-                handleFormSubmit();
-              }
-            }
-          }, 'iframe');
+            heightCalculationMethod: "taggedElement"
+          });
         }
-      }, 100);
+      }, 30);
     };
 
     // Listen for messages from the iframe
@@ -119,11 +107,10 @@ const ConAlma_ContactForm = () => {
             ) : null}
             
             <iframe
-              src="https://hello.dubsado.com/public/form/view/67ca4246267bef003ac70268"
+              src="https://hello.dubsado.com/public/form/view/67fc46f363d1d5003a53f5b2"
               frameBorder="0"
-              style={{ width: '1px', minWidth: '100%', height: '500px' }}
+              style={{ width: '1px', minWidth: '100%' }}
               title="Formulario de inscripción"
-              scrolling="no"
               data-umami-event="ConAlma Form View"
             />
           </div>
